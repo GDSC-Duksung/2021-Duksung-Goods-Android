@@ -2,7 +2,7 @@ package com.example.duksunggoodsplatform_2021_android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-// 첫 화면
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
