@@ -189,8 +189,31 @@
                     android:textColor="@color/white"
                     android:layout_marginLeft="10dp"/>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/detailTabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tabDetail"
+                        android:text="상세페이지"/>
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tabCommunity"
+                        android:text="커뮤니티"/>
+                </com.google.android.material.tabs.TabLayout>
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/detailViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
         </LinearLayout>
-
     </ScrollView>
 
 </LinearLayout>
