@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".DepositorActivity"></activity>
+        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".DepositorActivity" />
         <activity android:name=".GoodsDetailActivity" /> <!-- 액션바 제거 -->
         <activity android:name=".MainActivity">
             <intent-filter>
