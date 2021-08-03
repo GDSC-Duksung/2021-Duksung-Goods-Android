@@ -11,6 +11,9 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".DepositorActivity" />
+        <activity android:name=".FindPasswordActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".WithdrawalActivity" />
         <activity android:name=".GoodsDetailActivity" /> <!-- 액션바 제거 -->
         <activity android:name=".MainActivity">
             <intent-filter>
