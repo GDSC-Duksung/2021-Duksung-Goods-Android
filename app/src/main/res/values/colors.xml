@@ -9,6 +9,7 @@
     <color name="gray">#BFBFBF</color> <!--임의지정 by sewon-->
     <color name="light_gray">#D9D9D9</color> <!--임의지정 by sewon-->
 
+    <color name="light_blue">#007AFF</color>
 <!--    System -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
