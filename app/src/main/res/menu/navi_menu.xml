@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<!--    id값 어디쓰더라-->
     <item
         android:id="@+id/categoryFragment"
         android:title="카테고리"

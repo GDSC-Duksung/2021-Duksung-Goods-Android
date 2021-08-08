@@ -7,13 +7,13 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.duksunggoodsplatform_2021_android.category.CategoryFragment
 import com.example.duksunggoodsplatform_2021_android.databinding.ActivityMainBinding
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.duksunggoodsplatform_2021_android.home.HomeFragment
 
-//네비게이션 NaviActivity로 사용
+//네비게이션 Activity로 사용
 
 private const val TAG_CATEGORY = "category_fragment"
 private const val TAG_HOME = "home_fragment"
-private const val TAG_MY_PAGE = "my_page_fragment" //마이페이지 파일 올라오면 이름보고 따라가는 걸로
+private const val TAG_MY_PAGE = "my_page_fragment"
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
