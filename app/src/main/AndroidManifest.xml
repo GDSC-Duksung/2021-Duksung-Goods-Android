@@ -14,6 +14,7 @@
         <activity android:name=".FindPasswordActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".WithdrawalActivity" />
+        <activity android:name=".UserInformationActivity"/>
         <activity android:name=".GoodsDetailActivity" /> <!-- 액션바 제거 -->
         <activity android:name=".MainActivity">
             <intent-filter>
