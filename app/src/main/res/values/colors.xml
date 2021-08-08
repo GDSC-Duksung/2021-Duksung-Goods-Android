@@ -4,10 +4,16 @@
 <!--    DuksungGoodsPlatform Color -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="burgundy">#FFB70050</color> <!--덕성 공식 버건디색으로 일단 넣음-->
+    <color name="light_burgundy">#d197aa</color> <!-- 임의지정 by hwajin-->
+    <color name="burgundy">#FF981B45</color> <!--Figma에 쓰인 버건디색 색상코드-->
+    <color name="dark_burgundy">#FF3C0A1B</color> <!--임의지정 by jeehea-->
+<!--    <color name="burgundy">#FFB70050</color> &lt;!&ndash;덕성 공식 버건디색&ndash;&gt;-->
+
     <color name="dark_gray">#707070</color> <!--임의지정 by jeehea-->
     <color name="gray">#BFBFBF</color> <!--임의지정 by sewon-->
     <color name="light_gray">#D9D9D9</color> <!--임의지정 by sewon-->
+    <color name="middle_gray">#C4C4C4</color> <!-- 임의지정 by hwajin-->
+    <color name="tab_background">#E5E5E5</color> <!-- 임의지정 by hwajin-->
 
     <color name="light_blue">#007AFF</color>
 <!--    System -->
