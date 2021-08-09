@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/popup_dialog_border"
+    android:layout_margin="20dp"
+    android:padding="30dp">
+    <ImageView
+        android:id="@+id/dialogClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/outline_close_24"
+        android:layout_gravity="right"/>
+    <TextView
+        android:id="@+id/dialogText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textAlignment="center"
+        android:text="텍스트"
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
+    <Button
+        android:id="@+id/dialogBtn"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/popup_dialog_btn_shape"
+        android:text="확인"
+        android:textColor="@color/white"/>
+</LinearLayout>
