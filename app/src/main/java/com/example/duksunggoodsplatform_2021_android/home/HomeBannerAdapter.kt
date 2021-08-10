@@ -1,6 +1,7 @@
 package com.example.duksunggoodsplatform_2021_android.home
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.duksunggoodsplatform_2021_android.GoodsDetailActivity
 import com.example.duksunggoodsplatform_2021_android.R
 
 class HomeBannerAdapter(private val imageList: ArrayList<ModelImageOnly>, private val mContext: Context): RecyclerView.Adapter<HomeBannerAdapter.CustomViewHolder>() {
@@ -21,6 +23,9 @@ class HomeBannerAdapter(private val imageList: ArrayList<ModelImageOnly>, privat
                 //val img: ModelImageOnly = imageList[curPosition]
                 // TODO : 클릭 시 해당 상품 페이지로 이동하기
                 Toast.makeText(mContext, "${curPosition%5}번째 배너 클릭됨", Toast.LENGTH_SHORT).show()
+                val intent = Intent(mContext, GoodsDetailActivity::class.java)
+                intent.putExtra("goodsId", "어떤 상품인지 구분할 정보")
+                mContext.startActivity(intent)
             }
         }
     }
