@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.duksunggoodsplatform_2021_android.databinding.FragmentHomeBinding
+//푸시 왜 안돼
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
