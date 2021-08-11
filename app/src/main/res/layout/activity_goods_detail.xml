@@ -31,7 +31,13 @@
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/detailTabLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    app:tabIndicator="@drawable/tab_indicator2"
+                    app:tabIndicatorColor="@color/burgundy"
+                    app:tabIndicatorFullWidth="false"
+                    app:tabSelectedTextColor="@color/black"
+                    app:tabBackground="@null"
+                    app:tabTextColor="@color/black">
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
