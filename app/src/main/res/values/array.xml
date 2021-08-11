@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category_array">
+        <item>의류</item>
+        <item>필기류</item>
+        <item>컵</item>
+        <item>기타</item>
+    </string-array>
+</resources>

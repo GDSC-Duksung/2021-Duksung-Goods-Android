@@ -69,12 +69,25 @@
                     android:textColor="@color/black"
                     android:textSize="18sp"/>
 
-                <Spinner
-                    android:id="@+id/spinner_actual_posting_category"
-                    android:layout_width="227dp"
-                    android:layout_height="26dp"
-                    android:layout_marginStart="15dp"
-                    android:background="@drawable/border_black"/>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp">
+
+                    <TextView
+                        android:layout_width="228dp"
+                        android:layout_height="29dp"
+                        android:layout_marginStart="15dp"
+                        android:background="@drawable/border_black"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_actual_posting_category"
+                        android:layout_width="227dp"
+                        android:layout_height="26dp"
+                        android:paddingStart="3dp"
+                        android:layout_marginStart="15dp" />
+
+                </FrameLayout>
+
             </LinearLayout>
 
             <TextView
