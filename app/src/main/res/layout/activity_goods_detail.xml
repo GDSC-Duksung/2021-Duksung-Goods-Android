@@ -35,6 +35,11 @@
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/tabEx"
+                        android:text="상품 설명"/>
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:id="@+id/tabDetail"
                         android:text="상세페이지"/>
                     <com.google.android.material.tabs.TabItem
