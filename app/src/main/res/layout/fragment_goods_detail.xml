@@ -7,11 +7,143 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/detailRecyclerView"
+        android:layout_height="1000dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="300dp"
+            android:src="@drawable/ic_launcher_background"
+            android:scaleType="centerCrop"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="기타"
+                android:background="@color/gray"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:layout_marginLeft="20dp"/>
+            <!--추후 이미지 소스 생기면 추가-->
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/star_nonclicked"
+                android:textSize="20dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="20dp"
+                android:gravity="center"/>
+        </FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="덕성여대 버건디 수건(제목)"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:text="12,000원(가격)"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp">
+            <!-- 왼쪽이 -, 오른쪽이 + 인게 더 나은 것 같아서 위치 바꿈-->
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:text="-"
+                android:background="@color/gray"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_height="20dp"
+                android:text="1(수량)"/>
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:text="+"
+                android:background="@color/gray"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="모인 개수\n14개"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="남은 시간\n30일"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_gravity="center" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:background="@color/light_gray">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="펀딩 진행중"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="목표개수는 30개가 모여야만 결제됩니다."
+                android:textColor="@color/black" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="결제는 2021년 9월 1일에 다함께 진행됩니다."
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:text="물건에 대한 상세 내용을 기재"
+            android:textColor="@color/black"/>
+    </LinearLayout>
     </ScrollView>
 
 </FrameLayout>
