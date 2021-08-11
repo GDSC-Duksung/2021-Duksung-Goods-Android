@@ -11,7 +11,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_goods_detail.*
 
 class GoodsDetailActivity : AppCompatActivity() {
-    val tabTextList = arrayListOf("상세페이지", "커뮤니티")
+    val tabTextList = arrayListOf("상품 설명", "상세페이지", "커뮤니티")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,12 +35,13 @@ class GoodsDetailActivity : AppCompatActivity() {
 
     private inner class ScreenSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa){
         override fun getItemCount(): Int {
-            return 2
+            return 3
         }
 
         override fun createFragment(position: Int): Fragment {
             return when(position) {
-                0 -> GoodsDetailFragment()
+                0 -> GoodsExFragment()
+                1 -> GoodsDetailFragment()
                 else -> GoodsCommunityFragment()
             }
         }
