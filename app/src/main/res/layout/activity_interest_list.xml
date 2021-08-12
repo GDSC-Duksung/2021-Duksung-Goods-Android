@@ -9,7 +9,6 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="60dp">
-        <!--추후 이미지소스 생기면 이미지뷰로 대체, 전체적으로 id는 추후 추가-->
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -42,17 +41,17 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tabEx"
+                android:id="@+id/tabAll"
                 android:text="전체상품"/>
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tabDetail"
+                android:id="@+id/tabTmp"
                 android:text="가수요조사"/>
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tabCommunity"
+                android:id="@+id/tabReal"
                 android:text="실수요조사"/>
         </com.google.android.material.tabs.TabLayout>
         <androidx.viewpager2.widget.ViewPager2
