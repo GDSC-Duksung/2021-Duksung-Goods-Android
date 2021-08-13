@@ -2,18 +2,18 @@ package com.example.duksunggoodsplatform_2021_android.home
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.duksunggoodsplatform_2021_android.GoodsDetailActivity
 import com.example.duksunggoodsplatform_2021_android.R
 
-class HomeBannerAdapter(private val imageList: ArrayList<ModelImageOnly>, private val mContext: Context): RecyclerView.Adapter<HomeBannerAdapter.CustomViewHolder>() {
+class HomeBannerAdapter(private val bannerList: ArrayList<ModelHomeBanner>, private val mContext: Context): RecyclerView.Adapter<HomeBannerAdapter.CustomViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeBannerAdapter.CustomViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_home_banner, parent, false)
@@ -33,7 +33,9 @@ class HomeBannerAdapter(private val imageList: ArrayList<ModelImageOnly>, privat
     override fun onBindViewHolder(holder: HomeBannerAdapter.CustomViewHolder, position: Int) {
         // 아이템 수로 굉장히 큰 수를 줬으므로 position으로 어떤 수가 나오든 5로 나눈 나머지 값 순서의의 데이터를 사해 5단위로 데이터가 반복되도록 한다.
         // 다른 곳에서도 position값은 5로 나눈 나머지를 사용하면 된다.
-        Glide.with(mContext).load(imageList[position%5].img).into(holder.img)
+        Glide.with(mContext).load(bannerList[position%5].img).into(holder.img)
+        holder.content.text = bannerList[position%5].content
+        holder.date.text = bannerList[position%5].date
     }
 
     override fun getItemCount(): Int {
@@ -43,6 +45,8 @@ class HomeBannerAdapter(private val imageList: ArrayList<ModelImageOnly>, privat
 
     class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val img: ImageView = itemView.findViewById(R.id.ivHomeBanner)
+        val content: TextView = itemView.findViewById(R.id.tvHomeBannerContent)
+        val date: TextView = itemView.findViewById(R.id.tvHomeBannerDate)
     }
 
 }
