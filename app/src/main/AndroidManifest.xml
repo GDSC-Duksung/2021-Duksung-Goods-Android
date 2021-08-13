@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".WritingActivity"></activity>
+        <activity android:name=".CommentActivity"></activity>
+        <activity android:name=".WritingActivity" />
         <activity android:name=".InterestListActivity" />
         <activity android:name=".AddPromotionActivity" />
         <activity android:name=".SignUpActivity" />
