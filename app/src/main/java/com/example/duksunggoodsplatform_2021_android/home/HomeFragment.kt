@@ -110,7 +110,7 @@ class HomeFragment : Fragment() {
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
             if(msg.what == 0){
-                binding.vpHomeBanner.setCurrentItem(++bannerPosition, true) //다음 페이ㅈ로 이동
+                binding.vpHomeBanner.setCurrentItem(++bannerPosition, true) //다음 페이지로 이동
                 autoScrollStart(intervalTime) //스크롤 킵고잉
             }
         }
