@@ -13,7 +13,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".WritingActivity"></activity>
         <activity android:name=".InterestListActivity" />
-        <activity android:name=".home.AddPromotionActivity" />
+        <activity android:name=".AddPromotionActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".DepositorActivity" />
         <activity android:name=".FindPasswordActivity" />

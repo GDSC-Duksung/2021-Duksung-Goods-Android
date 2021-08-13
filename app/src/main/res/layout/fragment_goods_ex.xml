@@ -12,12 +12,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <ImageView
-                android:id="@+id/ivGoodsExMainImage"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvGoodsExImage"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:src="@drawable/ic_launcher_background"
-                android:scaleType="centerCrop"/>
+                android:layout_height="300dp"/>
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp">
