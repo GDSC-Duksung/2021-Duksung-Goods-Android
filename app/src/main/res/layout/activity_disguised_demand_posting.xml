@@ -154,7 +154,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/btn_actual_posting_img1"
+                        android:id="@+id/btn_disguised_posting_img1"
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:layout_marginStart="22dp"
@@ -165,7 +165,7 @@
                         android:background="@drawable/border_black"/>
 
                     <Button
-                        android:id="@+id/btn_actual_posting_img2"
+                        android:id="@+id/btn_disguised_posting_img2"
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:layout_marginStart="22dp"
@@ -176,7 +176,7 @@
                         android:background="@drawable/border_black"/>
 
                     <Button
-                        android:id="@+id/btn_actual_posting_img3"
+                        android:id="@+id/btn_disguised_posting_img3"
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:layout_marginStart="22dp"
@@ -187,7 +187,7 @@
                         android:background="@drawable/border_black"/>
 
                     <Button
-                        android:id="@+id/btn_actual_posting_img4"
+                        android:id="@+id/btn_disguised_posting_img4"
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:layout_marginStart="22dp"
