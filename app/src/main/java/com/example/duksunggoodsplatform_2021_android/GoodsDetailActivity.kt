@@ -19,6 +19,7 @@ class GoodsDetailActivity : AppCompatActivity() {
 
         detailViewPager.adapter = ScreenSlidePagerAdapter(this)
         detailViewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        detailViewPager.setUserInputEnabled(false)
 
         TabLayoutMediator(detailTabLayout, detailViewPager) { tab, position ->
             tab.text = tabTextList[position]
