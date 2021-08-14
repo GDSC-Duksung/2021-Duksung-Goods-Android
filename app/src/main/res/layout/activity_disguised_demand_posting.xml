@@ -133,10 +133,79 @@
                 android:background="@drawable/border_black" />
 
             <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="15dp"
+                android:text="이미지 첨부 :"
+                android:textColor="@color/black"
+                android:textSize="18sp"/>
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="22dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_actual_posting_img1"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:layout_marginStart="22dp"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/black"
+                        android:text="+"
+                        android:textSize="40sp"
+                        android:background="@drawable/border_black"/>
+
+                    <Button
+                        android:id="@+id/btn_actual_posting_img2"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:layout_marginStart="22dp"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/black"
+                        android:text="+"
+                        android:textSize="40sp"
+                        android:background="@drawable/border_black"/>
+
+                    <Button
+                        android:id="@+id/btn_actual_posting_img3"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:layout_marginStart="22dp"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/black"
+                        android:text="+"
+                        android:textSize="40sp"
+                        android:background="@drawable/border_black"/>
+
+                    <Button
+                        android:id="@+id/btn_actual_posting_img4"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:layout_marginStart="22dp"
+                        android:layout_marginTop="15dp"
+                        android:textColor="@color/black"
+                        android:text="+"
+                        android:textSize="40sp"
+                        android:background="@drawable/border_black"/>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="7dp"
                 android:layout_marginStart="22dp"
                 android:text="목표 수량 :"
                 android:textColor="@color/black"
@@ -173,7 +242,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
-                android:hint="2021.01.01 ~ 2021.01.20"
+                android:hint="yyyy.mm.dd ~ yyyy.mm.dd"
                 android:paddingStart="15dp"
                 android:textSize="14sp"
                 android:ems="10"
