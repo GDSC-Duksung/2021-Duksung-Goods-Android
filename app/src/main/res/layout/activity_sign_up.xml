@@ -74,6 +74,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etSignUpName" />
 
+        <TextView
+            android:id="@+id/tvSignUpEmailNotice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="* 덕성 이메일로만 가입이 가능합니다."
+            android:textColor="@color/burgundy"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@+id/etSignUpEmail"
+            app:layout_constraintStart_toStartOf="@+id/etSignUpEmail" />
+
         <EditText
             android:id="@+id/etSignUpEmail"
             android:layout_width="272dp"
