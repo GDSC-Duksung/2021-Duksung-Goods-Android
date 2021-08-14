@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GoodsExFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="1000dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvGoodsExImage"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <TextView
+                    android:id="@+id/tvGoodsExCategory"
+                    android:layout_width="50dp"
+                    android:layout_height="20dp"
+                    android:text="기타"
+                    android:background="@color/gray"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"/>
+                <!--추후 이미지 소스 생기면 추가-->
+                <ImageView
+                    android:id="@+id/ivGoodsExFavorite"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/star_nonclicked"
+                    android:textSize="20dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"/>
+            </FrameLayout>
+            <TextView
+                android:id="@+id/tvGoodsExTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="덕성여대 버건디 수건(제목)"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tvGoodsExPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:text="12,000원(가격)"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp">
+                <TextView
+                    android:id="@+id/tvGoodsExTotalCount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="모인 개수\n14개"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"/>
+                <TextView
+                    android:id="@+id/tvGoodxExTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="남은 시간\n30일"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:background="@color/light_gray">
+                <TextView
+                    android:id="@+id/tvGoodsExInfoStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="펀딩 진행중"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:id="@+id/tvGoodsExInfoEndCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="목표개수는 30개가 모여야만 결제됩니다."
+                    android:textColor="@color/black" />
+                <TextView
+                    android:id="@+id/tvGoodsExInfoPayment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="결제는 2021년 9월 1일에 다함께 진행됩니다."
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:id="@+id/tvGoodsExFavoriteList"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:text="관심목록"
+                    android:textColor="@color/white"
+                    android:background="@color/dark_gray"
+                    android:gravity="center"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="60dp"
+                    />
+                <TextView
+                    android:id="@+id/tvGoodsExForm"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:text="가수요조사 폼"
+                    android:textColor="@color/white"
+                    android:background="@color/burgundy"
+                    android:gravity="center"
+                    android:layout_gravity="right"
+                    android:textSize="15sp"
+                    android:layout_marginRight="60dp"
+                    />
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

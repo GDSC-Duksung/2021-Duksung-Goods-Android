@@ -8,21 +8,20 @@
     tools:context=".GoodsDetailActivity">
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="60dp">
         <!--추후 이미지소스 생기면 이미지뷰로 대체, 전체적으로 id는 추후 추가-->
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_back"
-            android:textSize="40dp"/>
+            android:src="@drawable/ic_back" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
             android:src="@drawable/message"
-            android:layout_gravity="right|center_vertical"
-            android:textSize="30dp"/>
+            android:layout_gravity="right|center_vertical" />
     </FrameLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -31,7 +30,18 @@
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/detailTabLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    app:tabIndicator="@drawable/tab_indicator2"
+                    app:tabIndicatorColor="@color/burgundy"
+                    app:tabIndicatorFullWidth="false"
+                    app:tabSelectedTextColor="@color/black"
+                    app:tabBackground="@null"
+                    app:tabTextColor="@color/black">
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tabEx"
+                        android:text="상품 설명"/>
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
