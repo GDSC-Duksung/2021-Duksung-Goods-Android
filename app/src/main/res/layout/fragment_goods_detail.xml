@@ -6,36 +6,44 @@
     android:orientation="vertical"
     android:padding="40dp"
     tools:context=".GoodsDetailFragment">
-
-    <ImageView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:src="@drawable/goods_detail"/>
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/goods_detail"/>
 
-    <TextView
-        android:id="@+id/goods_detail_name"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/shape_promote_example_border"
-        android:text="덕성여대 버건디 수건수건"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:paddingLeft="20dp"
-        android:paddingTop="5dp"/>
+            <TextView
+                android:id="@+id/goods_detail_name"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_promote_example_border"
+                android:text="덕성여대 버건디 수건수건"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:paddingLeft="20dp"
+                android:paddingTop="5dp"/>
 
-    <TextView
-        android:id="@+id/goods_detail_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:lines="7"
-        android:maxLines="30"
-        android:text="수건 재질과 수량을 선택해 주세요.\n\n#수건 재질\n1. 국내 공장 제작 뱀부얀 200g\n2. 송월타올 뱀부얀혼방사 190g\n3. 코마사 40수 170~200g\n4. 코마사 40수 170g~200g"
-        android:textSize="13dp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:paddingLeft="20dp"
-        android:paddingTop="5dp"/>
+            <TextView
+                android:id="@+id/goods_detail_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:lines="7"
+                android:maxLines="30"
+                android:text="수건 재질과 수량을 선택해 주세요.\n\n#수건 재질\n1. 국내 공장 제작 뱀부얀 200g\n2. 송월타올 뱀부얀혼방사 190g\n3. 코마사 40수 170~200g\n4. 코마사 40수 170g~200g"
+                android:textSize="13dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:paddingLeft="20dp"
+                android:paddingTop="5dp"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
