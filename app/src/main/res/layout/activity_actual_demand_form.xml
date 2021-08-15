@@ -201,6 +201,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
             <LinearLayout
+                android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="18dp"
@@ -219,7 +220,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="이름"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/textView13"
@@ -227,7 +228,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
                         android:text="*"
-                        android:textColor="@color/burgundy"/>
+                        android:textColor="@color/burgundy" />
                 </LinearLayout>
 
                 <EditText
@@ -235,11 +236,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
+                    android:background="@drawable/border_black"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="5dp"
-                    android:paddingStart="10dp"
-                    android:background="@drawable/border_black" />
+                    android:paddingStart="10dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -252,7 +253,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:text="휴대폰 번호"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/textView2"
@@ -261,7 +262,7 @@
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="15dp"
                         android:text="*"
-                        android:textColor="@color/burgundy"/>
+                        android:textColor="@color/burgundy" />
                 </LinearLayout>
 
                 <EditText
@@ -269,11 +270,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
+                    android:background="@drawable/border_black"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="5dp"
-                    android:paddingStart="10dp"
-                    android:background="@drawable/border_black" />
+                    android:paddingStart="10dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -286,7 +287,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:text="이메일"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/textView4"
@@ -295,7 +296,7 @@
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="15dp"
                         android:text="*"
-                        android:textColor="@color/burgundy"/>
+                        android:textColor="@color/burgundy" />
                 </LinearLayout>
 
                 <EditText
@@ -303,11 +304,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
+                    android:background="@drawable/border_black"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="5dp"
-                    android:paddingStart="10dp"
-                    android:background="@drawable/border_black" />
+                    android:paddingStart="10dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -320,7 +321,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:text="주소"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/textView6"
@@ -329,7 +330,7 @@
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="15dp"
                         android:text="*"
-                        android:textColor="@color/burgundy"/>
+                        android:textColor="@color/burgundy" />
                 </LinearLayout>
 
                 <EditText
@@ -337,11 +338,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
+                    android:background="@drawable/border_black"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="5dp"
-                    android:paddingStart="10dp"
-                    android:background="@drawable/border_black" />
+                    android:paddingStart="10dp" />
 
                 <TextView
                     android:id="@+id/textView7"
@@ -349,18 +350,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:text="배송 시 요청사항"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black" />
 
                 <EditText
                     android:id="@+id/et_actual_form_delivery"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
+                    android:background="@drawable/border_black"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="5dp"
-                    android:paddingStart="10dp"
-                    android:background="@drawable/border_black" />
+                    android:paddingStart="10dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -373,7 +374,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:text="환불 받을 계좌번호"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/textView9"
@@ -382,16 +383,16 @@
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="15dp"
                         android:text="*"
-                        android:textColor="@color/burgundy"/>
+                        android:textColor="@color/burgundy" />
 
                     <TextView
                         android:id="@+id/textView10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
                         android:layout_marginStart="4dp"
+                        android:layout_marginTop="15dp"
                         android:text="( - 없이 써주세요. )"
-                        android:textColor="@color/black"/>
+                        android:textColor="@color/black" />
                 </LinearLayout>
 
                 <EditText
@@ -399,42 +400,30 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="5dp"
+                    android:background="@drawable/border_black"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:padding="5dp"
-                    android:paddingStart="10dp"
-                    android:background="@drawable/border_black" />
+                    android:paddingStart="10dp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="30dp"
-                    android:orientation="horizontal">
+                <CheckBox
+                    android:id="@+id/cb_actual_form_refund1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1"
+                    android:text="목표 개수에 도달하지 못하면 일주일 이내에 전액 환불됩니다."
+                    android:textSize="10sp" />
 
-                    <Button
-                        android:id="@+id/btn_register_actual_form"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="25dp"
-                        android:layout_marginEnd="6dp"
-                        android:layout_marginBottom="15dp"
-                        android:layout_weight="1"
-                        android:text="작성하기"
-                        android:textColor="@color/white"
-                        android:textSize="15sp"
-                        android:background="@drawable/btn_posting_burgundy"/>
-
-                    <Button
-                        android:id="@+id/btn_cancel_actual_form"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="6dp"
-                        android:layout_marginEnd="25dp"
-                        android:layout_weight="1"
-                        android:text="취소하기"
-                        android:textSize="15sp"
-                        android:background="@drawable/btn_posting_white"/>
-                </LinearLayout>
+                <CheckBox
+                    android:id="@+id/cb_actual_form_refund2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="50dp"
+                    android:layout_weight="1"
+                    android:text="단순 변심으로 인한 환불은 불가함을 확인했습니다."
+                    android:textSize="10sp" />
 
             </LinearLayout>
 
@@ -442,5 +431,17 @@
 
     </ScrollView>
 
+    <Button
+        android:id="@+id/btn_register_actual_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/burgundy"
+        android:text="폼 제출하기"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
