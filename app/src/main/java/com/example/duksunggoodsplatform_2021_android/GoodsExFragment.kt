@@ -1,5 +1,6 @@
 package com.example.duksunggoodsplatform_2021_android
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,17 +9,18 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
-import androidx.recyclerview.widget.SnapHelper
-import com.bumptech.glide.Glide
 import com.example.duksunggoodsplatform_2021_android.databinding.FragmentGoodsExBinding
 import com.example.duksunggoodsplatform_2021_android.goodsEx.GoodsExImageAdapter
 import com.example.duksunggoodsplatform_2021_android.goodsEx.ModelGoodsExImage
-import kotlinx.android.synthetic.main.fragment_goods_ex.*
 import java.text.DecimalFormat
 
 class GoodsExFragment : Fragment() {
     private var _binding: FragmentGoodsExBinding? = null
     private val binding get() = _binding!!
+
+    // 가수요/실수요 구분 값. actual 이면 가수요, fictitious 면 실수요
+    private val codeTypeActual = "actual"
+    private val codeTypeFictitious = "fictitious"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentGoodsExBinding.inflate(inflater, container, false)
@@ -37,6 +39,7 @@ class GoodsExFragment : Fragment() {
         var fav = false
         val price = 12000
         val category = "기타"
+        val type = codeTypeActual
 
         // TODO : 서버에서 받아온 데이터 세팅
         setFav(fav, false)
@@ -81,8 +84,20 @@ class GoodsExFragment : Fragment() {
             }
         }*/
 
-//        TODO : 아래 버튼 두 개 화면 연결
+        binding.btnGoodsExFavoriteList.setOnClickListener {
+            val favIntent = Intent(activity, InterestListActivity::class.java)
+            startActivity(favIntent)
+        }
 
+        binding.btnGoodsExForm.setOnClickListener {
+            var formIntent = Intent()
+            when(type){
+                // TODO : 가수요조사폼 뷰 생기면 연결
+                //codeTypeFictitious -> formIntent = Intent(activity, FictitiousFormActivity::class.java)
+                codeTypeActual -> formIntent = Intent(activity, ActualFormActivity::class.java)
+            }
+            startActivity(formIntent)
+        }
 
         return view
     }
