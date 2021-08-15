@@ -20,6 +20,7 @@ class SignUpActivity : AppCompatActivity() {
 
         binding.btnSignUp.setOnClickListener {
             val emailPattern = android.util.Patterns.EMAIL_ADDRESS
+            val emailDomain = "duksung.ac.kr"
 
 
             //이름
@@ -36,6 +37,12 @@ class SignUpActivity : AppCompatActivity() {
             else if(!emailPattern.matcher(binding.etSignUpEmail.text).matches()){
                 dialogShow("이메일 형식에 맞지 않습니다.", binding.etSignUpEmail, false)
             }
+
+/*// TODO : 덕성 이메일 체크 조건은 개발 편의상 주석처리 해 둠
+            //이메일이 덕성 이메일인지 체크
+            else if(binding.etSignUpEmail.text.toString().split("@")[1] != emailDomain){
+                dialogShow("도메인이 @duksung.ac.kr인 덕성 이메일만 가입이 가능합니다.", binding.etSignUpEmail, false)
+            }*/
 
             //비밀번호
             else if(binding.etSignUpPassword.text.toString().trim().isEmpty()){
