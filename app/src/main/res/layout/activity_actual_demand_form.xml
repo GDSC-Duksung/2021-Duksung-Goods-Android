@@ -403,6 +403,8 @@
                     android:background="@drawable/border_black"
                     android:ems="10"
                     android:inputType="textPersonName"
+                    android:hint="덕성은행 123412341234"
+                    android:textSize="14sp"
                     android:padding="5dp"
                     android:paddingStart="10dp" />
 
