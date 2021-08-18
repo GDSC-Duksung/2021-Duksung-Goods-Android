@@ -25,7 +25,6 @@
         <activity android:name=".ActualPostingActivity" />
         <activity android:name=".ActualFormActivity" />
         <activity android:name=".DisguisedPostingActivity" />
-        <activity android:name=".ActualFormActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
