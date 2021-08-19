@@ -23,11 +23,9 @@
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/seller_post_item.xml" value="0.23802083333333332" />
         <entry key="..\:/Users/KSS/2021-Duksung-Goods-Android/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1" />
         <entry key="..\:/Users/KSS/2021-Duksung-Goods-Android/app/src/main/res/drawable/ic_baseline_visibility_off_24.xml" value="0.1" />
-<<<<<<< Updated upstream
         <entry key="..\:/Users/KSS/2021-Duksung-Goods-Android/app/src/main/res/layout/activity_find_password.xml" value="0.22" />
         <entry key="..\:/Users/KSS/2021-Duksung-Goods-Android/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/KSS/2021-Duksung-Goods-Android/app/src/main/res/layout/activity_membership_withdrawal.xml" value="0.22" />
-=======
         <entry key="..\:/Users/KSS/2021-Duksung-Goods-Android/app/src/main/res/drawable/shape_burgundy_border.xml" value="0.1" />
         <entry key="..\:/Users/KSS/2021-Duksung-Goods-Android/app/src/main/res/drawable/shape_gray_round.xml" value="0.1" />
         <entry key="..\:/Users/KSS/2021-Duksung-Goods-Android/app/src/main/res/drawable/txt_email_foreground.xml" value="0.10462962962962963" />
@@ -54,7 +52,6 @@
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/fragment_goods_community.xml" value="0.1296875" />
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/fragment_stationary.xml" value="0.16875" />
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/seller_post_item.xml" value="0.23802083333333332" />
->>>>>>> Stashed changes
       </map>
     </option>
   </component>

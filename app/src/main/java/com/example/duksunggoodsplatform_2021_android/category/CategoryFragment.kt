@@ -1,19 +1,22 @@
 package com.example.duksunggoodsplatform_2021_android.category
 
-import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.viewpager2.adapter.FragmentStateAdapter
+import android.widget.Button
+import android.widget.ImageButton
 import androidx.viewpager2.widget.ViewPager2
+import com.example.duksunggoodsplatform_2021_android.InterestListActivity
+import com.example.duksunggoodsplatform_2021_android.LoginActivity
+import com.example.duksunggoodsplatform_2021_android.LookUpUserActivity
 import com.example.duksunggoodsplatform_2021_android.R
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_category.*
-import java.util.ArrayList
 
 
 class CategoryFragment : Fragment() {
@@ -37,6 +40,21 @@ class CategoryFragment : Fragment() {
         val view:View = inflater.inflate(R.layout.fragment_category, container, false)
         viewPager = view.findViewById(R.id.pager)
         tabLayout = view.findViewById(R.id.tab_layout)
+
+
+        // 관심목록 버튼 클릭시
+
+        val starButton = view.findViewById<ImageButton>(R.id.starbutton)
+
+
+        starButton.setOnClickListener{
+            activity?.let{
+                val intent = Intent(context, LookUpUserActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+
         return view
     }
 
