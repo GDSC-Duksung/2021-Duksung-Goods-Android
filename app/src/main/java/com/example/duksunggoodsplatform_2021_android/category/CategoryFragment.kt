@@ -10,10 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.viewpager2.widget.ViewPager2
-import com.example.duksunggoodsplatform_2021_android.InterestListActivity
-import com.example.duksunggoodsplatform_2021_android.LoginActivity
-import com.example.duksunggoodsplatform_2021_android.LookUpUserActivity
-import com.example.duksunggoodsplatform_2021_android.R
+import com.example.duksunggoodsplatform_2021_android.*
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_category.*
@@ -49,7 +46,7 @@ class CategoryFragment : Fragment() {
 
         starButton.setOnClickListener{
             activity?.let{
-                val intent = Intent(context, LookUpUserActivity::class.java)
+                val intent = Intent(context, FictitiousFormActivity::class.java)
                 startActivity(intent)
             }
         }
