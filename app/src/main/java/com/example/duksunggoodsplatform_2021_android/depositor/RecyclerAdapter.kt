@@ -1,0 +1,102 @@
+package com.example.duksunggoodsplatform_2021_android.depositor
+
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.duksunggoodsplatform_2021_android.R
+
+
+class RecyclerAdapter(private val context: Context) :RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
+
+
+
+    var Datas = mutableListOf<DepositorData>()
+
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.depositior_item,parent,false)
+        //val view = LayoutInflater.inflate(R.layout.depositior_item,parent,false)
+        return ViewHolder(view)
+    }
+
+    override fun getItemCount(): Int = Datas.size
+/*
+    override fun getItemViewType(position:Int): Int {
+        return position;
+    }
+*/
+
+    override fun onBindViewHolder(holder:ViewHolder,position:Int){
+        holder.bind(Datas[position])
+    }
+
+    inner class ViewHolder(view: View):RecyclerView.ViewHolder(view){
+        val depositorName: TextView = itemView.findViewById<TextView>(R.id.depositorName)
+        val depositorChecked: ImageView = itemView.findViewById<ImageView>(R.id.depositorChecked)
+
+        fun bind(item: DepositorData){
+            depositorName.text = item.name
+            Glide.with(itemView).load(item.checked).into(depositorChecked)
+        }
+    }
+
+
+}
+
+
+
+/*
+class RecyclerAdapter(private val items: ArrayList<DepositorData>) :
+    RecyclerView.Adapter<ViewHolder>() {
+
+    override fun getItemCount() = items.size
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+       /*
+        val item = items[position]
+        val listener = View.OnClickListener { it ->
+           Toast.makeText(it.context, "Clicked: ${item.name}", Toast.LENGTH_SHORT).show()
+        }
+
+
+        holder.apply {
+            bind(listener, item)
+            itemView.tag = item
+        }
+*/
+
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
+            ViewHolder {
+        val inflatedView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.depositior_item, parent, false)
+        return ViewHolder(inflatedView)
+    }
+
+    class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+
+        private var view: View = v
+        val depositorName:TextView = view.findViewById<TextView>(R.id.depositorName)
+        val depositorChecked:ImageView = view.findViewById<ImageView>(R.id.depositorChecked)
+
+        fun bind(listener: View.OnClickListener, item: DepositorData) {
+         //   view.depositorChecked.setImageDrawable(item.checked)
+        //    view.depositorName.text = item.name
+          //  view.setOnClickListener(listener)
+        //    view.depositorName.text = item.name
+            depositorName.text = item.name
+            Glide.with(view).load(item.checked).into(depositorChecked)
+        }
+    }
+}
+
+ */
