@@ -20,10 +20,13 @@
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/drawable/tab_background_selected.xml" value="0.25416666666666665" />
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/drawable/tab_background_unselected.xml" value="0.25416666666666665" />
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/activity_actual_demand_form.xml" value="0.2" />
+        <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/activity_chatting_home.xml" value="0.264" />
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/activity_fictitious_demand_form.xml" value="0.36403508771929827" />
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/activity_message_home.xml" value="0.176" />
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/buyer_post_item.xml" value="0.25364583333333335" />
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/category_item.xml" value="0.4" />
+        <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/chatting_home_item.xml" value="0.264" />
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/fragment_actual_demand.xml" value="0.23802083333333332" />
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/fragment_all.xml" value="0.264" />
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/fragment_category.xml" value="0.2390625" />

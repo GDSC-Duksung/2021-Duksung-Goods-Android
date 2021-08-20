@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import androidx.viewpager2.widget.ViewPager2
 import com.example.duksunggoodsplatform_2021_android.*
+import com.example.duksunggoodsplatform_2021_android.chatting.ChattingHomeActivity
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_category.*
@@ -46,7 +47,7 @@ class CategoryFragment : Fragment() {
 
         starButton.setOnClickListener{
             activity?.let{
-                val intent = Intent(context, FictitiousFormActivity::class.java)
+                val intent = Intent(context, InterestListActivity::class.java)
                 startActivity(intent)
             }
         }
