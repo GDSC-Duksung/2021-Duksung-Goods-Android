@@ -56,7 +56,7 @@
             android:id="@+id/starbutton"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginStart="316dp"
+            android:layout_marginStart="320dp"
             android:background="@color/white"
             android:src="@drawable/star_clicked"
             app:layout_constraintBottom_toTopOf="@+id/pager"
