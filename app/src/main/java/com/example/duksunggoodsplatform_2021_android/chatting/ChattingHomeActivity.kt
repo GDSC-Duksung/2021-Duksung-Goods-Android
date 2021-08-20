@@ -9,6 +9,7 @@ class ChattingHomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chatting_home)
+        
         val chatAdapter = ChattingListAdapter(this, chatList)
         chatListView.adapter = chatAdapter
     }
