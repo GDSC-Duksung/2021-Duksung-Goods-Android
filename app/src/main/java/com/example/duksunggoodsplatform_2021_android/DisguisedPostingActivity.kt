@@ -68,12 +68,19 @@ class DisguisedPostingActivity : AppCompatActivity() {
                     override fun onButtonClicked() {
                         // 서버에 데이터 전송
                         finish()
+                        // 다른 화면 연결
                     }
                 })
                 dialog.show(supportFragmentManager, "CustomDialog")
             } else{
                 // 실패
                 val dialog = CustomDialog("가수요조사 포스팅에 \n 실패하였습니다. \n 모든 내용을 입력해주세요. ")
+                // 버튼 클릭 이벤트 설정
+                dialog.setButtonClickListener(object : CustomDialog.OnButtonClickListener {
+                    override fun onButtonClicked() {
+                        dialog.dismiss()
+                    }
+                })
                 dialog.show(supportFragmentManager, "CustomDialog")
             }
         }
