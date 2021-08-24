@@ -61,11 +61,14 @@
             android:textSize="16dp"
             android:layout_marginTop="20dp"/>
         <EditText
+            android:id="@+id/user_information_name"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="@drawable/shape_gray_border"
             android:layout_gravity="center"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:lines="1"
+            android:singleLine="true"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,11 +77,14 @@
             android:layout_marginTop="20dp"/>
 
         <EditText
+            android:id="@+id/user_information_nickname"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="@drawable/shape_gray_border"
             android:layout_gravity="center"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:lines="1"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -88,11 +94,14 @@
             android:layout_marginTop="20dp"/>
 
         <EditText
+            android:id="@+id/user_information_phone"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="@drawable/shape_gray_border"
             android:layout_gravity="center"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:lines="1"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -102,11 +111,14 @@
             android:layout_marginTop="20dp"/>
 
         <EditText
+            android:id="@+id/user_information_email"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="@drawable/shape_gray_border"
             android:layout_gravity="center"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:lines="1"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -116,11 +128,14 @@
             android:layout_marginTop="20dp"/>
 
         <EditText
+            android:id="@+id/user_information_address"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:background="@drawable/shape_gray_border"
             android:layout_gravity="center"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:lines="1"
+            android:singleLine="true"/>
 
         <LinearLayout
             android:orientation="horizontal"
@@ -130,6 +145,7 @@
             android:gravity="center">
 
             <Button
+                android:id="@+id/btn_user_informaion_ok"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -139,6 +155,7 @@
                 android:textSize="16dp"
                 android:layout_marginRight="10dp"/>
             <Button
+                android:id="@+id/btn_user_information_cancel"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"

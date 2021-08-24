@@ -4,7 +4,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -83,13 +85,40 @@ class RecyclerAdapter(private val context: Context) : RecyclerView.Adapter<Recyc
         private val txtName: TextView = itemView.findViewById(R.id.name)
         private val txtPrice: TextView = itemView.findViewById(R.id.price)
         private val imgProfile: ImageView = itemView.findViewById(R.id.imageView)
+        private val interestedbutton: Button = itemView.findViewById(R.id.starbutton)
+        private val progressbar: ProgressBar = itemView.findViewById(R.id.progressBar)
+        private val progressCount: TextView = itemView.findViewById(R.id.progressCount)
+        private val progressPercentage: TextView = itemView.findViewById(R.id.progressPertantage)
+        private val remainingTime: TextView = itemView.findViewById(R.id.remainingTime)
+
 
         fun bind(item: Data) {
+
             txtName.text = item.name
             txtPrice.text = item.price
             Glide.with(itemView).load(item.photo).into(imgProfile)
 
+
+            // 별 버튼 클릭시
+            interestedbutton.setOnClickListener{
+                interestedbutton.setBackgroundResource(R.drawable.star_clicked)
+            }
+
+            // Progressbar
+            val progressNum = ( item.currentNum.toDouble() / item.entireNum.toDouble() ) * 100
+            progressbar.setProgress(progressNum.toInt())
+            progressPercentage.text = progressNum.toInt().toString() + "%"
+
+            // 수요조사 진행 개수
+            progressCount.text = item.currentNum.toString() + "/" + item.entireNum.toString() + "개"
+
+            // Remaining Time
+            remainingTime.text = item.remainingTime.toString()+"일 남음"
+
+
         }
+
+
     }
 
 
