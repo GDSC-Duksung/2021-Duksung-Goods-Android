@@ -12,14 +12,14 @@ import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
 import kotlinx.android.synthetic.main.activity_actual_demand_posting.*
 
 class ActualPostingActivity : AppCompatActivity() {
-    val spinner: Spinner = findViewById(R.id.spinner_actual_posting_category)
-    val items = resources.getStringArray(R.array.category_array)
-    val myAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, items)
-    var SET_IMAGE = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actual_demand_posting)
+
+        val spinner: Spinner = findViewById(R.id.spinner_actual_posting_category)
+        val items = resources.getStringArray(R.array.category_array)
+        val myAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, items)
+        var SET_IMAGE = false
 
         // Spinner
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
