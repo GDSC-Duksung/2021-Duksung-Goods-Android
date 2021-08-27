@@ -25,9 +25,6 @@ class CustomDialog(val text: String) : DialogFragment() {
             buttonClickListener.onButtonClicked()
             dismiss()    // 대화상자를 닫는 함수
         }
-        binding.dialogClose.setOnClickListener {
-            dismiss()
-        }
 
         return view
     }
