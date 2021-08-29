@@ -156,48 +156,48 @@
                     android:paddingBottom="8dp"
                     android:orientation="horizontal">
 
-                    <Button
+                    <ImageView
                         android:id="@+id/btn_disguised_posting_img1_modify"
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:layout_marginStart="22dp"
                         android:layout_marginTop="15dp"
-                        android:textColor="@color/black"
-                        android:text="+"
-                        android:textSize="40sp"
+                        android:padding="5dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_plus"
                         android:background="@drawable/border_black"/>
 
-                    <Button
+                    <ImageView
                         android:id="@+id/btn_disguised_posting_img2_modify"
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:layout_marginStart="22dp"
                         android:layout_marginTop="15dp"
-                        android:textColor="@color/black"
-                        android:text="+"
-                        android:textSize="40sp"
+                        android:padding="5dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_plus"
                         android:background="@drawable/border_black"/>
 
-                    <Button
+                    <ImageView
                         android:id="@+id/btn_disguised_posting_img3_modify"
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:layout_marginStart="22dp"
                         android:layout_marginTop="15dp"
-                        android:textColor="@color/black"
-                        android:text="+"
-                        android:textSize="40sp"
+                        android:padding="5dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_plus"
                         android:background="@drawable/border_black"/>
 
-                    <Button
+                    <ImageView
                         android:id="@+id/btn_disguised_posting_img4_modify"
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:layout_marginStart="22dp"
                         android:layout_marginTop="15dp"
-                        android:textColor="@color/black"
-                        android:text="+"
-                        android:textSize="40sp"
+                        android:padding="5dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_plus"
                         android:background="@drawable/border_black"/>
 
                 </LinearLayout>
