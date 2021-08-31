@@ -80,7 +80,7 @@
                         android:background="@drawable/border_black"/>
 
                     <Spinner
-                        android:id="@+id/spinner_actual_posting_category"
+                        android:id="@+id/spinner_disguised_posting_category"
                         android:layout_width="227dp"
                         android:layout_height="26dp"
                         android:paddingStart="3dp"
