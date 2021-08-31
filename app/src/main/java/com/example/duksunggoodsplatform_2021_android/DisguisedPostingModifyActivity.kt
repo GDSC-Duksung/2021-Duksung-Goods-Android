@@ -5,12 +5,13 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
+import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.duksunggoodsplatform_2021_android.databinding.ActivityMainBinding
 import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
 import kotlinx.android.synthetic.main.activity_disguised_demand_posting_modify.*
 import java.io.IOException
@@ -22,11 +23,13 @@ class DisguisedPostingModifyActivity : AppCompatActivity() {
     private val PICK_IMAGE3 = 3
     private val PICK_IMAGE4 = 4
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_disguised_demand_posting_modify)
 
-        val spinner: Spinner = findViewById(R.id.spinner_actual_posting_category)
+        val spinner: Spinner = findViewById(R.id.spinner_disguised_posting_category_modify)
         val items = resources.getStringArray(R.array.category_array)
         val myAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, items)
         var SET_IMAGE = false
@@ -65,9 +68,26 @@ class DisguisedPostingModifyActivity : AppCompatActivity() {
             finish()
         }
 
-        // 삭제하기 버튼
         btn_delete_disguised_posting.setOnClickListener {
 
+            // Dialog만들기
+            val mDialogView = LayoutInflater.from(this).inflate(R.layout.popup_delete_dialog, null)
+            val mBuilder = AlertDialog.Builder(this)
+                .setView(mDialogView)
+
+            val  mAlertDialog = mBuilder.show()
+
+            val okButton = mDialogView.findViewById<Button>(R.id.btn_dialog_delete)
+            okButton.setOnClickListener {
+                // 삭제
+                Toast.makeText(this, "삭제되었습니다.", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+
+            val noButton = mDialogView.findViewById<Button>(R.id.btn_dialog_cancel)
+            noButton.setOnClickListener {
+                mAlertDialog.dismiss()
+            }
         }
 
         // 사진 추가하기
