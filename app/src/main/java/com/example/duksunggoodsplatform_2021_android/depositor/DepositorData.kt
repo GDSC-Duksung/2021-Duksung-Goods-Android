@@ -12,4 +12,4 @@ val checked:Boolean
  */
 
 class DepositorData(val name:String,
-                    val checked: Int)
+                    val checked: Boolean)
