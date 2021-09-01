@@ -39,23 +39,20 @@ class DepositorActivity : AppCompatActivity() {
 
 
         data.apply{
-            add(DepositorData("김아무개",R.drawable.depositor_unchecked))
-            add(DepositorData("김아무개",R.drawable.depositor_unchecked))
-            add(DepositorData("김아무개",R.drawable.depositor_checked))
-            add(DepositorData("김아무개",R.drawable.depositor_checked))
-            add(DepositorData("김아무개",R.drawable.depositor_unchecked))
-            add(DepositorData("김아무개",R.drawable.depositor_unchecked))
-            add(DepositorData("김아무개",R.drawable.depositor_checked))
-            add(DepositorData("김아무개",R.drawable.depositor_checked))
-            add(DepositorData("김아무개",R.drawable.depositor_unchecked))
-            add(DepositorData("김아무개",R.drawable.depositor_unchecked))
-            add(DepositorData("김아무개",R.drawable.depositor_checked))
-            add(DepositorData("김아무개",R.drawable.depositor_checked))
-            add(DepositorData("김아무개",R.drawable.depositor_unchecked))
-            add(DepositorData("김아무개",R.drawable.depositor_unchecked))
-            add(DepositorData("김아무개",R.drawable.depositor_checked))
-            add(DepositorData("김아무개",R.drawable.depositor_checked))
-
+            add(DepositorData("김아무개",true))
+            add(DepositorData("김아무개",false))
+            add(DepositorData("김아무개",true))
+            add(DepositorData("김아무개",false))
+            add(DepositorData("김아무개",true))
+            add(DepositorData("김아무개",false))
+            add(DepositorData("김아무개",true))
+            add(DepositorData("김아무개",false))
+            add(DepositorData("김아무개",true))
+            add(DepositorData("김아무개",false))
+            add(DepositorData("김아무개",true))
+            add(DepositorData("김아무개",false))
+            add(DepositorData("김아무개",true))
+            add(DepositorData("김아무개",false))
 
             RecyclerAdapter.Datas = data
             RecyclerAdapter.notifyDataSetChanged()
@@ -69,7 +66,7 @@ class DepositorActivity : AppCompatActivity() {
                 // data.find{ it.checked == R.drawable.depositor_checked }
                 //    data.filter { it.checked == R.drawable.depositor_checked }
                 data.filter {
-                    it.checked == R.drawable.depositor_checked
+                    it.checked == true
                     // RecyclerAdapter.Datas = data
                     //RecyclerAdapter.notifyDataSetChanged()
                 }

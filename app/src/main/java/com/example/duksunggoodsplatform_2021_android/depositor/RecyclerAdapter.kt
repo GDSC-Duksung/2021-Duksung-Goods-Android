@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
@@ -40,11 +41,12 @@ class RecyclerAdapter(private val context: Context) :RecyclerView.Adapter<Recycl
 
     inner class ViewHolder(view: View):RecyclerView.ViewHolder(view){
         val depositorName: TextView = itemView.findViewById<TextView>(R.id.depositorName)
-        val depositorChecked: ImageView = itemView.findViewById<ImageView>(R.id.depositorChecked)
+        val depositorChecked: CheckBox = itemView.findViewById<CheckBox>(R.id.depositorChecked)
 
         fun bind(item: DepositorData){
             depositorName.text = item.name
-            Glide.with(itemView).load(item.checked).into(depositorChecked)
+          //  Glide.with(itemView).load(item.checked).into(depositorChecked)
+            depositorChecked.isChecked = item.checked
         }
     }
 
