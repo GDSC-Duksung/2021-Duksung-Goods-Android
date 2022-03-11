@@ -81,7 +81,9 @@ class SellRecyclerAdapter(private val context: Context): RecyclerView.Adapter<Se
                 }
             }
             sellDepositer.setOnClickListener {
-                Intent(context,DepositorActivity::class.java).run{
+                val intent = Intent(context, DepositorActivity::class.java)
+                intent.putExtra("itemId", item.id)
+                intent.run{
                     context.startActivity(this)
                 }
             }
