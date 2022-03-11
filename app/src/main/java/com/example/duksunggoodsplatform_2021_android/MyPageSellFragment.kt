@@ -62,14 +62,14 @@ class MyPageSellFragment : Fragment() {
 
 
         sell_data.apply{
-            add(SellData(name="덕성여대 버건디 수건","홍보 뷰 등록","입금자 목록","21%","가수요조사", R.drawable.towel))
-            add(SellData(name="덕성여대 버건디 수건","홍보 뷰 등록","입금자 목록","22%","가수요조사", R.drawable.towel))
-            add(SellData(name="덕성여대 버건디 수건","홍보 뷰 등록","입금자 목록","23%","가수요조사", R.drawable.towel))
-            add(SellData(name="덕성여대 버건디 수건","홍보 뷰 등록","입금자 목록","24%","가수요조사", R.drawable.towel))
-            add(SellData(name="덕성여대 버건디 수건","홍보 뷰 등록","입금자 목록","25%","가수요조사", R.drawable.towel))
-            add(SellData(name="덕성여대 버건디 수건","홍보 뷰 등록","입금자 목록","26%","가수요조사", R.drawable.towel))
-            add(SellData(name="덕성여대 버건디 수건","홍보 뷰 등록","입금자 목록","25%","가수요조사", R.drawable.towel))
-            add(SellData(name="덕성여대 버건디 수건","홍보 뷰 등록","입금자 목록","26%","가수요조사", R.drawable.towel))
+            add(SellData(1, name="덕성여대 버건디 수건","홍보 뷰 등록","입금자 목록","21%","가수요조사", R.drawable.towel))
+            add(SellData(2, name="덕성여대 버건디 수건","홍보 뷰 등록","입금자 목록","22%","가수요조사", R.drawable.towel))
+            add(SellData(3, name="덕성여대 버건디 수건","홍보 뷰 등록","입금자 목록","23%","가수요조사", R.drawable.towel))
+            add(SellData(4, name="덕성여대 버건디 수건","홍보 뷰 등록","입금자 목록","24%","가수요조사", R.drawable.towel))
+            add(SellData(5, name="덕성여대 버건디 수건","홍보 뷰 등록","입금자 목록","25%","가수요조사", R.drawable.towel))
+            add(SellData(6, name="덕성여대 버건디 수건","홍보 뷰 등록","입금자 목록","26%","가수요조사", R.drawable.towel))
+            add(SellData(7, name="덕성여대 버건디 수건","홍보 뷰 등록","입금자 목록","25%","가수요조사", R.drawable.towel))
+            add(SellData(8, name="덕성여대 버건디 수건","홍보 뷰 등록","입금자 목록","26%","가수요조사", R.drawable.towel))
             SellRecyclerAdapter.sellDatas = sell_data
             SellRecyclerAdapter.notifyDataSetChanged()
         }

@@ -6,45 +6,55 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.duksunggoodsplatform_2021_android.R
+import com.example.duksunggoodsplatform_2021_android.model.DepositorData
 
 
 class RecyclerAdapter(private val context: Context) :RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
 
-
-
-    var Datas = mutableListOf<DepositorData>()
+    var depositorList = mutableListOf<DepositorData>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.depositior_item,parent,false)
-        //val view = LayoutInflater.inflate(R.layout.depositior_item,parent,false)
         return ViewHolder(view)
     }
 
-    override fun getItemCount(): Int = Datas.size
+    override fun getItemCount(): Int = depositorList.size
 /*
     override fun getItemViewType(position:Int): Int {
         return position;
     }
 */
 
-    override fun onBindViewHolder(holder:ViewHolder,position:Int){
-        holder.bind(Datas[position])
+    override fun onBindViewHolder(holder:ViewHolder, position:Int){
+        holder.bind(depositorList[position])
     }
 
     inner class ViewHolder(view: View):RecyclerView.ViewHolder(view){
-        val depositorName: TextView = itemView.findViewById<TextView>(R.id.depositorName)
+        private val depositorName: TextView = itemView.findViewById<TextView>(R.id.depositorName)
         val depositorChecked: ImageView = itemView.findViewById<ImageView>(R.id.depositorChecked)
 
-        fun bind(item: DepositorData){
-            depositorName.text = item.name
-            Glide.with(itemView).load(item.checked).into(depositorChecked)
+        fun bind(depositor: DepositorData){
+            depositorName.text = depositor.user?.nickname
+            if (depositor.deposit!!)
+                Glide.with(itemView).load(R.drawable.depositor_checked).into(depositorChecked)
+            else
+                Glide.with(itemView).load(R.drawable.depositor_unchecked).into(depositorChecked)
+
+            depositorChecked.setOnClickListener {
+                if (depositor.deposit!!) {
+                    depositor.deposit = false
+                    Glide.with(itemView).load(R.drawable.depositor_unchecked).into(depositorChecked)
+                } else {
+                    depositor.deposit = true
+                    Glide.with(itemView).load(R.drawable.depositor_checked).into(depositorChecked)
+                }
+            }
         }
     }
 

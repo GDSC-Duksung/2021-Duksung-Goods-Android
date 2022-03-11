@@ -1,13 +1,13 @@
 package com.example.duksunggoodsplatform_2021_android
 
-import com.example.duksunggoodsplatform_2021_android.depositor.DepositorData
-import okhttp3.ResponseBody
+import com.example.duksunggoodsplatform_2021_android.model.DepositorData
+import com.example.duksunggoodsplatform_2021_android.model.ResponseEntity
 import retrofit2.Call
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Path
+import kotlin.collections.ArrayList
 
 interface ApiService {
-    @GET("api/sell/1")
-    fun fetchDepositors(): Call<ResponseBody>
+    @GET("api/sell/{itemId}")
+    fun fetchDepositors(@Path("itemId") itemId: Long) : Call<ResponseEntity<MutableList<DepositorData>>>
 }
