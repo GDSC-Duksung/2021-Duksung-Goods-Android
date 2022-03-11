@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object ApiGenerator {
-    private val BASE_URL = "" // base url 넣기
+    private val BASE_URL = "http://15.164.71.164:8080/"
     private var gson = GsonBuilder()
         .setLenient()
         .create()

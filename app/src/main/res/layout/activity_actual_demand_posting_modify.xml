@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/img_back_actual_demand_posting"
+        android:id="@+id/img_back_actual_demand_posting_modify"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginStart="10dp"
@@ -19,14 +18,14 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="실수요조사 포스팅"
+        android:text="실수요조사 포스팅 수정"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/img_back_actual_demand_posting"
+        app:layout_constraintBottom_toBottomOf="@+id/img_back_actual_demand_posting_modify"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/img_back_actual_demand_posting" />
+        app:layout_constraintTop_toTopOf="@+id/img_back_actual_demand_posting_modify" />
 
     <View
         android:id="@+id/view"
@@ -80,7 +79,7 @@
                         android:background="@drawable/border_black"/>
 
                     <Spinner
-                        android:id="@+id/spinner_actual_posting_category"
+                        android:id="@+id/spinner_actual_posting_category_modify"
                         android:layout_width="227dp"
                         android:layout_height="26dp"
                         android:paddingStart="3dp"
@@ -101,7 +100,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/et_actual_posting_title"
+                android:id="@+id/et_actual_posting_title_modify"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_marginTop="15dp"
@@ -124,7 +123,7 @@
                 android:textSize="18sp"/>
 
             <EditText
-                android:id="@+id/et_actual_posting_content"
+                android:id="@+id/et_actual_posting_content_modify"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="15dp"
@@ -158,7 +157,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/btn_actual_posting_img1"
+                        android:id="@+id/btn_actual_posting_img1_modify"
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:layout_marginStart="22dp"
@@ -169,7 +168,7 @@
                         android:background="@drawable/border_black"/>
 
                     <ImageView
-                        android:id="@+id/btn_actual_posting_img2"
+                        android:id="@+id/btn_actual_posting_img2_modify"
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:layout_marginStart="22dp"
@@ -180,7 +179,7 @@
                         android:background="@drawable/border_black"/>
 
                     <ImageView
-                        android:id="@+id/btn_actual_posting_img3"
+                        android:id="@+id/btn_actual_posting_img3_modify"
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:layout_marginStart="22dp"
@@ -191,7 +190,7 @@
                         android:background="@drawable/border_black"/>
 
                     <ImageView
-                        android:id="@+id/btn_actual_posting_img4"
+                        android:id="@+id/btn_actual_posting_img4_modify"
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:layout_marginStart="22dp"
@@ -216,7 +215,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/et_actual_posting_amount"
+                android:id="@+id/et_actual_posting_amount_modify"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_marginTop="15dp"
@@ -241,7 +240,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/et_actual_posting_date"
+                android:id="@+id/et_actual_posting_date_modify"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_marginTop="15dp"
@@ -266,7 +265,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/et_actual_posting_price"
+                android:id="@+id/et_actual_posting_price_modify"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_marginTop="15dp"
@@ -286,7 +285,7 @@
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/cb_actual_posting"
+                    android:id="@+id/cb_actual_posting_modify"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="22dp"
@@ -302,26 +301,26 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_register_actual_posting"
+                    android:id="@+id/btn_modify_actual_posting"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginEnd="6dp"
                     android:layout_marginBottom="15dp"
                     android:layout_weight="1"
-                    android:text="등록하기"
+                    android:text="수정하기"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     android:background="@drawable/btn_posting_burgundy"/>
 
                 <Button
-                    android:id="@+id/btn_cancel_actual_posting"
+                    android:id="@+id/btn_delete_actual_posting"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:layout_marginStart="6dp"
                     android:layout_marginEnd="30dp"
                     android:layout_weight="1"
-                    android:text="취소하기"
+                    android:text="삭제하기"
                     android:textSize="15sp"
                     android:background="@drawable/btn_posting_white"/>
             </LinearLayout>

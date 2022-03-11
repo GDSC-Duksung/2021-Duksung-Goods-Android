@@ -20,7 +20,7 @@ class RecyclerAdapter(private val context: Context) :RecyclerView.Adapter<Recycl
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.depositior_item,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.depositor_item,parent,false)
         return ViewHolder(view)
     }
 

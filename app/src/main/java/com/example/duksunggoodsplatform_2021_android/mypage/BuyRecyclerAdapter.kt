@@ -38,12 +38,28 @@ class BuyRecyclerAdapter(private val context: Context): RecyclerView.Adapter<Buy
         val buyCount: TextView = itemView.findViewById<TextView>(R.id.tv_mypage_buy_number)
         val buyDate:TextView = itemView.findViewById<TextView>(R.id.tv_mypage_buy_date)
         val buyImage: ImageView = itemView.findViewById<ImageView>(R.id.img_mypage_buy)
+        private val buyState: ImageView = itemView.findViewById<ImageView>(R.id.img_mypage_state)
+        private val buyState_Name:TextView = itemView.findViewById<TextView>(R.id.tv_mypage_buy_state)
 
         fun bind(item:BuyData){
             buyName.text = item.name
             buyCount.text = item.count
             buyDate.text = item.date
+            buyState_Name.text = item.state
             Glide.with(itemView).load(item.photo).into(buyImage)
+
+            if(buyState_Name.text.equals("제작중")){
+                buyState.setImageResource(R.drawable.mypage_complete)
+
+            }
+
+            if(buyState_Name.text.equals("배송중")){
+                buyState.setImageResource(R.drawable.mypage_delivery)
+            }
+
+            if(buyState_Name.text.equals("배송완료")){
+                buyState.setImageResource(R.drawable.mypage_delivery_complete)
+            }
         }
     }
 }

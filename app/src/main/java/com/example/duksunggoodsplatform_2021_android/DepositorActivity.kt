@@ -26,28 +26,28 @@ class DepositorActivity : AppCompatActivity() {
             ApiGenerator.generate(ApiService::class.java).fetchDepositors(
                 intent.getLongExtra("itemId", 1)
             )
-                .enqueue(object: Callback<ResponseEntity<MutableList<DepositorData>>> {
-                override fun onResponse(
-                    call: Call<ResponseEntity<MutableList<DepositorData>>>,
-                    response: Response<ResponseEntity<MutableList<DepositorData>>>
-                ) {
-                    val result = response.body()?.data
-                    if (result != null) {
-                        for(it in result) {
-                            data.apply { add(it) }
+                .enqueue(object : Callback<ResponseEntity<MutableList<DepositorData>>> {
+                    override fun onResponse(
+                        call: Call<ResponseEntity<MutableList<DepositorData>>>,
+                        response: Response<ResponseEntity<MutableList<DepositorData>>>
+                    ) {
+                        val result = response.body()?.data
+                        if (result != null) {
+                            for (it in result) {
+                                data.apply { add(it) }
+                            }
+                            recyclerAdapter.depositorList = data
+                            recyclerAdapter.notifyDataSetChanged()
                         }
-                        recyclerAdapter.depositorList = data
-                        recyclerAdapter.notifyDataSetChanged()
                     }
-                }
 
-                override fun onFailure(
-                    call: Call<ResponseEntity<MutableList<DepositorData>>>,
-                    t: Throwable
-                ) {
-                    Log.e("Error: ", t.stackTraceToString())
-                }
-            })
+                    override fun onFailure(
+                        call: Call<ResponseEntity<MutableList<DepositorData>>>,
+                        t: Throwable
+                    ) {
+                        Log.e("Error: ", t.stackTraceToString())
+                    }
+                })
         }
 
         val depositorBack: TextView = findViewById<TextView>(R.id.depositor_back)
@@ -57,11 +57,10 @@ class DepositorActivity : AppCompatActivity() {
         recycler_depositor.adapter = recyclerAdapter
 
         depositor_checkbox.setOnClickListener {
-            if(depositor_checkbox.isChecked){
+            if (depositor_checkbox.isChecked) {
                 recyclerAdapter.depositorList = data.filter { it.deposit == true }.toMutableList()
                 recyclerAdapter.notifyDataSetChanged()
-            }
-            else {
+            } else {
                 recyclerAdapter.depositorList = data.filter { it.deposit != null }.toMutableList()
                 recyclerAdapter.notifyDataSetChanged()
             }
