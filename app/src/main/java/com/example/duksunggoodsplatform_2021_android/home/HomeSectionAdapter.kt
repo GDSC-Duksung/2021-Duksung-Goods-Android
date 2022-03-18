@@ -30,7 +30,13 @@ class HomeSectionAdapter(private val sectionItemList: ArrayList<ModelImageText>,
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        Glide.with(mContext).load(sectionItemList[position].img).into(holder.img)
+        val imgUrl = sectionItemList[position].img
+        if (imgUrl != null){
+            Glide.with(mContext).load(imgUrl).into(holder.img)
+        }
+        else {
+            holder.img.setImageResource(R.drawable.no_image)
+        }
         holder.label.text = sectionItemList[position].label
     }
 
