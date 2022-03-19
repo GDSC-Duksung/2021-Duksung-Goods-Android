@@ -33,7 +33,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    viewBinding { //뷰바인딩
+    viewBinding { //뷰바인딩 - 이거 지워도 되는데
         enabled = true
     }
     buildFeatures {
@@ -70,6 +70,8 @@ dependencies {
     //Retrofit과 json응답 객체변환기 라이브러리
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    //okhttp logging interceptor
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.3.1'
 
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.0.1'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
