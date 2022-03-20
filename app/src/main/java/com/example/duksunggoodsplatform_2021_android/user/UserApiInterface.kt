@@ -14,7 +14,9 @@ interface HomeApiInterface {
 
     //회원가입
     @POST("user/signup")
-    fun postSignUp(): Call<ModelLoginSignUpResponseData>
+    fun postSignUp(
+        @Body params: HashMap<String, String>
+    ): Call<ModelLoginSignUpResponseData>
 
     //로그인
     @POST("user/signin")
