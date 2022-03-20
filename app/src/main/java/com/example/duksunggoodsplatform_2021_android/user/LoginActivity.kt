@@ -4,12 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import com.example.duksunggoodsplatform_2021_android.MainActivity
 import com.example.duksunggoodsplatform_2021_android.databinding.ActivityLoginBinding
 import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
-import com.example.duksunggoodsplatform_2021_android.home.modelHomeItemData.ModelHomeItemData
 import retrofit2.Call
 import retrofit2.Response
 
@@ -41,11 +41,25 @@ class LoginActivity: AppCompatActivity() {
                 val body = HashMap<String, String>()
                 body["email"] = "${email}@duksung.ac.kr" // .put과 같은 의미 []
                 body["password"] = password
-                postLogin(body)
 
-                //로그인 성공
-                //val mainIntent = Intent(this, MainActivity::class.java)
-                //startActivity(mainIntent)
+                val response = callPostLogin(body)
+                Log.d("로그login---", "응답 : ${response}")
+
+                if(response == "OK"){
+                    val mainIntent = Intent(this, MainActivity::class.java)
+                    startActivity(mainIntent)
+                    Toast.makeText(applicationContext, "~~님 로그인 되었습니다.", Toast.LENGTH_SHORT).show()
+                    //TODO : 서버에서 유저id 같은 값 받아와서 설정하기
+                }
+                else if(response == "BAD_REQUEST"){
+                    Toast.makeText(applicationContext, "이메일/비밀번호를 다시 확인해주세요.", Toast.LENGTH_SHORT).show()
+                }
+                else {
+                    Toast.makeText(applicationContext, "비정상적인 오류입니다. 관리자에게 문의하세요. STATUS:${response}", Toast.LENGTH_SHORT).show()
+                }
+
+
+
             }
         }
 
@@ -57,7 +71,8 @@ class LoginActivity: AppCompatActivity() {
 
     private val userApi = UserApiRetrofitClient.userApiService
 
-    private fun postLogin(body: HashMap<String, String>) {
+    private fun callPostLogin(body: HashMap<String, String>): String? {
+        var status: String? = ""
         val responseData = MutableLiveData<ModelLoginSignUpResponseData>()
 
         userApi.postLogin(body)
@@ -67,7 +82,8 @@ class LoginActivity: AppCompatActivity() {
                     response: Response<ModelLoginSignUpResponseData>
                 ) {
                     responseData.value = response.body()
-                    Log.d("로그login---", "성공 : ${responseData.value}")
+                    Log.d("로그login---", "통신성공 : ${responseData.value}")
+                    status = responseData.value?.status
                 }
 
                 override fun onFailure(call: Call<ModelLoginSignUpResponseData>, t: Throwable) {
@@ -76,6 +92,7 @@ class LoginActivity: AppCompatActivity() {
                 }
 
             })
+        return status
     }
 
     //다이얼로그 띄우는 함수
