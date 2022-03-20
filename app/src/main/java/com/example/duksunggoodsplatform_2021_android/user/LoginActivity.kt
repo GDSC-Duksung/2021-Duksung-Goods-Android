@@ -67,7 +67,7 @@ class LoginActivity: AppCompatActivity() {
                 ) {
                     responseData.value = response.body()
 
-                    Log.d("로그login---", "통신성공 : ${responseData.value}")
+                    //Log.d("로그login---", "통신성공 : ${responseData.value}")
                     val status = responseData.value?.status
 
                     if(status == "OK"){
