@@ -73,6 +73,7 @@ class LoginActivity: AppCompatActivity() {
                     if(status == "OK"){
                         val mainIntent = Intent(applicationContext, MainActivity::class.java)
                         startActivity(mainIntent)
+                        finish()
                         Toast.makeText(applicationContext, "~~님 로그인 되었습니다.", Toast.LENGTH_SHORT).show()
                         //TODO : 서버에서 유저id 같은 값 받아와서 설정하기
                     }
