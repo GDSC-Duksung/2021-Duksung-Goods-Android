@@ -56,6 +56,7 @@ class HomeFragment : Fragment() {
         callHomeItemData()
 
 
+/*
         //banner 더미데이터 소스
         //val dummyImageUrl = "https://duksunggoods-bucket.s3.ap-northeast-2.amazonaws.com/2022-03-03T163614_woman-looking-at-the-map-3935702.jpg"
         val dummyImageUrl = "https://bit.ly/3yAt3za"
@@ -72,6 +73,7 @@ class HomeFragment : Fragment() {
         bannerList.add(dummyModel2)
         bannerList.add(dummyModel3)
         bannerAdapter?.notifyDataSetChanged()
+*/
 
 
 
@@ -118,8 +120,6 @@ class HomeFragment : Fragment() {
         //okhttp interceptor
         HomeApiRetrofitClient.homeInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
-
-        // Inflate the layout for this fragment
         return view
     }//onCreate 끝
 
@@ -224,7 +224,7 @@ class HomeFragment : Fragment() {
                     Log.d("로그home banner---", "onResponse 성공 : ${bannerData.value}")
                     if(bannerData.value != null){
                         Log.d("로그home banner notnull--", "성공 : ${bannerData.value}")
-                        //setBannerData(bannerData.value!!.data)
+                        setBannerData(bannerData.value!!.data)
                     }else{
                         Log.e("로그home banner null--","bannerData.value가 null임")
 
