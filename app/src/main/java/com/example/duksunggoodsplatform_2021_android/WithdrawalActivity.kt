@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.duksunggoodsplatform_2021_android.databinding.ActivityWithdrawalBinding
 import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
+import com.example.duksunggoodsplatform_2021_android.user.LoginActivity
 import kotlinx.android.synthetic.main.activity_withdrawal.*
 
 

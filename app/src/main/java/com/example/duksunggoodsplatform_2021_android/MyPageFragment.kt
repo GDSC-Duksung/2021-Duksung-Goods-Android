@@ -6,14 +6,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
-import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
+import com.example.duksunggoodsplatform_2021_android.user.LoginActivity
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_mypage.*
@@ -71,7 +68,7 @@ class MyPageFragment : Fragment() {
                 override fun onButtonClicked() {
                     //finish() 등 팝업창이 닫힐 때 실행되었으면 하는 코드 넣기
                     activity?.let {
-                        val intent = Intent(activity,LoginActivity::class.java)
+                        val intent = Intent(activity, LoginActivity::class.java)
                         startActivity(intent)
                     }
                 }

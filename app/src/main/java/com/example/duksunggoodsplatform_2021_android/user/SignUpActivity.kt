@@ -1,9 +1,8 @@
-package com.example.duksunggoodsplatform_2021_android
+package com.example.duksunggoodsplatform_2021_android.user
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.example.duksunggoodsplatform_2021_android.databinding.ActivitySignUpBinding
 import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
 
@@ -61,6 +60,7 @@ class SignUpActivity : AppCompatActivity() {
 
             //회원가입 성공
             else{
+
                 dialogShow("회원가입에 성공하였습니다.\n로그인 해주세요.", null, true)
             }
         }
@@ -70,11 +70,14 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
+
+
+
     //다이얼로그 띄우는 함수
     private fun dialogShow(msg: String, focus: View?, success: Boolean){
         val dialog = CustomDialog(msg)
         // 버튼 클릭 이벤트 설정
-        dialog.setButtonClickListener(object: CustomDialog.OnButtonClickListener{
+        dialog.setButtonClickListener(object: CustomDialog.OnButtonClickListener {
             override fun onButtonClicked() {
                 //팝업창이 닫힐 때 실행되었으면 하는 코드 넣기 - 포커스 이동
                 focus?.requestFocus()

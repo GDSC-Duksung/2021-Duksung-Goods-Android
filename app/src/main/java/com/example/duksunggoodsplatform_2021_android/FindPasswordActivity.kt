@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.duksunggoodsplatform_2021_android.databinding.ActivityFindPasswordBinding
 import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
+import com.example.duksunggoodsplatform_2021_android.user.SignUpActivity
 
 
 class FindPasswordActivity: AppCompatActivity() {
