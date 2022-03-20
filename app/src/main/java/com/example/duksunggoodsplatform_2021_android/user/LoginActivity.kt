@@ -42,23 +42,8 @@ class LoginActivity: AppCompatActivity() {
                 body["email"] = "${email}@duksung.ac.kr" // .put과 같은 의미 []
                 body["password"] = password
 
-                val response = callPostLogin(body)
-                Log.d("로그login---", "응답 : ${response}")
-
-                if(response == "OK"){
-                    val mainIntent = Intent(this, MainActivity::class.java)
-                    startActivity(mainIntent)
-                    Toast.makeText(applicationContext, "~~님 로그인 되었습니다.", Toast.LENGTH_SHORT).show()
-                    //TODO : 서버에서 유저id 같은 값 받아와서 설정하기
-                }
-                else if(response == "BAD_REQUEST"){
-                    Toast.makeText(applicationContext, "이메일/비밀번호를 다시 확인해주세요.", Toast.LENGTH_SHORT).show()
-                }
-                else {
-                    Toast.makeText(applicationContext, "비정상적인 오류입니다. 관리자에게 문의하세요. STATUS:${response}", Toast.LENGTH_SHORT).show()
-                }
-
-
+                callPostLogin(body)
+                //Log.d("로그login---", "응답 : ${response}") //안찍힘
 
             }
         }
@@ -71,8 +56,7 @@ class LoginActivity: AppCompatActivity() {
 
     private val userApi = UserApiRetrofitClient.userApiService
 
-    private fun callPostLogin(body: HashMap<String, String>): String? {
-        var status: String? = ""
+    private fun callPostLogin(body: HashMap<String, String>) {
         val responseData = MutableLiveData<ModelLoginSignUpResponseData>()
 
         userApi.postLogin(body)
@@ -82,8 +66,24 @@ class LoginActivity: AppCompatActivity() {
                     response: Response<ModelLoginSignUpResponseData>
                 ) {
                     responseData.value = response.body()
+
                     Log.d("로그login---", "통신성공 : ${responseData.value}")
-                    status = responseData.value?.status
+                    val status = responseData.value?.status
+
+                    if(status == "OK"){
+                        val mainIntent = Intent(applicationContext, MainActivity::class.java)
+                        startActivity(mainIntent)
+                        Toast.makeText(applicationContext, "~~님 로그인 되었습니다.", Toast.LENGTH_SHORT).show()
+                        //TODO : 서버에서 유저id 같은 값 받아와서 설정하기
+                    }
+                    else if(status == null){
+                        Toast.makeText(applicationContext, "이메일/비밀번호를 다시 확인해주세요.", Toast.LENGTH_SHORT).show()
+                    }
+                    else {
+                        Log.e("로그login error--", "응답 : ${responseData.value}")
+                        Toast.makeText(applicationContext, "비정상적인 오류입니다. 관리자에게 문의하세요. STATUS:${status}", Toast.LENGTH_SHORT).show()
+                    }
+
                 }
 
                 override fun onFailure(call: Call<ModelLoginSignUpResponseData>, t: Throwable) {
@@ -92,7 +92,6 @@ class LoginActivity: AppCompatActivity() {
                 }
 
             })
-        return status
     }
 
     //다이얼로그 띄우는 함수
