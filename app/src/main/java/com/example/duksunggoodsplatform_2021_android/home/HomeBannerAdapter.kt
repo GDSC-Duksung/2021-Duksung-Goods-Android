@@ -31,11 +31,15 @@ class HomeBannerAdapter(private val bannerList: ArrayList<ModelHomeBanner>, priv
     }
 
     override fun onBindViewHolder(holder: HomeBannerAdapter.CustomViewHolder, position: Int) {
-        // 아이템 수로 굉장히 큰 수를 줬으므로 position으로 어떤 수가 나오든 5로 나눈 나머지 값 순서의의 데이터를 사해 5단위로 데이터가 반복되도록 한다.
-        // 다른 곳에서도 position값은 5로 나눈 나머지를 사용하면 된다.
-        Glide.with(mContext).load(bannerList[position%5].img).into(holder.img)
-        holder.content.text = bannerList[position%5].content
-        holder.date.text = bannerList[position%5].date
+        //받아온 배너 갯수 = k라 하면
+        // 아이템 수로 굉장히 큰 수를 줬으므로 position으로 어떤 수가 나오든 k로 나눈 나머지 값 순서의의 데이터를 사해 k단위로 데이터가 반복되도록 한다.
+        // 다른 곳에서도 position값은 k로 나눈 나머지를 사용하면 된다.
+        val count = bannerList.size
+        if(count > 0){ //count=0일 때 실행되어서 오류발생하는 현상 방지
+            Glide.with(mContext).load(bannerList[position%count].img).into(holder.img)
+            holder.content.text = bannerList[position%count].content
+            holder.date.text = bannerList[position%count].date
+        }
     }
 
     override fun getItemCount(): Int {
