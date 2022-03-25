@@ -1,4 +1,4 @@
-package com.example.duksunggoodsplatform_2021_android
+package com.example.duksunggoodsplatform_2021_android.feature.mypage
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.example.duksunggoodsplatform_2021_android.InterestListActivity
+import com.example.duksunggoodsplatform_2021_android.R
+import com.example.duksunggoodsplatform_2021_android.UserInformationActivity
 import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
 import com.example.duksunggoodsplatform_2021_android.user.LoginActivity
 import com.google.android.material.tabs.TabLayout
@@ -48,7 +51,7 @@ class MyPageFragment : Fragment() {
         //관심목록
         button_star.setOnClickListener {
             activity?.let {
-                val intent = Intent(activity,InterestListActivity::class.java)
+                val intent = Intent(activity, InterestListActivity::class.java)
                 startActivity(intent)
             }
         }
@@ -87,7 +90,7 @@ class MyPageFragment : Fragment() {
         //내정보관리
         tv_mypage_manage.setOnClickListener {
             activity?.let {
-                val intent = Intent(activity,UserInformationActivity::class.java)
+                val intent = Intent(activity, UserInformationActivity::class.java)
                 startActivity(intent)
             }
         }

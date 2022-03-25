@@ -1,6 +1,5 @@
 package com.example.duksunggoodsplatform_2021_android
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +7,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.duksunggoodsplatform_2021_android.category.CategoryFragment
 import com.example.duksunggoodsplatform_2021_android.databinding.ActivityMainBinding
+import com.example.duksunggoodsplatform_2021_android.feature.mypage.MyPageFragment
 import com.example.duksunggoodsplatform_2021_android.home.HomeFragment
 
 //네비게이션 Activity로 사용

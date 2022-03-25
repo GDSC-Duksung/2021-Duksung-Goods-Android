@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FictitiousFormActivity">
+    tools:context=".feature.form.FictitiousFormActivity">
 
     <ImageView
         android:id="@+id/img_back_actual_demand_form"

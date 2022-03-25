@@ -1,10 +1,11 @@
-package com.example.duksunggoodsplatform_2021_android
+package com.example.duksunggoodsplatform_2021_android.feature.mypage
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.duksunggoodsplatform_2021_android.R
 import com.example.duksunggoodsplatform_2021_android.mypage.BuyData
 import com.example.duksunggoodsplatform_2021_android.mypage.BuyRecyclerAdapter
 import kotlinx.android.synthetic.main.fragment_mypage_buy.*

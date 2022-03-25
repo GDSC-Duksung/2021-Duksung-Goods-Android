@@ -1,4 +1,4 @@
-package com.example.duksunggoodsplatform_2021_android
+package com.example.duksunggoodsplatform_2021_android.feature.mypage
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.duksunggoodsplatform_2021_android.R
 import com.example.duksunggoodsplatform_2021_android.dialog.FormDialog
+import com.example.duksunggoodsplatform_2021_android.feature.form.ActualFormActivity
 import com.example.duksunggoodsplatform_2021_android.mypage.SellData
 import com.example.duksunggoodsplatform_2021_android.mypage.SellRecyclerAdapter
 import kotlinx.android.synthetic.main.fragment_mypage_sell.*

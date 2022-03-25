@@ -1,4 +1,4 @@
-package com.example.duksunggoodsplatform_2021_android
+package com.example.duksunggoodsplatform_2021_android.feature.posting
 
 import android.content.Intent
 import android.net.Uri
@@ -11,6 +11,7 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.duksunggoodsplatform_2021_android.R
 import com.example.duksunggoodsplatform_2021_android.databinding.ActivityMainBinding
 import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
 import kotlinx.android.synthetic.main.activity_disguised_demand_posting_modify.*

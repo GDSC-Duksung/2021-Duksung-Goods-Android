@@ -30,10 +30,10 @@
         <activity android:name=".WithdrawalActivity" />
         <activity android:name=".UserInformationActivity" />
         <activity android:name=".GoodsDetailActivity" /> <!-- 액션바 제거 -->
-        <activity android:name=".ActualPostingActivity" />
-        <activity android:name=".ActualFormActivity" />
-        <activity android:name=".FictitiousFormActivity" />
-        <activity android:name=".DisguisedPostingActivity" />
+        <activity android:name=".feature.posting.ActualPostingActivity" />
+        <activity android:name=".feature.form.ActualFormActivity" />
+        <activity android:name=".feature.form.FictitiousFormActivity" />
+        <activity android:name=".feature.posting.DisguisedPostingActivity" />
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

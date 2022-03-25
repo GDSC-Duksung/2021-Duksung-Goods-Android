@@ -1,10 +1,10 @@
-package com.example.duksunggoodsplatform_2021_android
+package com.example.duksunggoodsplatform_2021_android.feature.form
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.duksunggoodsplatform_2021_android.R
 import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
 import kotlinx.android.synthetic.main.activity_actual_demand_form.*
-import kotlinx.android.synthetic.main.popup_dialog.*
 
 class ActualFormActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

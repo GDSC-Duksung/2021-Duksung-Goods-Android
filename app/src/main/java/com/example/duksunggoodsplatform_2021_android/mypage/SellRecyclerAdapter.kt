@@ -10,7 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.duksunggoodsplatform_2021_android.ActualPostingModifyActivity
+import com.example.duksunggoodsplatform_2021_android.feature.posting.ActualPostingModifyActivity
 import com.example.duksunggoodsplatform_2021_android.AddPromotionActivity
 import com.example.duksunggoodsplatform_2021_android.DepositorActivity
 import com.example.duksunggoodsplatform_2021_android.R

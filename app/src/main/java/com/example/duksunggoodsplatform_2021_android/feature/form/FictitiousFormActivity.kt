@@ -1,12 +1,10 @@
-package com.example.duksunggoodsplatform_2021_android
+package com.example.duksunggoodsplatform_2021_android.feature.form
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_fictitious_demand_form.*
+import com.example.duksunggoodsplatform_2021_android.R
 
 class FictitiousFormActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
