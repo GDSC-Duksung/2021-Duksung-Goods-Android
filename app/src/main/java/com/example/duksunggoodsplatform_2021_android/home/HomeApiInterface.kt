@@ -14,11 +14,11 @@ class HomeApi {
 interface HomeApiInterface {
 
     //홍보 뷰(배너) 조회
-    @GET("promotions/")
+    @GET("promotions")
     fun getBannerData(): Call<ModelHomeBannerData>
 
     //아이템 전체 목록 조회
-    @GET("item/home")
+    @GET("items/home")
     fun getHomeItemData(): Call<ModelHomeItemData>
 
 

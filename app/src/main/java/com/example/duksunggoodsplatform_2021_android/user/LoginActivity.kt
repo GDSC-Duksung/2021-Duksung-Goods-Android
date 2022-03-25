@@ -75,7 +75,7 @@ class LoginActivity: AppCompatActivity() {
                         startActivity(mainIntent)
                         finish()
                         Toast.makeText(applicationContext, "~~님 로그인 되었습니다.", Toast.LENGTH_SHORT).show()
-                        //TODO : 서버에서 유저id 같은 값 받아와서 설정하기
+                        //TODO : 서버에서 유저햣 id 같은 값 받아와서 설정하기
                     }
                     else if(status == null){
                         Toast.makeText(applicationContext, "이메일/비밀번호를 다시 확인해주세요.", Toast.LENGTH_SHORT).show()
