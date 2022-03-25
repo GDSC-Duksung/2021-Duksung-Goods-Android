@@ -69,13 +69,15 @@ class LoginActivity: AppCompatActivity() {
 
                     //Log.d("로그login---", "통신성공 : ${responseData.value}")
                     val status = responseData.value?.status
+                    var uid: String?
 
                     if(status == "OK"){
                         val mainIntent = Intent(applicationContext, MainActivity::class.java)
                         startActivity(mainIntent)
                         finish()
-                        Toast.makeText(applicationContext, "~~님 로그인 되었습니다.", Toast.LENGTH_SHORT).show()
-                        //TODO : 서버에서 유저햣 id 같은 값 받아와서 설정하기
+                        Toast.makeText(applicationContext, "로그인 되었습니다.", Toast.LENGTH_SHORT).show()
+                        uid = responseData.value?.data //TODO : uid 값 받아왔음. 어떻게 관리?
+                        //Log.d("로그login ok---", "uid : ${uid}")
                     }
                     else if(status == null){
                         Toast.makeText(applicationContext, "이메일/비밀번호를 다시 확인해주세요.", Toast.LENGTH_SHORT).show()

@@ -9,7 +9,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="60dp">
-        <!--추후 이미지소스 생기면 이미지뷰로 대체, 전체적으로 id는 추후 추가-->
+        <!--전체적으로 id는 추후 추가-->
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"

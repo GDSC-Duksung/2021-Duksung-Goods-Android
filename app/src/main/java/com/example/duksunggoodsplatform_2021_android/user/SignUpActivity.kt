@@ -73,6 +73,7 @@ class SignUpActivity : AppCompatActivity() {
 
             //회원가입 요청
             else{
+                Toast.makeText(this, "회원가입을 요청 중입니다.", Toast.LENGTH_SHORT).show()
                 val body = HashMap<String, String>()
                 body["name"] = name
                 body["nickname"] = nickname
@@ -107,7 +108,8 @@ class SignUpActivity : AppCompatActivity() {
                     val status = responseData.value?.status
 
                     if(status == "OK"){
-                        dialogShow("회원가입에 성공하였습니다.\n로그인 해주세요.", null, true)
+                        //dialogShow("회원가입에 성공하였습니다.\n로그인 해주세요.", null, true)
+                        dialogShow("이메일주소로 인증메일이 전송되었습니다. \n이메일 인증 후 회원가입이 완료됩니다.", null, true)
                     }
                     //잘못된 요청
                     else if(status == null){

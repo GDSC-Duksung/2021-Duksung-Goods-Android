@@ -118,7 +118,7 @@ class HomeFragment : Fragment() {
         binding.rvHomeSection3.adapter = sectionAdapter3
 
         //okhttp interceptor
-        HomeApiRetrofitClient.homeInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        //HomeApiRetrofitClient.homeInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
         return view
     }//onCreate 끝
