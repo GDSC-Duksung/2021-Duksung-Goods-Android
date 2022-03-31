@@ -13,13 +13,13 @@ class HomeApi {
 interface HomeApiInterface {
 
     //회원가입
-    @POST("user/signup")
+    @POST("users/signup")
     fun postSignUp(
         @Body params: HashMap<String, String>
     ): Call<ModelLoginSignUpResponseData>
 
     //로그인
-    @POST("user/signin")
+    @POST("users/login")
     fun postLogin(
         @Body params: HashMap<String, String>
     ): Call<ModelLoginSignUpResponseData>
