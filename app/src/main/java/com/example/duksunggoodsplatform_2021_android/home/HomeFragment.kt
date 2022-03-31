@@ -118,7 +118,7 @@ class HomeFragment : Fragment() {
         binding.rvHomeSection3.adapter = sectionAdapter3
 
         //okhttp interceptor
-        HomeApiRetrofitClient.homeInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        //HomeApiRetrofitClient.homeInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
         return view
     }//onCreate 끝
@@ -161,7 +161,7 @@ class HomeFragment : Fragment() {
                     response: Response<ModelHomeItemData>
                 ) {
                     itemAllData.value = response.body()
-                    Log.d("로그home---", "성공 : ${itemAllData.value}")
+                    //Log.d("로그home---", "성공 : ${itemAllData.value}")
                     if(itemAllData.value != null){
                         setHomeItemData(itemAllData.value!!.data)
                     }else{
@@ -221,9 +221,9 @@ class HomeFragment : Fragment() {
                     response: Response<ModelHomeBannerData>
                 ) {
                     bannerData.value = response.body()
-                    Log.d("로그home banner---", "onResponse 성공 : ${bannerData.value}")
+                    //Log.d("로그home banner---", "onResponse 성공 : ${bannerData.value}")
                     if(bannerData.value != null){
-                        Log.d("로그home banner notnull--", "성공 : ${bannerData.value}")
+                        //Log.d("로그home banner notnull--", "성공 : ${bannerData.value}")
                         setBannerData(bannerData.value!!.data)
                     }else{
                         Log.e("로그home banner null--","bannerData.value가 null임")
