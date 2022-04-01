@@ -8,8 +8,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import com.example.duksunggoodsplatform_2021_android.MainActivity
+import com.example.duksunggoodsplatform_2021_android.api.ApiRetrofitClient
 import com.example.duksunggoodsplatform_2021_android.databinding.ActivityLoginBinding
 import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Response
 
@@ -52,9 +54,12 @@ class LoginActivity: AppCompatActivity() {
             val signUpIntent = Intent(this, SignUpActivity::class.java)
             startActivity(signUpIntent)
         }
+
+        //okhttp interceptor
+        //ApiRetrofitClient.interceptor.level = HttpLoggingInterceptor.Level.BODY
     }
 
-    private val userApi = UserApiRetrofitClient.userApiService
+    private val userApi = ApiRetrofitClient.apiService
 
     private fun callPostLogin(body: HashMap<String, String>) {
         val responseData = MutableLiveData<ModelLoginSignUpResponseData>()
@@ -67,7 +72,7 @@ class LoginActivity: AppCompatActivity() {
                 ) {
                     responseData.value = response.body()
 
-                    //Log.d("로그login---", "통신성공 : ${responseData.value}")
+                    Log.d("로그login---", "통신성공 : ${responseData.value}")
                     val status = responseData.value?.status
                     var uid: String?
 
@@ -77,7 +82,7 @@ class LoginActivity: AppCompatActivity() {
                         finish()
                         Toast.makeText(applicationContext, "로그인 되었습니다.", Toast.LENGTH_SHORT).show()
                         uid = responseData.value?.data //TODO : uid 값 받아왔음. 어떻게 관리?
-                        //Log.d("로그login ok---", "uid : ${uid}")
+                        Log.d("로그login ok---", "uid : ${uid}")
                     }
                     else if(status == null){
                         Toast.makeText(applicationContext, "이메일/비밀번호를 다시 확인해주세요.", Toast.LENGTH_SHORT).show()

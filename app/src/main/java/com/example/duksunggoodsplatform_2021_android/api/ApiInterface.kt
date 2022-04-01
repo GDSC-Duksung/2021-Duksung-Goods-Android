@@ -1,17 +1,33 @@
-package com.example.duksunggoodsplatform_2021_android.home
+package com.example.duksunggoodsplatform_2021_android.api
 
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeBannerData.ModelHomeBannerData
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeItemData.ModelHomeItemData
+import com.example.duksunggoodsplatform_2021_android.user.ModelLoginSignUpResponseData
 import retrofit2.Call
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 
-class HomeApi {
+class ApiInfo {
     companion object {
         const val BASE_URL = "http://15.164.71.164:8080/api/"
     }
 }
 
-interface HomeApiInterface {
+interface ApiService {
+
+    //회원가입
+    @POST("users/signup")
+    fun postSignUp(
+        @Body params: HashMap<String, String>
+    ): Call<ModelLoginSignUpResponseData>
+
+    //로그인
+    @POST("users/login")
+    fun postLogin(
+        @Body params: HashMap<String, String>
+    ): Call<ModelLoginSignUpResponseData>
+
 
     //홍보 뷰(배너) 조회
     @GET("promotions")
@@ -20,6 +36,7 @@ interface HomeApiInterface {
     //아이템 전체 목록 조회
     @GET("items/home")
     fun getHomeItemData(): Call<ModelHomeItemData>
+
 
 
 }

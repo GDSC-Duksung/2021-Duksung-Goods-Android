@@ -1,17 +1,15 @@
 package com.example.duksunggoodsplatform_2021_android.user
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
-import com.example.duksunggoodsplatform_2021_android.MainActivity
+import com.example.duksunggoodsplatform_2021_android.api.ApiRetrofitClient
 import com.example.duksunggoodsplatform_2021_android.databinding.ActivitySignUpBinding
 import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
-import kotlinx.android.synthetic.main.activity_look_up_user.*
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Response
 
@@ -73,12 +71,13 @@ class SignUpActivity : AppCompatActivity() {
 
             //회원가입 요청
             else{
-                Toast.makeText(this, "회원가입을 요청 중입니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "회원가입을 요청 중입니다.", Toast.LENGTH_LONG).show()
                 val body = HashMap<String, String>()
                 body["name"] = name
                 body["nickname"] = nickname
                 body["email"] = email
                 body["password"] = password
+                Log.d("signup", "name: ${name}, nickname: ${nickname}, email: ${email}, pw: ${password}")
                 callPostSignUp(body)
 
             }
@@ -87,11 +86,15 @@ class SignUpActivity : AppCompatActivity() {
         binding.tvSignUpLogIn.setOnClickListener {
             finish()
         }
+
+        //okhttp interceptor
+        ApiRetrofitClient.interceptor.level = HttpLoggingInterceptor.Level.BODY
+
     }
 
 
 
-    private val userApi = UserApiRetrofitClient.userApiService
+    private val userApi = ApiRetrofitClient.apiService
 
     private fun callPostSignUp(body: HashMap<String, String>) {
         val responseData = MutableLiveData<ModelLoginSignUpResponseData>()
@@ -104,7 +107,7 @@ class SignUpActivity : AppCompatActivity() {
                 ) {
                     responseData.value = response.body()
 
-                    //Log.d("로그signUp---", "통신성공 : ${responseData.value}")
+                    Log.d("로그signUp---", "통신성공 : ${responseData.value}")
                     val status = responseData.value?.status
 
                     if(status == "OK"){

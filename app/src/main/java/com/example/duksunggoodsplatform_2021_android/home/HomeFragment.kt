@@ -12,11 +12,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.example.duksunggoodsplatform_2021_android.api.ApiRetrofitClient
 import com.example.duksunggoodsplatform_2021_android.databinding.FragmentHomeBinding
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeBannerData.ModelHomeBannerData
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeItemData.Data
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeItemData.ModelHomeItemData
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Response
 
@@ -148,7 +148,7 @@ class HomeFragment : Fragment() {
 
 
     //서버 연결
-    private val homeApi = HomeApiRetrofitClient.homeApiService
+    private val homeApi = ApiRetrofitClient.apiService
 
     private fun callHomeItemData() {
         val itemAllData = MutableLiveData<ModelHomeItemData>()

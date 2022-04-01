@@ -1,4 +1,4 @@
-package com.example.duksunggoodsplatform_2021_android.home
+package com.example.duksunggoodsplatform_2021_android.api
 
 import android.util.Log
 import okhttp3.OkHttpClient
@@ -7,33 +7,33 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-object HomeApiRetrofitClient {
+object ApiRetrofitClient {
 
     //okhttp logging interceptor
-    var homeInterceptor = HttpLoggingInterceptor(object: HttpLoggingInterceptor.Logger {
+    var interceptor = HttpLoggingInterceptor(object: HttpLoggingInterceptor.Logger {
         override fun log(message: String) {
             Log.e("", message)
         }
     })
 
-    private var homeClient = OkHttpClient.Builder()
+    private var httpClient = OkHttpClient.Builder()
         .connectTimeout(5, TimeUnit.SECONDS)
         .readTimeout(5, TimeUnit.SECONDS)
         .writeTimeout(5, TimeUnit.SECONDS)
-        .addInterceptor(homeInterceptor)
+        .addInterceptor(interceptor)
         .build()
 
     //retrofit
-    private val homeRetrofit: Retrofit.Builder by lazy {
+    private val retrofit: Retrofit.Builder by lazy {
         Retrofit.Builder()
-            .baseUrl(HomeApi.BASE_URL)
-            .client(homeClient) //okhttp
+            .baseUrl(ApiInfo.BASE_URL)
+            .client(httpClient) //okhttp
             .addConverterFactory(GsonConverterFactory.create())
     }
 
-    val homeApiService: HomeApiInterface by lazy {
-        homeRetrofit
+    val apiService: ApiService by lazy {
+        retrofit
             .build()
-            .create(HomeApiInterface::class.java)
+            .create(ApiService::class.java)
     }
 }
