@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
@@ -147,7 +149,12 @@ class GoodsExFragment : Fragment() {
 
                         val goodsDetailFragment = GoodsDetailFragment()
                         goodsDetailFragment.arguments = bundle
+                        setFragmentResult("goodsInfo", bundle) //bundleOf("bundleKey" to result)
+//                        goodsDetailFragment.setData()
 
+/*                        parentFragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container_bundle, PassBundleFragment())
+                            .commit()*/
 
                     }else{
                         Log.e("로그detail--", "ItemDetailData.value가 null임")

@@ -12,7 +12,7 @@ import retrofit2.http.Path
 
 class ApiInfo {
     companion object {
-        const val BASE_URL = "http://15.164.71.164:8080/api/"
+        const val BASE_URL = "http://15.164.71.164/api/"
     }
 }
 
