@@ -10,7 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.duksunggoodsplatform_2021_android.GoodsDetailActivity
+import com.example.duksunggoodsplatform_2021_android.goodsEx.GoodsDetailActivity
 import com.example.duksunggoodsplatform_2021_android.R
 
 class HomeSectionAdapter(private val sectionItemList: ArrayList<ModelImageText>, private val mContext: Context): RecyclerView.Adapter<HomeSectionAdapter.CustomViewHolder>() {

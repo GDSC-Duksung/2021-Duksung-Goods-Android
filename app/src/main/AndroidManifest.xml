@@ -29,7 +29,7 @@
         <activity android:name=".user.LoginActivity" />
         <activity android:name=".WithdrawalActivity" />
         <activity android:name=".UserInformationActivity" />
-        <activity android:name=".GoodsDetailActivity" /> <!-- 액션바 제거 -->
+        <activity android:name=".goodsEx.GoodsDetailActivity" /> <!-- 액션바 제거 -->
         <activity android:name=".ActualPostingActivity" />
         <activity android:name=".ActualFormActivity" />
         <activity android:name=".FictitiousFormActivity" />

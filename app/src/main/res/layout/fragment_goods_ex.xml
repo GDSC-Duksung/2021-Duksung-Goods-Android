@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GoodsExFragment">
+    tools:context=".goodsEx.GoodsExFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -21,12 +21,14 @@
                 android:layout_height="40dp">
                 <TextView
                     android:id="@+id/tvGoodsExCategory"
-                    android:layout_width="50dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:text="기타"
-                    android:background="@color/gray"
+                    android:textColor="@color/white"
+                    android:background="@color/dark_gray"
                     android:layout_gravity="center_vertical"
                     android:gravity="center"
+                    android:paddingHorizontal="10dp"
                     android:layout_marginLeft="20dp"/>
                 <!--추후 이미지 소스 생기면 추가-->
                 <ImageView
@@ -52,15 +54,58 @@
                 android:id="@+id/tvGoodsExPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:textColor="@color/black"
-                android:text="12,000원(가격)"/>
+                android:layout_marginLeft="20dp"
+                android:text="12,000원(가격)"
+                android:textColor="@color/black" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/tvGoodsExCountMinus"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:background="@color/gray"
+                    android:text=" - "
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tvGoodsExCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="1"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tvGoodsExCountPlus"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:background="@color/gray"
+                    android:text=" + "
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="15dp">
+                android:background="@color/gray"
+                android:padding="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="15dp">
                 <TextView
                     android:id="@+id/tvGoodsExTotalCount"
                     android:layout_width="0dp"
@@ -83,21 +128,25 @@
                     android:gravity="center"
                     android:layout_gravity="center" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginTop="10dp"
-                android:background="@color/light_gray">
+                android:layout_marginBottom="90dp"
+                android:background="@color/light_gray"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/tvGoodsExInfoStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
                     android:text="펀딩 진행중"
-                    android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:layout_marginTop="10dp"/>
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/tvGoodsExInfoEndCount"
                     android:layout_width="wrap_content"
@@ -105,13 +154,14 @@
                     android:layout_marginLeft="20dp"
                     android:text="목표개수는 30개가 모여야만 결제됩니다."
                     android:textColor="@color/black" />
+
                 <TextView
                     android:id="@+id/tvGoodsExInfoPayment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="결제는 2021년 9월 1일에 다함께 진행됩니다."
                     android:layout_marginBottom="10dp"
+                    android:text="결제는 2021년 9월 1일에 다함께 진행됩니다."
                     android:textColor="@color/black" />
 
             </LinearLayout>
