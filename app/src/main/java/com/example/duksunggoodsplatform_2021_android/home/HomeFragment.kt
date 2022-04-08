@@ -210,7 +210,7 @@ class HomeFragment : Fragment() {
     //private val homeApi2 = HomeApiRetrofitClient.homeApiService
 
     private fun callBannerData() {
-        Log.d("로그home banner---", "call호출됨")
+        //Log.d("로그home banner---", "call호출됨")
         val bannerData = MutableLiveData<ModelHomeBannerData>()
 
         homeApi.getBannerData()

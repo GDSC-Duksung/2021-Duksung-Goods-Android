@@ -76,7 +76,7 @@ class LoginActivity: AppCompatActivity() {
                 ) {
                     responseData.value = response.body()
 
-                    Log.d("로그login---", "통신성공 : ${responseData.value}")
+                    //Log.d("로그login---", "통신성공 : ${responseData.value}")
                     val status = responseData.value?.status
                     var userToken: String?
 
@@ -86,7 +86,7 @@ class LoginActivity: AppCompatActivity() {
                         finish()
                         Toast.makeText(applicationContext, "로그인 되었습니다.", Toast.LENGTH_SHORT).show()
                         userToken = responseData.value?.data //TODO : user 토큰 값 받아옴
-                        Log.d("로그login ok---", "userToken : ${userToken}")
+                        //Log.d("로그login ok---", "userToken : ${userToken}")
 
                         //토큰값 저장
                         val sharedPref = getSharedPreferences(
@@ -100,7 +100,7 @@ class LoginActivity: AppCompatActivity() {
 /*                        val sharedPref = getSharedPreferences(
                             getString(R.string.shared_preference_user_info), Context.MODE_PRIVATE)
                         val userToken = sharedPref.getString(getString(R.string.user_token), "no data")
-                        Log.d("로그goodsDetail", "userToken : ${userToken}")*/
+                        Log.d("로그", "userToken : ${userToken}")*/
 
                     }
                     else if(status == null){
