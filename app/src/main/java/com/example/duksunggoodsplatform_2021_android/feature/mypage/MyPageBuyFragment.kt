@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import com.example.duksunggoodsplatform_2021_android.R
 import com.example.duksunggoodsplatform_2021_android.data.DuksungClient
 import com.example.duksunggoodsplatform_2021_android.data.customEnqueue
-import com.example.duksunggoodsplatform_2021_android.data.local.SharedPreferenceController
 import com.example.duksunggoodsplatform_2021_android.data.response.ItemBuyInfo
 import com.example.duksunggoodsplatform_2021_android.mypage.BuyRecyclerAdapter
 import kotlinx.android.synthetic.main.fragment_mypage_buy.*
@@ -37,7 +36,7 @@ class MyPageBuyFragment : Fragment() {
 
     private fun initNetwork() {
         DuksungClient.mypageService.getBuyItem(
-            SharedPreferenceController.getUserToken(requireContext())
+            // token
         ).customEnqueue(
             onSuccess = {
                 for (data in it.data?.item!!) {
