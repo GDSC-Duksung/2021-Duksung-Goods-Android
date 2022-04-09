@@ -1,5 +1,6 @@
 package com.example.duksunggoodsplatform_2021_android.user
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import com.example.duksunggoodsplatform_2021_android.MainActivity
+import com.example.duksunggoodsplatform_2021_android.R
+import com.example.duksunggoodsplatform_2021_android.api.ApiRetrofitClient
 import com.example.duksunggoodsplatform_2021_android.databinding.ActivityLoginBinding
 import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
 import retrofit2.Call
@@ -15,12 +18,15 @@ import retrofit2.Response
 
 class LoginActivity: AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
+//    private lateinit var mContext: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+//        mContext = this
 
         binding.btnLogin.setOnClickListener {
             val email = binding.etLoginEmail.text.toString()
@@ -52,9 +58,12 @@ class LoginActivity: AppCompatActivity() {
             val signUpIntent = Intent(this, SignUpActivity::class.java)
             startActivity(signUpIntent)
         }
+
+        //okhttp interceptor
+        //ApiRetrofitClient.interceptor.level = HttpLoggingInterceptor.Level.BODY
     }
 
-    private val userApi = UserApiRetrofitClient.userApiService
+    private val userApi = ApiRetrofitClient.apiService
 
     private fun callPostLogin(body: HashMap<String, String>) {
         val responseData = MutableLiveData<ModelLoginSignUpResponseData>()
@@ -69,15 +78,30 @@ class LoginActivity: AppCompatActivity() {
 
                     //Log.d("로그login---", "통신성공 : ${responseData.value}")
                     val status = responseData.value?.status
-                    var uid: String?
+                    var userToken: String?
 
                     if(status == "OK"){
                         val mainIntent = Intent(applicationContext, MainActivity::class.java)
                         startActivity(mainIntent)
                         finish()
                         Toast.makeText(applicationContext, "로그인 되었습니다.", Toast.LENGTH_SHORT).show()
-                        uid = responseData.value?.data //TODO : uid 값 받아왔음. 어떻게 관리?
-                        //Log.d("로그login ok---", "uid : ${uid}")
+                        userToken = responseData.value?.data //TODO : user 토큰 값 받아옴
+                        //Log.d("로그login ok---", "userToken : ${userToken}")
+
+                        //토큰값 저장
+                        val sharedPref = getSharedPreferences(
+                            getString(R.string.shared_preference_user_info), Context.MODE_PRIVATE)
+                        with (sharedPref.edit()) {
+                            putString(getString(R.string.user_token), userToken)
+                            apply()
+                        }
+
+                        //userToken 사용
+/*                        val sharedPref = getSharedPreferences(
+                            getString(R.string.shared_preference_user_info), Context.MODE_PRIVATE)
+                        val userToken = sharedPref.getString(getString(R.string.user_token), "no data")
+                        Log.d("로그", "userToken : ${userToken}")*/
+
                     }
                     else if(status == null){
                         Toast.makeText(applicationContext, "이메일/비밀번호를 다시 확인해주세요.", Toast.LENGTH_SHORT).show()

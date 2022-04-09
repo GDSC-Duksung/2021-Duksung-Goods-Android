@@ -5,6 +5,11 @@
 
     <string name="login_email">@duksung.ac.kr</string>
     <string name="title_activity_look_up_user">LookUpUser</string>
+
+    <!-- 토큰값 저장해두는 SharedPreference 키값과 getString 키값 -->
+    <string name="shared_preference_user_info">User Info</string>
+    <string name="user_token">User Token</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
