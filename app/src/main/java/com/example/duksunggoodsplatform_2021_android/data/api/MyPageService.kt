@@ -8,13 +8,13 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 
 interface MyPageService {
-    @GET("api/buy-item")
+    @GET("api/buy-items")
     fun getBuyItem(
-        @Header("token") token: String,
-    ): Call<ResponseEntity<ResponseBuyItemData>>
+        @Header("Authorization") token: String,
+    ): Call<ResponseEntity<List<ResponseBuyItemData>>>
 
-    @GET("api/sell-item")
+    @GET("api/sell-items")
     fun getSellItem(
-        @Header("token") token: String,
-    ): Call<ResponseEntity<ResponseSellItemData>>
+        @Header("Authorization") token: String,
+    ): Call<ResponseEntity<List<ResponseSellItemData>>>
 }
