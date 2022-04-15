@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object DuksungClient {
-    private const val BASE_URL = "http://15.164.71.164:8080/api/"
+    private const val BASE_URL = "http://15.164.71.164/"
 
     val mypageService: MyPageService by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
         provideService(MyPageService::class.java)
