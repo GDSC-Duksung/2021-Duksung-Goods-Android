@@ -2,8 +2,8 @@ package com.example.duksunggoodsplatform_2021_android.data.response
 
 data class ResponseBuyItemData(
     val id: Int,
-    val user: List<UserBuyInfo>,
-    val item: List<ItemBuyInfo>,
+    val user: UserBuyInfo,
+    val item: ItemBuyInfo,
     val count: Int,
     val createdAt: String
 )
@@ -28,9 +28,9 @@ data class ItemBuyInfo(
     val startData: String,
     val endData: String,
     val progress: String,
-    val user: List<UserBuyInfo>,
-    val category: List<CategoryBuyInfo>,
-    val demandSurveyType: List<DemandTypeBuyInfo>
+    val user: UserBuyInfo,
+    val category: CategoryBuyInfo,
+    val demandSurveyType: DemandTypeBuyInfo
 )
 
 data class CategoryBuyInfo(
