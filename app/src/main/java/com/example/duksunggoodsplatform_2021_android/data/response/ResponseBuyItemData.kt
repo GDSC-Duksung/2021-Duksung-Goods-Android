@@ -27,7 +27,7 @@ data class ItemBuyInfo(
     val maxNumber: Int,
     val startData: String,
     val endData: String,
-    val progress: String,
+    val progress: Int,
     val user: UserBuyInfo,
     val category: CategoryBuyInfo,
     val demandSurveyType: DemandTypeBuyInfo
