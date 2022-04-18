@@ -4,16 +4,18 @@ data class ResponseSellItemData(
     val id: Int,
     val title: String,
     val description: String,
-    val image: String,
+    val imageList: List<ImageListInfo>,
     val price: Int,
     val minNumber: Int,
     val maxNumber: Int,
     val startDate: String,
     val endData: String,
-    val progress: String,
-    val user: List<UserSellInfo>,
-    val category: List<CategorySellInfo>,
-    val demandSurveyType: List<DemandTypeSellInfo>
+    val progress: Int,
+    val createAt: String,
+    val user: UserSellInfo,
+    val category: CategorySellInfo,
+    val demandSurveyType: DemandTypeSellInfo,
+    val percentage: Float
 )
 
 data class UserSellInfo(
@@ -33,4 +35,8 @@ data class CategorySellInfo(
 data class DemandTypeSellInfo(
     val id: Int,
     val title: String
+)
+
+data class ImageListInfo(
+    val url: String
 )
