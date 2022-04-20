@@ -14,7 +14,6 @@ import com.example.duksunggoodsplatform_2021_android.data.response.ResponseBuyIt
 
 class BuyRecyclerAdapter(private val context: Context) : RecyclerView.Adapter<BuyRecyclerAdapter.ViewHolder>() {
 
-    var buyDatas = mutableListOf<ItemBuyInfo>()
     var buyItemDatas = mutableListOf<ResponseBuyItemData>()
 
     override fun onCreateViewHolder(
@@ -25,10 +24,10 @@ class BuyRecyclerAdapter(private val context: Context) : RecyclerView.Adapter<Bu
         return ViewHolder(view)
     }
 
-    override fun getItemCount(): Int = buyDatas.size
+    override fun getItemCount(): Int = buyItemDatas.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(buyDatas[position], buyItemDatas[position])
+        holder.bind(buyItemDatas[position])
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -39,12 +38,14 @@ class BuyRecyclerAdapter(private val context: Context) : RecyclerView.Adapter<Bu
         private val buyState: ImageView = itemView.findViewById<ImageView>(R.id.img_mypage_state)
         private val buyState_Name: TextView = itemView.findViewById<TextView>(R.id.tv_mypage_buy_state)
 
-        fun bind(itemData: ItemBuyInfo, responseBuyItemData: ResponseBuyItemData) {
-            buyName.text = itemData.title
+        fun bind(responseBuyItemData: ResponseBuyItemData) {
+            buyName.text = responseBuyItemData.item.title
             buyCount.text = responseBuyItemData.count.toString()
             buyDate.text = responseBuyItemData.createdAt
-            // buyState_Name.text = item.state
-            Glide.with(itemView).load(itemData.image).into(buyImage)
+            // TODO: 이미지 리스트 중에서 하나 받기
+            Glide.with(itemView).load(responseBuyItemData.item.image).into(buyImage)
+            /* progress 숫자에 따른 변화
+            buyState_Name.text = responseBuyItemData.item.progress.toString()
 
             if (buyState_Name.text.equals("제작중")) {
                 buyState.setImageResource(R.drawable.mypage_complete)
@@ -57,6 +58,8 @@ class BuyRecyclerAdapter(private val context: Context) : RecyclerView.Adapter<Bu
             if (buyState_Name.text.equals("배송완료")) {
                 buyState.setImageResource(R.drawable.mypage_delivery_complete)
             }
+
+             */
         }
     }
 }
