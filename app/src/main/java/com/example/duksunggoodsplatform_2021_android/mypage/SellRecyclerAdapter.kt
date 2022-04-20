@@ -2,6 +2,7 @@ package com.example.duksunggoodsplatform_2021_android.mypage
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,14 +14,12 @@ import com.bumptech.glide.Glide
 import com.example.duksunggoodsplatform_2021_android.AddPromotionActivity
 import com.example.duksunggoodsplatform_2021_android.DepositorActivity
 import com.example.duksunggoodsplatform_2021_android.R
-import com.example.duksunggoodsplatform_2021_android.data.response.DemandTypeSellInfo
 import com.example.duksunggoodsplatform_2021_android.data.response.ResponseSellItemData
 import com.example.duksunggoodsplatform_2021_android.feature.posting.ActualPostingModifyActivity
 
 class SellRecyclerAdapter(private val context: Context) : RecyclerView.Adapter<SellRecyclerAdapter.ViewHolder>() {
 
-    var sellDatas = mutableListOf<ResponseSellItemData>()
-    var sellTypeDatas = mutableListOf<DemandTypeSellInfo>()
+    var sellItemDatas = mutableListOf<ResponseSellItemData>()
 
     // 아이템과 레이아웃 결합
     override fun onCreateViewHolder(
@@ -32,11 +31,11 @@ class SellRecyclerAdapter(private val context: Context) : RecyclerView.Adapter<S
     }
 
     // 리스트 내 아이템 개수
-    override fun getItemCount(): Int = sellDatas.size
+    override fun getItemCount(): Int = sellItemDatas.size
 
     // view에 내용 입력
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(sellDatas[position], sellTypeDatas[position])
+        holder.bind(sellItemDatas[position])
     }
 
     // 레이아웃 내 view연결
@@ -59,11 +58,16 @@ class SellRecyclerAdapter(private val context: Context) : RecyclerView.Adapter<S
         private val sellCompleteText: TextView = itemView.findViewById(R.id.tv_mypage_sell_complete)
         //   private val linear_percent:LinearLayout = itemView.findViewById(R.id.linear_percent)
 
-        fun bind(item: ResponseSellItemData, demandSellInfo: DemandTypeSellInfo) {
+        fun bind(item: ResponseSellItemData) {
             sellName.text = item.title
-            sellPercent.text = item.progress
-            sellState.text = demandSellInfo.title
-            Glide.with(itemView).load(item.image).into(sellImage)
+            sellPercent.text = item.percentage.toString()
+            /*
+            Glide.with(itemView).load(item.imageList).into(sellImage)
+            Log.d("ImageList", item.imageList[0].toString())
+             */
+            /* TODO: progress에 따른 변화
+            sellState.text = item.demandSurveyType.title
+
             // sellPromotion.setOnClickListener(listener)
             if (sellState.text.equals("가수요조사중")) {
                 // removeView(sellLinear)
@@ -76,7 +80,7 @@ class SellRecyclerAdapter(private val context: Context) : RecyclerView.Adapter<S
                 sellPercent.setBackgroundResource(R.drawable.sell_check)
                 sellCompleteText.setText("판매가 완료되었습니다.")
             }
-
+             */
             sellPromotion.setOnClickListener {
                 Intent(context, AddPromotionActivity::class.java).run {
                     context.startActivity(this)
