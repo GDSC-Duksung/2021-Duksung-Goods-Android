@@ -1,4 +1,4 @@
-package com.example.duksunggoodsplatform_2021_android.mypage
+package com.example.duksunggoodsplatform_2021_android.feature.mypage
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.duksunggoodsplatform_2021_android.R
-import com.example.duksunggoodsplatform_2021_android.data.response.ItemBuyInfo
 import com.example.duksunggoodsplatform_2021_android.data.response.ResponseBuyItemData
 
 class BuyRecyclerAdapter(private val context: Context) : RecyclerView.Adapter<BuyRecyclerAdapter.ViewHolder>() {
