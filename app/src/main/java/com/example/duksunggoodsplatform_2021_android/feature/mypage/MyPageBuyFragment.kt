@@ -1,6 +1,7 @@
 package com.example.duksunggoodsplatform_2021_android.feature.mypage
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +9,9 @@ import androidx.fragment.app.Fragment
 import com.example.duksunggoodsplatform_2021_android.R
 import com.example.duksunggoodsplatform_2021_android.data.DuksungClient
 import com.example.duksunggoodsplatform_2021_android.data.customEnqueue
+import com.example.duksunggoodsplatform_2021_android.data.local.SharedPreferenceController
 import com.example.duksunggoodsplatform_2021_android.data.response.ItemBuyInfo
-import com.example.duksunggoodsplatform_2021_android.mypage.BuyRecyclerAdapter
+import com.example.duksunggoodsplatform_2021_android.data.response.ResponseBuyItemData
 import kotlinx.android.synthetic.main.fragment_mypage_buy.*
 
 class MyPageBuyFragment : Fragment() {
@@ -36,13 +38,14 @@ class MyPageBuyFragment : Fragment() {
 
     private fun initNetwork() {
         DuksungClient.mypageService.getBuyItem(
-            // token
+            SharedPreferenceController.getUserToken(requireContext())
         ).customEnqueue(
             onSuccess = {
-                for (data in it.data?.item!!) {
-                    buy_item.add(data)
-                }
-                BuyRecyclerAdapter.buyDatas = buy_item
+                BuyRecyclerAdapter.buyItemDatas.addAll(it.data ?: listOf<ResponseBuyItemData>())
+                Log.d(
+                    "BuyItem",
+                    ((it.data ?: listOf<ResponseBuyItemData>()) as MutableList<ResponseBuyItemData>).toString()
+                )
                 BuyRecyclerAdapter.notifyDataSetChanged()
             }
         )
