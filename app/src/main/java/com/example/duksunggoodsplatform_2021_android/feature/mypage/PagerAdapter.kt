@@ -1,4 +1,4 @@
-package com.example.duksunggoodsplatform_2021_android.mypage
+package com.example.duksunggoodsplatform_2021_android.feature.mypage
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

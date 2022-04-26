@@ -43,7 +43,7 @@ class MyPageFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         val pagerAdapter =
-            com.example.duksunggoodsplatform_2021_android.mypage.PagerAdapter(requireActivity())
+            PagerAdapter(requireActivity())
         //val pagerAdapter = PagerAdapter(requireActivity())
         pagerAdapter.addFragment(MyPageBuyFragment())
         pagerAdapter.addFragment(MyPageSellFragment())
