@@ -21,9 +21,9 @@ class HomeSectionAdapter(private val sectionItemList: ArrayList<ModelImageText>,
             itemView.setOnClickListener {
                 val curPosition = bindingAdapterPosition
                 // TODO : 클릭 시 해당 상품 페이지로 이동하기
-                Toast.makeText(mContext, "${curPosition}번째 아이템 \"${sectionItemList[curPosition].label}\" 클릭됨", Toast.LENGTH_SHORT).show()
+                Toast.makeText(mContext, "id: ${sectionItemList[curPosition].id},  \"${sectionItemList[curPosition].label}\" 클릭됨", Toast.LENGTH_SHORT).show()
                 val intent = Intent(mContext, GoodsDetailActivity::class.java)
-                intent.putExtra("goodsId", "어떤 상품인지 구분할 정보")
+                intent.putExtra("itemId", sectionItemList[curPosition].id) //굿즈 id값 전달
                 mContext.startActivity(intent)
             }
         }

@@ -44,7 +44,9 @@ class GoodsExFragment : Fragment() {
         val view = binding.root
 
         //TODO : itemId 임시. 원래는 -1
-        val itemId = arguments?.getInt("itemId") ?: 1
+        val itemId = arguments?.getInt("itemId") ?: -1
+        Log.d("jh", "itemId: ${itemId}")
+
 
         var purchaseCount = 1
 
