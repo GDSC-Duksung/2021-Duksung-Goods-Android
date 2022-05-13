@@ -38,7 +38,6 @@ class GoodsDetailFragment : Fragment() {
                 //iv.setImageResource()
             }
 
-            // Do something with the result
         }
     }
 
