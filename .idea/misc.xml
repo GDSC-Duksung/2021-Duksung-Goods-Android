@@ -50,10 +50,13 @@
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/fragment_goods_detail.xml" value="0.1" />
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/fragment_stationary.xml" value="0.16875" />
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/seller_post_item.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/item_mypage_buy.xml" value="0.16032608695652173" />
+        <entry key="app/src/main/res/layout/item_mypage_sell.xml" value="0.20643363728470113" />
+        <entry key="app/src/main/res/layout/popup_delete_dialog.xml" value="0.13903985507246377" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

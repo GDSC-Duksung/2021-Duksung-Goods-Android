@@ -1,80 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/img_mypage_buy"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background"
-        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_mypage_buy_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="굿즈 이름"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/img_mypage_buy"
-        app:layout_constraintTop_toTopOf="@+id/img_mypage_buy" />
+        <ImageView
+            android:id="@+id/img_mypage_buy"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_background" />
 
-    <TextView
-        android:id="@+id/tv_mypage_buy_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="1"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
-        app:layout_constraintStart_toEndOf="@+id/img_mypage_buy"
-        app:layout_constraintTop_toBottomOf="@+id/tv_mypage_buy_name" />
+        <TextView
+            android:id="@+id/tv_mypage_buy_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="굿즈 이름"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/img_mypage_buy"
+            app:layout_constraintTop_toTopOf="@+id/img_mypage_buy" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="개"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_mypage_buy_number"
-        app:layout_constraintStart_toEndOf="@+id/tv_mypage_buy_number"
-        app:layout_constraintTop_toTopOf="@+id/tv_mypage_buy_number" />
+        <TextView
+            android:id="@+id/tv_mypage_buy_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="1"
+            app:layout_constraintBottom_toTopOf="@+id/textView11"
+            app:layout_constraintStart_toEndOf="@+id/img_mypage_buy"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mypage_buy_name" />
 
-    <TextView
-        android:id="@+id/tv_mypage_buy_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="20nn.mm.dd"
-        app:layout_constraintBottom_toBottomOf="@+id/img_mypage_buy"
-        app:layout_constraintStart_toEndOf="@+id/img_mypage_buy" />
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="개"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_mypage_buy_number"
+            app:layout_constraintStart_toEndOf="@+id/tv_mypage_buy_number"
+            app:layout_constraintTop_toTopOf="@+id/tv_mypage_buy_number" />
 
-    <ImageView
-        android:id="@+id/img_mypage_state"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="3dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/circle_state"
-        android:padding="5dp"
-        />
+        <TextView
+            android:id="@+id/tv_mypage_buy_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="20nn.mm.dd"
+            app:layout_constraintBottom_toBottomOf="@+id/img_mypage_buy"
+            app:layout_constraintStart_toEndOf="@+id/img_mypage_buy" />
 
-    <TextView
-        android:id="@+id/tv_mypage_buy_state"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:text=""
-        android:textSize="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_mypage_state" />
+        <ImageView
+            android:id="@+id/img_mypage_state"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/circle_state"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_mypage_buy_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text=""
+            android:textSize="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_mypage_state" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
