@@ -41,10 +41,26 @@ class GoodsDetailActivity : AppCompatActivity() {
         }
 
         override fun createFragment(position: Int): Fragment {
+            val goodsId = intent.getIntExtra("itemId", -1)
+            val bundle = Bundle()
+            bundle.putInt("itemId", goodsId)
+
             return when(position) {
-                0 -> GoodsExFragment()
-                1 -> GoodsDetailFragment()
-                else -> GoodsCommunityFragment()
+                0 -> {
+                    val goodsExFragment = GoodsExFragment()
+                    goodsExFragment.arguments = bundle
+                    goodsExFragment
+                }
+                1 -> {
+                    val goodsExFragment = GoodsDetailFragment()
+                    goodsExFragment.arguments = bundle
+                    goodsExFragment
+                }
+                else -> {
+                    val goodsExFragment = GoodsCommunityFragment()
+                    goodsExFragment.arguments = bundle
+                    goodsExFragment
+                }
             }
         }
     }

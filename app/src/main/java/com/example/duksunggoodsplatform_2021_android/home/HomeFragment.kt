@@ -185,19 +185,20 @@ class HomeFragment : Fragment() {
                 continue
             }
             else{
+                val id = data[i]!!.id
                 val label = data[i]!!.title
                 var image: String? = null
                 if(data[i]!!.imageList?.size!! > 0){
                     image = data[i]!!.imageList!![0].url
                 }
                 if(i < 2){
-                    sectionItemList1.add(ModelImageText(image, label))
+                    sectionItemList1.add(ModelImageText(id, image, label))
                 }
                 else if(i < 4){
-                    sectionItemList2.add(ModelImageText(image, label))
+                    sectionItemList2.add(ModelImageText(id, image, label))
                 }
                 else {
-                    sectionItemList3.add(ModelImageText(image, label))
+                    sectionItemList3.add(ModelImageText(id, image, label))
                 }
             }
         }

@@ -32,6 +32,8 @@ class SignUpActivity : AppCompatActivity() {
             val nickname = binding.etSignUpNickname.text.toString()
             val email = binding.etSignUpEmail.text.toString()
             val password = binding.etSignUpPassword.text.toString()
+            val address = binding.etSignUpAddress.text.toString()
+            val phoneNumber = binding.etSignUpPhoneNumber.text.toString()
 
             //이름
             if(name.trim().isEmpty()){
@@ -64,6 +66,16 @@ class SignUpActivity : AppCompatActivity() {
                 dialogShow("비밀번호 확인이 일치하지 않습니다.", binding.etSignUpPassword, false)
             }
 
+            //주소
+            else if(address.trim().isEmpty()){
+                dialogShow("주소를 입력해주세요.", binding.etSignUpAddress, false)
+            }
+
+            //전화번호
+            else if(phoneNumber.trim().isEmpty()){
+                dialogShow("전화번호를 입력해주세요.", binding.etSignUpPhoneNumber, false)
+            }
+
             //이용약관
             else if(!binding.cbSignUpAgree.isChecked){
                 dialogShow("이용약관에 동의해주세요.",null, false)
@@ -77,7 +89,9 @@ class SignUpActivity : AppCompatActivity() {
                 body["nickname"] = nickname
                 body["email"] = email
                 body["password"] = password
-                Log.d("signup", "name: ${name}, nickname: ${nickname}, email: ${email}, pw: ${password}")
+                body["address"] = address
+                body["phoneNumber"] = phoneNumber
+                Log.d("signup", "name: ${name}, nickname: ${nickname}, email: ${email}, pw: ${password}, addr: ${address}, phone: ${phoneNumber}")
                 callPostSignUp(body)
 
             }
