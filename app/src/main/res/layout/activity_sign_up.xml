@@ -6,184 +6,222 @@
     android:layout_height="match_parent"
     tools:context=".user.SignUpActivity">
 
-<androidx.core.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="30dp">
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="30dp">
 
-        <ImageView
-            android:id="@+id/ivSignUpBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="20dp"
-            android:src="@drawable/ic_baseline_arrow_back_24"
-            app:layout_constraintBottom_toBottomOf="@+id/tvSignUpTitle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvSignUpTitle" />
-
-        <TextView
-            android:id="@+id/tvSignUpTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="회원가입"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/vSignUp"
-            android:layout_width="284dp"
-            android:layout_height="2dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/burgundy"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvSignUpTitle" />
-
-        <EditText
-            android:id="@+id/etSignUpName"
-            android:layout_width="272dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:paddingHorizontal="10dp"
-            android:gravity="center_vertical"
-            android:background="@drawable/shape_gray_border"
-            android:hint="Name"
-            android:textSize="17sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/vSignUp" />
-
-        <EditText
-            android:id="@+id/etSignUpNickname"
-            android:layout_width="272dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/shape_gray_border"
-            android:gravity="center_vertical"
-            android:hint="Nickname"
-            android:paddingHorizontal="10dp"
-            android:textSize="17sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etSignUpName" />
-
-        <TextView
-            android:id="@+id/tvSignUpEmailNotice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:text="* 덕성 이메일로만 가입이 가능합니다."
-            android:textColor="@color/burgundy"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@+id/etSignUpEmail"
-            app:layout_constraintStart_toStartOf="@+id/etSignUpEmail" />
-
-        <EditText
-            android:id="@+id/etSignUpEmail"
-            android:layout_width="272dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/shape_gray_border"
-            android:gravity="center_vertical"
-            android:hint="Email"
-            android:paddingHorizontal="10dp"
-            android:textSize="17sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etSignUpNickname" />
-        <EditText
-            android:id="@+id/etSignUpPassword"
-            android:layout_width="272dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:paddingHorizontal="10dp"
-            android:gravity="center_vertical"
-            android:background="@drawable/shape_gray_border"
-            android:hint="Password"
-            android:textSize="17sp"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etSignUpEmail" />
-        <EditText
-            android:id="@+id/etSignUpPasswordCheck"
-            android:layout_width="272dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:paddingHorizontal="10dp"
-            android:gravity="center_vertical"
-            android:background="@drawable/shape_gray_border"
-            android:hint="Password Check"
-            android:textSize="17sp"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etSignUpPassword" />
-
-        <CheckBox
-            android:id="@+id/cbSignUpAgree"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:buttonTint="@color/burgundy"
-            android:text="약관동의"
-            android:textSize="13sp"
-            android:textColor="@color/dark_gray"
-            app:layout_constraintStart_toStartOf="@+id/etSignUpPasswordCheck"
-            app:layout_constraintTop_toBottomOf="@+id/etSignUpPasswordCheck" />
-
-        <Button
-            android:id="@+id/btnSignUp"
-            android:layout_width="310dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/shape_btn_burgundy_round"
-            android:text="회원가입"
-            android:textSize="17sp"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cbSignUpAgree" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnSignUp">
+            <ImageView
+                android:id="@+id/ivSignUpBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="20dp"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                app:layout_constraintBottom_toBottomOf="@+id/tvSignUpTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvSignUpTitle" />
 
             <TextView
-                android:id="@+id/tvSignUpAlready"
+                android:id="@+id/tvSignUpTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="계정이 이미 있으신가요?"
-                android:textSize="15sp"
-                android:textColor="@color/dark_gray" />
+                android:layout_marginTop="20dp"
+                android:text="회원가입"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/vSignUp"
+                android:layout_width="284dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/burgundy"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSignUpTitle" />
+
+            <EditText
+                android:id="@+id/etSignUpName"
+                android:layout_width="272dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:paddingHorizontal="10dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/shape_gray_border"
+                android:hint="Name"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vSignUp" />
+
+            <EditText
+                android:id="@+id/etSignUpNickname"
+                android:layout_width="272dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/shape_gray_border"
+                android:gravity="center_vertical"
+                android:hint="Nickname"
+                android:paddingHorizontal="10dp"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etSignUpName" />
 
             <TextView
-                android:id="@+id/tvSignUpLogIn"
+                android:id="@+id/tvSignUpEmailNotice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="로그인 하러가기"
+                android:layout_marginBottom="5dp"
+                android:text="* 덕성 이메일로만 가입이 가능합니다."
+                android:textColor="@color/burgundy"
                 android:textSize="15sp"
-                android:textColor="@color/burgundy" />
+                app:layout_constraintBottom_toTopOf="@+id/etSignUpEmail"
+                app:layout_constraintStart_toStartOf="@+id/etSignUpEmail" />
+
+            <EditText
+                android:id="@+id/etSignUpEmail"
+                android:layout_width="272dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/shape_gray_border"
+                android:gravity="center_vertical"
+                android:hint="Email"
+                android:paddingHorizontal="10dp"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etSignUpNickname" />
+            <EditText
+                android:id="@+id/etSignUpPassword"
+                android:layout_width="272dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:paddingHorizontal="10dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/shape_gray_border"
+                android:hint="Password"
+                android:textSize="17sp"
+                android:inputType="textPassword"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etSignUpEmail" />
+            <EditText
+                android:id="@+id/etSignUpPasswordCheck"
+                android:layout_width="272dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:paddingHorizontal="10dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/shape_gray_border"
+                android:hint="Password Check"
+                android:textSize="17sp"
+                android:inputType="textPassword"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etSignUpPassword" />
+
+            <EditText
+                android:id="@+id/etSignUpAddress"
+                android:layout_width="272dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:paddingHorizontal="10dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/shape_gray_border"
+                android:hint="Address"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etSignUpPasswordCheck" />
+            <TextView
+                android:id="@+id/tvSignUpPhoneNumberExample"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="ex) 01012341234"
+                android:textColor="@color/gray"
+                android:textSize="15sp"
+                app:layout_constraintTop_toBottomOf="@+id/etSignUpPhoneNumber"
+                app:layout_constraintStart_toStartOf="@+id/etSignUpPhoneNumber" />
+
+            <EditText
+                android:id="@+id/etSignUpPhoneNumber"
+                android:layout_width="272dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:paddingHorizontal="10dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/shape_gray_border"
+                android:hint="PhoneNumber"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etSignUpAddress" />
+
+            <CheckBox
+                android:id="@+id/cbSignUpAgree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:buttonTint="@color/burgundy"
+                android:text="약관동의"
+                android:textSize="13sp"
+                android:textColor="@color/dark_gray"
+                app:layout_constraintStart_toStartOf="@+id/tvSignUpPhoneNumberExample"
+                app:layout_constraintTop_toBottomOf="@+id/tvSignUpPhoneNumberExample" />
+
+            <Button
+                android:id="@+id/btnSignUp"
+                android:layout_width="310dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/shape_btn_burgundy_round"
+                android:text="회원가입"
+                android:textSize="17sp"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cbSignUpAgree" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnSignUp">
+
+                <TextView
+                    android:id="@+id/tvSignUpAlready"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="계정이 이미 있으신가요?"
+                    android:textSize="15sp"
+                    android:textColor="@color/dark_gray" />
+
+                <TextView
+                    android:id="@+id/tvSignUpLogIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="로그인 하러가기"
+                    android:textSize="15sp"
+                    android:textColor="@color/burgundy" />
 
 
-        </LinearLayout>
+            </LinearLayout>
 
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
