@@ -17,6 +17,7 @@ import com.example.duksunggoodsplatform_2021_android.R
 import com.example.duksunggoodsplatform_2021_android.api.ApiRetrofitClient
 import com.example.duksunggoodsplatform_2021_android.databinding.FragmentGoodsExBinding
 import com.example.duksunggoodsplatform_2021_android.feature.form.ActualFormActivity
+import com.example.duksunggoodsplatform_2021_android.feature.form.FictitiousFormActivity
 import com.example.duksunggoodsplatform_2021_android.goodsEx.modelItemDetailData.Data
 import com.example.duksunggoodsplatform_2021_android.goodsEx.modelItemDetailData.ModelItemDetailData
 import retrofit2.Call
@@ -193,8 +194,7 @@ class GoodsExFragment : Fragment() {
         binding.btnGoodsExForm.setOnClickListener {
             var formIntent = Intent()
             when(data.demandSurveyType.title){
-                // TODO : 가수요조사폼 뷰 생기면 연결
-                //codeTypeFictitious -> formIntent = Intent(activity, FictitiousFormActivity::class.java)
+                codeTypeFictitious -> formIntent = Intent(activity, FictitiousFormActivity::class.java)
                 codeTypeActual -> formIntent = Intent(activity, ActualFormActivity::class.java)
             }
             startActivity(formIntent)
