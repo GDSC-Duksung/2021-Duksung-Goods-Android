@@ -201,7 +201,6 @@ class GoodsExFragment : Fragment() {
         }
 
     }
-
 /*
     //좋아요 조회
     private fun callItemLikesData(itemId: Int) {
@@ -234,6 +233,39 @@ class GoodsExFragment : Fragment() {
             })
     }
 */
+
+    //좋아요 변경
+    //TODO : 토큰값 붙이는 거 안해서 테스트 못해봤음..
+    private fun postItemLikesChange(itemId: Int) {
+        val itemLikesData = MutableLiveData<ModelItemLikesChangeData>()
+
+        homeApi.postItemLikesChange(itemId)
+            .enqueue(object : retrofit2.Callback<ModelItemLikesChangeData> {
+
+                override fun onResponse(
+                    call: Call<ModelItemLikesChangeData>,
+                    response: Response<ModelItemLikesChangeData>
+                ) {
+                    itemLikesData.value = response.body()
+                    //Log.d("로그Likes---", "성공 : ${itemLikesData.value}")
+                    if(itemLikesData.value != null){
+                        val data = itemLikesData.value!!.data
+                        //setItemLikesData(data)
+                        setFav(data, false)
+
+                    }else{
+                        Log.e("로그Likes--", "ItemLikesData.value가 null임")
+                    }
+
+                }
+
+                override fun onFailure(call: Call<ModelItemLikesChangeData>, t: Throwable) {
+                    Log.e("로그home item-error--", "실패")
+                    t.printStackTrace()
+                }
+
+            })
+    }
 
 
     // 관심 컨트롤 함수
