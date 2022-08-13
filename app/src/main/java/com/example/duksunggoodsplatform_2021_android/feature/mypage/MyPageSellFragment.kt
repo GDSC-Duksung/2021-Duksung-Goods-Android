@@ -65,7 +65,7 @@ class MyPageSellFragment : Fragment() {
 
     private fun initNetwork() {
         DuksungClient.mypageService.getSellItem(
-            SharedPreferenceController.getUserToken(requireContext())
+//            SharedPreferenceController.getUserToken(requireContext())
         ).customEnqueue(
             onSuccess = {
                 SellRecyclerAdapter.sellItemDatas.addAll(it.data ?: listOf<ResponseSellItemData>())
