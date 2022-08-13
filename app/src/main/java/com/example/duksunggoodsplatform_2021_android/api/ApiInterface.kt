@@ -1,5 +1,6 @@
 package com.example.duksunggoodsplatform_2021_android.api
 
+import com.example.duksunggoodsplatform_2021_android.goodsEx.ModelItemLikesChangeData
 import com.example.duksunggoodsplatform_2021_android.goodsEx.modelItemDetailData.ModelItemDetailData
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeBannerData.ModelHomeBannerData
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeItemData.ModelHomeItemData
@@ -46,19 +47,17 @@ interface ApiService {
         @Path("itemId") itemId: Int
     ): Call<ModelItemDetailData>
 
-    /*
-    //아이템 좋아요 조회
+/*    //아이템 좋아요 하나만 조회
     @GET("items/{itemId}/....")
     fun getItemLikesData(
         @Path("itemId") itemId: Int
-    ): Call<ModelItemLikesData>
+    ): Call<ModelItemLikesData>*/
 
     //아이템 좋아요 변경
-    @POST("items/{itemId}/....")
-    fun postItemLikesData(
+    @POST("items/{itemId}/likes")
+    fun postItemLikesChange(
         @Path("itemId") itemId: Int
     ): Call<ModelItemLikesChangeData>
-*/
 
 
 }
