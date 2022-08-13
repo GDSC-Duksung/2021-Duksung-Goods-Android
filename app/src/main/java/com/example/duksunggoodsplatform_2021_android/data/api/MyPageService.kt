@@ -10,11 +10,11 @@ import retrofit2.http.Header
 interface MyPageService {
     @GET("api/buy-items")
     fun getBuyItem(
-        @Header("Authorization") token: String,
+//        @Header("Authorization") token: String,
     ): Call<ResponseEntity<List<ResponseBuyItemData>>>
 
     @GET("api/sell-items")
     fun getSellItem(
-        @Header("Authorization") token: String,
+//        @Header("Authorization") token: String,
     ): Call<ResponseEntity<List<ResponseSellItemData>>>
 }

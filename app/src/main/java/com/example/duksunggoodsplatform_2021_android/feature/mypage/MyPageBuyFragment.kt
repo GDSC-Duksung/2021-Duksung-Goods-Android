@@ -38,7 +38,7 @@ class MyPageBuyFragment : Fragment() {
 
     private fun initNetwork() {
         DuksungClient.mypageService.getBuyItem(
-            SharedPreferenceController.getUserToken(requireContext())
+//            SharedPreferenceController.getUserToken(requireContext())
         ).customEnqueue(
             onSuccess = {
                 BuyRecyclerAdapter.buyItemDatas.addAll(it.data ?: listOf<ResponseBuyItemData>())
