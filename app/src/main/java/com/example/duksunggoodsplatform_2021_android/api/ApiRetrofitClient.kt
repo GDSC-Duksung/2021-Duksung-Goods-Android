@@ -31,8 +31,8 @@ object ApiRetrofitClient {
         .readTimeout(5, TimeUnit.SECONDS)
         .writeTimeout(5, TimeUnit.SECONDS)
         .addInterceptor(loggingInterceptor)
-        .addInterceptor(AppInterceptor())
-        //.addInterceptor(AuthInterceptor()) //token refresh interceptor
+        .addInterceptor(AuthInterceptor())
+        //.addInterceptor(RefreshInterceptor()) //token refresh interceptor
         .build()
 
     //retrofit
@@ -50,20 +50,8 @@ object ApiRetrofitClient {
             .create(ApiService::class.java)
     }
 
-    class AppInterceptor : Interceptor {
-        @Throws(IOException::class)
-        override fun intercept(chain: Interceptor.Chain) : Response = with(chain) {
-            Log.d("jh token",SharedPreferenceController.getUserToken(applicationContext()))
-            var token = SharedPreferenceController.getUserToken(applicationContext())
-            val newRequest = request().newBuilder()
-                .addHeader("Authorization", "${token}")
-                .build()
-            proceed(newRequest)
-        }
-    }
-
 ////token refresh interceptor
-//internal class AuthInterceptor: Interceptor {
+//internal class RefreshInterceptor: Interceptor {
 //    override fun intercept(chain: Interceptor.Chain): Response {
 //        val request = chain.request()
 //        val response = chain.proceed(request)

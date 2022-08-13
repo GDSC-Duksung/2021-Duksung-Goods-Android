@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import com.example.duksunggoodsplatform_2021_android.api.ApiRetrofitClient
+import com.example.duksunggoodsplatform_2021_android.api.ApiRetrofitClientNoAuth
 import com.example.duksunggoodsplatform_2021_android.databinding.ActivitySignUpBinding
 import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
 import okhttp3.logging.HttpLoggingInterceptor
@@ -108,7 +109,7 @@ class SignUpActivity : AppCompatActivity() {
 
 
 
-    private val userApi = ApiRetrofitClient.apiService
+    private val userApi = ApiRetrofitClientNoAuth.apiService
 
     private fun callPostSignUp(body: HashMap<String, String>) {
         val responseData = MutableLiveData<ModelLoginSignUpResponseData>()
