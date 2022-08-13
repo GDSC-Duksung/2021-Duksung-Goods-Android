@@ -102,7 +102,7 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         //okhttp interceptor
-        ApiRetrofitClient.interceptor.level = HttpLoggingInterceptor.Level.BODY
+        //ApiRetrofitClient.interceptor.level = HttpLoggingInterceptor.Level.BODY
 
     }
 

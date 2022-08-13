@@ -17,6 +17,7 @@ import com.example.duksunggoodsplatform_2021_android.databinding.FragmentHomeBin
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeBannerData.ModelHomeBannerData
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeItemData.Data
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeItemData.ModelHomeItemData
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Response
 
@@ -119,6 +120,8 @@ class HomeFragment : Fragment() {
 
         //okhttp interceptor
         //HomeApiRetrofitClient.homeInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        //ApiRetrofitClient.loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+
 
         return view
     }//onCreate 끝
