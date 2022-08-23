@@ -122,18 +122,13 @@ class MainActivity : AppCompatActivity() {
         //토큰 있음. but 이 토큰이 만료된 건지 아닌지 알 수 없음
         //토큰 refresh 요청
         else{
-            callRefresh() //refresh 결과가 불가능(500)이면 새로 로그인 화면 띄움
+            callRefresh()
         }
 
     }
 
 
     private fun needLogin() {
-//        val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-//            if (result.resultCode == Activity.RESULT_OK) {
-//                val stringData = result.data?.getStringExtra("dataName")
-//            }
-//        }
         Toast.makeText(MyApplication.applicationContext(), "로그인이 필요합니다.", Toast.LENGTH_SHORT).show()
         val loginIntent = Intent(MyApplication.applicationContext(), LoginActivity::class.java)
         startActivity(loginIntent)
@@ -159,13 +154,10 @@ class MainActivity : AppCompatActivity() {
                             apply()
                             Log.d("jh","refreshed token is applied")
                         }
-                        //홈화면으로 이동
-//                        val mainIntent = Intent(MyApplication.applicationContext(), MainActivity::class.java)
-//                        startActivity(mainIntent)
                     }
                     else{
                         when (response.code()){
-                            500 -> { //재로그인 필요
+                            500 -> { //만료된 토큰으로 예상됨. 재로그인 필요
                                 needLogin()
                             }
                         }
