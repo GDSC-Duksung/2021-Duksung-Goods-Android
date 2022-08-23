@@ -32,7 +32,6 @@ object ApiRetrofitClient {
         .writeTimeout(5, TimeUnit.SECONDS)
         .addInterceptor(loggingInterceptor)
         .addInterceptor(AuthInterceptor())
-        //.addInterceptor(RefreshInterceptor()) //token refresh interceptor
         .build()
 
     //retrofit
