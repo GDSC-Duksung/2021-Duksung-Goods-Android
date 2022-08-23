@@ -1,5 +1,6 @@
 package com.example.duksunggoodsplatform_2021_android.feature.mypage
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -73,6 +74,14 @@ class MyPageFragment : Fragment() {
                     activity?.let {
                         val intent = Intent(activity, LoginActivity::class.java)
                         startActivity(intent)
+                        it.finish()
+
+                        val sharedPref = it.getSharedPreferences(
+                            getString(R.string.shared_preference_user_info), Context.MODE_PRIVATE)
+                        val sharedEditor = sharedPref.edit()
+                        sharedEditor.putString(getString(R.string.user_token), "")
+                        sharedEditor.apply()
+                        Log.d("jh", "logout and delete token")
                     }
                 }
             })
