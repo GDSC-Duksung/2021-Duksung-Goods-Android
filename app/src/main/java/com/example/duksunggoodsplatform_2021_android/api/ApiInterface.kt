@@ -31,6 +31,10 @@ interface ApiService {
         @Body params: HashMap<String, String>
     ): Call<ModelLoginSignUpResponseData>
 
+    //refresh
+    @GET("users/refresh")
+    fun getRefresh(): Call<ModelLoginSignUpResponseData>
+
 
     //홍보 뷰(배너) 조회
     @GET("promotions")

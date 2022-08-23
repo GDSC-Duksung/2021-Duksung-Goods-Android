@@ -9,7 +9,8 @@ import java.io.IOException
 class AuthInterceptor : Interceptor {
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain) : Response = with(chain) {
-        Log.d("jh token", SharedPreferenceController.getUserToken(MyApplication.applicationContext()))
+        Log.d("jh interceptor", "getUserToken "+SharedPreferenceController.getUserToken(MyApplication.applicationContext()))
+
         var token = SharedPreferenceController.getUserToken(MyApplication.applicationContext())
         val newRequest = request().newBuilder()
             .addHeader("Authorization", "${token}")

@@ -1,14 +1,27 @@
 package com.example.duksunggoodsplatform_2021_android
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.example.duksunggoodsplatform_2021_android.api.ApiRetrofitClient
+import com.example.duksunggoodsplatform_2021_android.api.MyApplication
 import com.example.duksunggoodsplatform_2021_android.category.CategoryFragment
+import com.example.duksunggoodsplatform_2021_android.data.local.SharedPreferenceController
 import com.example.duksunggoodsplatform_2021_android.databinding.ActivityMainBinding
 import com.example.duksunggoodsplatform_2021_android.feature.mypage.MyPageFragment
 import com.example.duksunggoodsplatform_2021_android.home.HomeFragment
+import com.example.duksunggoodsplatform_2021_android.user.LoginActivity
+import com.example.duksunggoodsplatform_2021_android.user.ModelLoginSignUpResponseData
+import retrofit2.Call
+import retrofit2.Response
 
 //네비게이션 Activity로 사용
 
@@ -24,6 +37,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        checkLoginAndRefresh()
+
 
         //맨 처음 보여줄 프래그먼트 설정
         setFragment(TAG_HOME, HomeFragment())
@@ -44,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         binding.mainNavi.selectedItemId = resultFragmentId*/
 
     }
+
 
     //프래그먼트 컨트롤 함수
     fun setFragment(tag: String, fragment: Fragment){
@@ -92,4 +109,73 @@ class MainActivity : AppCompatActivity() {
         ft.commitAllowingStateLoss()
         //ft.commit()
     }//seFragment함수 끝
+
+    private fun checkLoginAndRefresh() {
+        //로그인 여부 확인
+        var token = SharedPreferenceController.getUserToken(MyApplication.applicationContext())
+        Log.d("jh", "getUserToken for check login : ${token}")
+
+        //토큰 없음. 로그인 화면 띄움
+        if(token.isEmpty()){
+            needLogin()
+        }
+        //토큰 있음. but 이 토큰이 만료된 건지 아닌지 알 수 없음
+        //토큰 refresh 요청
+        else{
+            callRefresh() //refresh 결과가 불가능(500)이면 새로 로그인 화면 띄움
+        }
+
+    }
+
+
+    private fun needLogin() {
+//        val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+//            if (result.resultCode == Activity.RESULT_OK) {
+//                val stringData = result.data?.getStringExtra("dataName")
+//            }
+//        }
+        Toast.makeText(MyApplication.applicationContext(), "로그인이 필요합니다.", Toast.LENGTH_SHORT).show()
+        val loginIntent = Intent(MyApplication.applicationContext(), LoginActivity::class.java)
+        startActivity(loginIntent)
+        finish()
+    }
+
+    private val userApi = ApiRetrofitClient.apiService
+    private fun callRefresh(){
+        userApi.getRefresh()
+            .enqueue(object : retrofit2.Callback<ModelLoginSignUpResponseData> {
+                override fun onResponse(
+                    call: Call<ModelLoginSignUpResponseData>,
+                    response: Response<ModelLoginSignUpResponseData>
+                ) {
+                    if(response.isSuccessful){
+                        //refresh 성공. 토큰값 저장
+                        val userToken = response.body()?.data //토큰 받아옴
+                        Log.d("jh","refreshed token : ${userToken}")
+                        val sharedPref = getSharedPreferences(
+                            getString(R.string.shared_preference_user_info), Context.MODE_PRIVATE)
+                        with (sharedPref.edit()) {
+                            putString(getString(R.string.user_token), userToken)
+                            apply()
+                            Log.d("jh","refreshed token is applied")
+                        }
+                        //홈화면으로 이동
+//                        val mainIntent = Intent(MyApplication.applicationContext(), MainActivity::class.java)
+//                        startActivity(mainIntent)
+                    }
+                    else{
+                        when (response.code()){
+                            500 -> { //재로그인 필요
+                                needLogin()
+                            }
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<ModelLoginSignUpResponseData>, t: Throwable) {
+                    Log.d("jh", "callRefresh fail")
+                }
+            })
+    }
+
 }
