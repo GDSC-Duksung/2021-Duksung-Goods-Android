@@ -14,5 +14,8 @@ data class Data(
     val progress: Any,
     val startDate: String,
     val title: String,
-    val user: User
+    val user: User,
+    val numberOfGathered: Int,
+    val likeOrNot: Boolean,
+    val percentage: Float
 )

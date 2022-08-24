@@ -1,6 +1,7 @@
 package com.example.duksunggoodsplatform_2021_android.goodsEx
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -41,9 +42,10 @@ class GoodsDetailActivity : AppCompatActivity() {
         }
 
         override fun createFragment(position: Int): Fragment {
-            val goodsId = intent.getIntExtra("itemId", -1)
+            val itemId = intent.getIntExtra("itemId", -1)
             val bundle = Bundle()
-            bundle.putInt("itemId", goodsId)
+            bundle.putInt("itemId", itemId)
+//            Log.d("jh GoodsDetailActivity", "itemId: ${itemId}")
 
             return when(position) {
                 0 -> {
