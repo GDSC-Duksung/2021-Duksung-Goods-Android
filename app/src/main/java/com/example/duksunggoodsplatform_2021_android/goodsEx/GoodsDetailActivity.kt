@@ -19,6 +19,10 @@ class GoodsDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_goods_detail)
 
+        ivBack.setOnClickListener {
+            finish()
+        }
+
         detailViewPager.adapter = ScreenSlidePagerAdapter(this)
         detailViewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         detailViewPager.setUserInputEnabled(false)

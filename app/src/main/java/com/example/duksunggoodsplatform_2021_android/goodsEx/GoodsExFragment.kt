@@ -31,16 +31,15 @@ class GoodsExFragment : Fragment() {
     private val binding get() = _binding!!
 
     // 가수요/실수요 구분 값. actual 이면 실수요, fictitious 면 가수요
-    private val codeTypeActual = "actual"
-    private val codeTypeFictitious = "fictitious"
+//    private val codeTypeActual = "actual"
+//    private val codeTypeFictitious = "fictitious"
 
     private var itemId = -1
     private var fav = false
-//    private var price = -1
-//    private var category = "NoData"
-//    private var type = codeTypeActual
     private var imageList = arrayListOf<ModelGoodsExImage>()
     private lateinit var imageAdapter: GoodsExImageAdapter
+    private var maxNumber = 99999
+    private var purchaseCount = 1
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentGoodsExBinding.inflate(inflater, container, false)
@@ -50,19 +49,12 @@ class GoodsExFragment : Fragment() {
 //        Log.d("jh", "itemId: ${itemId}")
 
 
-        var purchaseCount = 1
-
         if(itemId == -1){
             Toast.makeText(activity, "잘못된 상품 정보 입니다. itemId = ${itemId}", Toast.LENGTH_SHORT).show()
             Log.d("GoodsEx", "잘못된 상품 정보 입니다. itemId = ${itemId}")
         }else{
             callItemDetailData(itemId)
         }
-
-        binding.ivGoodsExFavorite.setOnClickListener {
-            setFav(!fav, true)
-        }
-
 
         //이미지 RecyclerView
         binding.rvGoodsExImage.layoutManager =
@@ -77,7 +69,7 @@ class GoodsExFragment : Fragment() {
 
         //관심 별버튼 클릭
         binding.ivGoodsExFavorite.setOnClickListener {
-            fav = !fav
+            fav != fav
             setFav(fav, true)
         }
 
@@ -91,10 +83,10 @@ class GoodsExFragment : Fragment() {
         }
 
         binding.tvGoodsExCountPlus.setOnClickListener {
-            if(purchaseCount < 99999){
+            if(purchaseCount < maxNumber){
                 purchaseCount += 1
                 binding.tvGoodsExCount.text = "${purchaseCount}"
-            }else if(purchaseCount >= 99999){
+            }else if(purchaseCount >= maxNumber){
                 Toast.makeText(activity, "최대 구매 가능 수량입니다.", Toast.LENGTH_SHORT).show()
             }
         }
@@ -167,7 +159,6 @@ class GoodsExFragment : Fragment() {
         setFav(data.likeOrNot, false)
 
         val priceFormat = DecimalFormat("#,###")
-        //type = data.demandSurveyType
 
         for (img in data.imageList){
             imageList.add(ModelGoodsExImage(img.url))
@@ -177,6 +168,7 @@ class GoodsExFragment : Fragment() {
         binding.tvGoodsExCategory.text = data.category.title
         binding.tvGoodsExTitle.text = data.title
         binding.tvGoodsExPrice.text = priceFormat.format(data.price) + "원"
+        maxNumber = data.maxNumber
 
         val numberOfGathered = data.numberOfGathered.toString() //모인개수
         binding.tvGoodsExTotalCount.text =  "모인 개수\n${numberOfGathered}개"
@@ -195,12 +187,14 @@ class GoodsExFragment : Fragment() {
         binding.tvGoodsExInfoEndCount.text = "목표개수는 ${data.minNumber}개가 모여야만 결제됩니다."
         binding.tvGoodsExInfoPayment.text = data.description
 
+        binding.btnGoodsExForm.text = "${data.demandSurveyType.title} 폼"
         binding.btnGoodsExForm.setOnClickListener {
             var formIntent = Intent()
-            when(data.demandSurveyType.title){
-                codeTypeFictitious -> formIntent = Intent(activity, FictitiousFormActivity::class.java)
-                codeTypeActual -> formIntent = Intent(activity, ActualFormActivity::class.java)
+            when(data.demandSurveyType.id){
+                1 -> formIntent = Intent(activity, FictitiousFormActivity::class.java) //가수요
+                2 -> formIntent = Intent(activity, ActualFormActivity::class.java) //실수요
             }
+            formIntent.putExtra("purchaseCount", purchaseCount)
             startActivity(formIntent)
         }
 
