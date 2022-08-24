@@ -2,6 +2,7 @@ package com.example.duksunggoodsplatform_2021_android.home
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,9 +23,13 @@ class HomeBannerAdapter(private val bannerList: ArrayList<ModelHomeBanner>, priv
                 val curPosition = bindingAdapterPosition
                 //val img: ModelImageOnly = imageList[curPosition]
                 // TODO : 클릭 시 해당 상품 페이지로 이동하기
-                Toast.makeText(mContext, "${curPosition%5}번째 배너 클릭됨", Toast.LENGTH_SHORT).show()
+                val bannerCount = bannerList.size
+                val itemId = bannerList[curPosition%bannerCount].id
+                Toast.makeText(mContext, "${curPosition%bannerCount}번째 배너, id=${itemId} 클릭됨", Toast.LENGTH_SHORT).show()
+
                 val intent = Intent(mContext, GoodsDetailActivity::class.java)
-                intent.putExtra("goodsId", "어떤 상품인지 구분할 정보")
+                intent.putExtra("itemId", itemId)
+//                intent.putExtra("itemId", 1)
                 mContext.startActivity(intent)
             }
         }

@@ -51,12 +51,6 @@ interface ApiService {
         @Path("itemId") itemId: Int
     ): Call<ModelItemDetailData>
 
-/*    //아이템 좋아요 하나만 조회
-    @GET("items/{itemId}/....")
-    fun getItemLikesData(
-        @Path("itemId") itemId: Int
-    ): Call<ModelItemLikesData>*/
-
     //아이템 좋아요 변경
     @POST("items/{itemId}/likes")
     fun postItemLikesChange(

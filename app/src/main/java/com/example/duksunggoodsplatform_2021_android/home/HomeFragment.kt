@@ -252,7 +252,7 @@ class HomeFragment : Fragment() {
         for (banner in data){
             val date = banner.startDate + "~" + banner.endDate
 
-            bannerList.add(ModelHomeBanner(banner.image, banner.content, date))
+            bannerList.add(ModelHomeBanner(banner.id, banner.image, banner.content, date))
         }
         bannerAdapter?.notifyDataSetChanged()
     }

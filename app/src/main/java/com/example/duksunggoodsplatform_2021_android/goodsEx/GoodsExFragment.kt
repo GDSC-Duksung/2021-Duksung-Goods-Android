@@ -34,6 +34,7 @@ class GoodsExFragment : Fragment() {
     private val codeTypeActual = "actual"
     private val codeTypeFictitious = "fictitious"
 
+    private var itemId = -1
     private var fav = false
 //    private var price = -1
 //    private var category = "NoData"
@@ -45,23 +46,22 @@ class GoodsExFragment : Fragment() {
         _binding = FragmentGoodsExBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        //TODO : itemId 임시. 원래는 -1
-        val itemId = arguments?.getInt("itemId") ?: -1
-        Log.d("jh", "itemId: ${itemId}")
+        itemId = arguments?.getInt("itemId") ?: -1
+//        Log.d("jh", "itemId: ${itemId}")
 
 
         var purchaseCount = 1
 
         if(itemId == -1){
-            Toast.makeText(activity, "잘못된 상품 정보 입니다.", Toast.LENGTH_SHORT).show()
-            Log.d("GoodsEx", "잘못된 상품 정보 입니다. : itemId = ${itemId}")
+            Toast.makeText(activity, "잘못된 상품 정보 입니다. itemId = ${itemId}", Toast.LENGTH_SHORT).show()
+            Log.d("GoodsEx", "잘못된 상품 정보 입니다. itemId = ${itemId}")
         }else{
             callItemDetailData(itemId)
         }
 
-        // TODO : 서버에서 받아온 데이터 세팅
-        setFav(fav, false)
-        //activity?.let { Glide.with(it).load(mainImage).into(binding.ivGoodsExMainImage) }
+        binding.ivGoodsExFavorite.setOnClickListener {
+            setFav(!fav, true)
+        }
 
 
         //이미지 RecyclerView
@@ -162,7 +162,9 @@ class GoodsExFragment : Fragment() {
     }
 
     private fun setItemDetailData(data: Data) {
-        Log.d("로그detail--set-", "Data : ${data}")
+//        Log.d("로그detail--set-", "Data : ${data}")
+
+        setFav(data.likeOrNot, false)
 
         val priceFormat = DecimalFormat("#,###")
         //type = data.demandSurveyType
@@ -176,7 +178,9 @@ class GoodsExFragment : Fragment() {
         binding.tvGoodsExTitle.text = data.title
         binding.tvGoodsExPrice.text = priceFormat.format(data.price) + "원"
 
-        //binding.tvGoodsExTotalCount.text = data. //모인개수
+        val numberOfGathered = data.numberOfGathered.toString() //모인개수
+        binding.tvGoodsExTotalCount.text =  "모인 개수\n${numberOfGathered}개"
+
         val calendar = Calendar.getInstance() //현재 시각에 대한 Calender 객체 반환
         calendar.set(Calendar.HOUR, 0)
         calendar.set(Calendar.MINUTE, 0)
@@ -187,7 +191,7 @@ class GoodsExFragment : Fragment() {
         val parseDate = format.parse(data.endDate) //millisecond 단위임. 0.001초. 1000을 곱해야 1초가 됨
         val leftTime = (parseDate.time - todayDate.time) / (1000*60*60*24) //시간차를 구하고 하루 단위로 변경
         binding.tvGoodxExTime.text = "남은 시간\n${leftTime}일"
-
+ㅎ
         binding.tvGoodsExInfoEndCount.text = "목표개수는 ${data.minNumber}개가 모여야만 결제됩니다."
         binding.tvGoodsExInfoPayment.text = data.description
 
@@ -235,7 +239,6 @@ class GoodsExFragment : Fragment() {
 */
 
     //좋아요 변경
-    //TODO : 토큰값 붙이는 거 안해서 테스트 못해봤음..
     private fun postItemLikesChange(itemId: Int) {
         val itemLikesData = MutableLiveData<ModelItemLikesChangeData>()
 
@@ -247,15 +250,15 @@ class GoodsExFragment : Fragment() {
                     response: Response<ModelItemLikesChangeData>
                 ) {
                     itemLikesData.value = response.body()
-                    //Log.d("로그Likes---", "성공 : ${itemLikesData.value}")
-                    if(itemLikesData.value != null){
-                        val data = itemLikesData.value!!.data
-                        //setItemLikesData(data)
-                        setFav(data, false)
-
-                    }else{
-                        Log.e("로그Likes--", "ItemLikesData.value가 null임")
-                    }
+                    Log.d("로그Likes---", "성공 : ${itemLikesData.value}")
+//                    if(itemLikesData.value != null){
+////                        val data = itemLikesData.value!!.data
+//                        //setItemLikesData(data)
+////                        setFav(data, false)
+//
+//                    }else{
+//                        Log.e("로그Likes--", "ItemLikesData.value가 null임")
+//                    }
 
                 }
 
@@ -273,13 +276,13 @@ class GoodsExFragment : Fragment() {
         if(fav){
             binding.ivGoodsExFavorite.setImageResource(R.drawable.star_clicked)
             if(statusChange){
-                // TODO : 서버 정보 변경
+                postItemLikesChange(itemId)
                 Toast.makeText(activity, "관심목록에 추가되었습니다.", Toast.LENGTH_SHORT).show()
             }
         }else if(!fav){
             binding.ivGoodsExFavorite.setImageResource(R.drawable.star_nonclicked)
             if(statusChange){
-                // TODO : 서버 정보 변경
+                postItemLikesChange(itemId)
                 Toast.makeText(activity, "관심목록에서 삭제되었습니다.", Toast.LENGTH_SHORT).show()
             }
         }
