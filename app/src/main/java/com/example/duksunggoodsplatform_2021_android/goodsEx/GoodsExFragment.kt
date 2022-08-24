@@ -191,7 +191,7 @@ class GoodsExFragment : Fragment() {
         val parseDate = format.parse(data.endDate) //millisecond 단위임. 0.001초. 1000을 곱해야 1초가 됨
         val leftTime = (parseDate.time - todayDate.time) / (1000*60*60*24) //시간차를 구하고 하루 단위로 변경
         binding.tvGoodxExTime.text = "남은 시간\n${leftTime}일"
-ㅎ
+
         binding.tvGoodsExInfoEndCount.text = "목표개수는 ${data.minNumber}개가 모여야만 결제됩니다."
         binding.tvGoodsExInfoPayment.text = data.description
 
