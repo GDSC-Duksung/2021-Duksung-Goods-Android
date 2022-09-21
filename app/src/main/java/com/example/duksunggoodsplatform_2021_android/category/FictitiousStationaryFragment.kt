@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.fragment_actual_stationary.*
 class FictitiousStationaryFragment : Fragment() {
 
     lateinit var recyclerAdapter: RecyclerAdapter
-    val datas = mutableListOf<Data>()
+    val datas = mutableListOf<CategoryItemData>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,11 +37,11 @@ class FictitiousStationaryFragment : Fragment() {
 
 
         datas.apply {
-            add(Data(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
-            add(Data(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
-            add(Data(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
-            add(Data(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
-            add(Data(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
+//            add(CategoryItemData(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
+//            add(CategoryItemData(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
+//            add(CategoryItemData(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
+//            add(CategoryItemData(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
+//            add(CategoryItemData(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
 
             recyclerAdapter.datas = datas
             recyclerAdapter.notifyDataSetChanged()
