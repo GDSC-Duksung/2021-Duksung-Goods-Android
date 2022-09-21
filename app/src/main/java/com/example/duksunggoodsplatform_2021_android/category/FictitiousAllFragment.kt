@@ -33,7 +33,7 @@ class FictitiousAllFragment : Fragment() {
 
     lateinit var recyclerAdapter: RecyclerAdapter
     val datas = mutableListOf<CategoryItemData>()
-    var pageNum = 0
+    var pageNum = 1
     private val demandSurveyType = 1
     private val categoryId = 0
 

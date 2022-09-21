@@ -15,7 +15,7 @@ import java.util.*
 
 
 class CategoryViewModel(): ViewModel() {
-    private val _datas = MutableLiveData<ArrayList<CategoryItemData>>(arrayListOf())
+    private val _datas = MutableLiveData<ArrayList<CategoryItemData>>()
 //    private var pageNum = 1
 
     val datas: LiveData<ArrayList<CategoryItemData>>
@@ -24,7 +24,8 @@ class CategoryViewModel(): ViewModel() {
     val apiService = ApiRetrofitClient.apiService
 
     init {
-        //_datas.value = CategoryItemData(photo = "https://bit.ly/3yAt3za", name = "하이 아이템 이름", price = 15000, entireNum = 100, currentNum = 80, remainingDate = 7)
+        //_datas.value = arrayListOf()
+        //_datas.value = arrayListOf(CategoryItemData(photo = "https://bit.ly/3yAt3za", name = "하이 아이템 이름", price = 15000, entireNum = 100, currentNum = 80, remainingDate = 7))
 
     }
 
@@ -57,12 +58,17 @@ class CategoryViewModel(): ViewModel() {
                                 val todayDate = calendar.time //현재 시각을 millisecond 로 반환
                                 val format = SimpleDateFormat("yyyy-MM-dd")
 
+                                if(_datas.value == null){
+                                    _datas.value = arrayListOf()
+                                }
+
                                 for (item in data) {
                                     Log.d("jh", "call for문 item: ${item}")
                                     val parseDate = format.parse(item.endDate) //millisecond 단위임. 0.001초. 1000을 곱해야 1초가 됨
                                     val leftDate = ((parseDate.time - todayDate.time) / (1000*60*60*24)).toInt() //시간차를 구하고 하루 단위로 변경
 
-                                    _datas.value?.add(CategoryItemData(photo = item.imageList[0].url, name = item.title, price = item.price, entireNum = item.maxNumber, currentNum = item.minNumber, remainingDate = leftDate))
+                                    _datas.value!!.add(CategoryItemData(photo = item.imageList[0].url, name = item.title, price = item.price, entireNum = item.maxNumber, currentNum = item.minNumber, remainingDate = leftDate))
+
                                 }
 
                                 Log.d("jh", "call success : ${_datas.value}")
