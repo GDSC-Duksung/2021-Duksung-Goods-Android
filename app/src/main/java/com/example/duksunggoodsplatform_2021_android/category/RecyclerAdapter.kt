@@ -8,11 +8,10 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.duksunggoodsplatform_2021_android.R
-import kotlinx.android.synthetic.main.category_item.view.*
+import java.text.DecimalFormat
 
 
 // fragment_all, clothes, stationary, etc.xml와 category_item.xml을 이어주는 역할
@@ -68,7 +67,7 @@ import kotlinx.android.synthetic.main.category_item.view.*
 
 class RecyclerAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
-    var datas = mutableListOf<Data>()
+    var datas = mutableListOf<CategoryItemData>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.category_item,parent,false)
         return ViewHolder(view)
@@ -92,12 +91,15 @@ class RecyclerAdapter(private val context: Context) : RecyclerView.Adapter<Recyc
         private val remainingTime: TextView = itemView.findViewById(R.id.remainingTime)
 
 
-        fun bind(item: Data) {
+        fun bind(item: CategoryItemData) {
 
             txtName.text = item.name
-            txtPrice.text = item.price
-            Glide.with(itemView).load(item.photo).into(imgProfile)
+//            txtPrice.text = item.price
+            val formatter = DecimalFormat("###,###")
+            val priceFormatted = formatter.format(item.price)
+            txtPrice.text = priceFormatted.plus("원")
 
+            Glide.with(itemView).load(item.photo).into(imgProfile)
 
             // 별 버튼 클릭시
             interestedbutton.setOnClickListener{
@@ -113,7 +115,7 @@ class RecyclerAdapter(private val context: Context) : RecyclerView.Adapter<Recyc
             progressCount.text = item.currentNum.toString() + "/" + item.entireNum.toString() + "개"
 
             // Remaining Time
-            remainingTime.text = item.remainingTime.toString()+"일 남음"
+            remainingTime.text = item.remainingDate.toString()+"일 남음"
 
 
         }

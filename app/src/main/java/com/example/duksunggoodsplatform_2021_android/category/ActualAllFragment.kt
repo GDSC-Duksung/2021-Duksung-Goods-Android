@@ -11,13 +11,16 @@ import kotlinx.android.synthetic.main.fragment_actual_all.*
 
 class ActualAllFragment : Fragment() {
     lateinit var recyclerAdapter: RecyclerAdapter
-    val datas = mutableListOf<Data>()
+    val datas = mutableListOf<CategoryItemData>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        recyclerAdapter.datas = datas
+
         return inflater.inflate(R.layout.fragment_fictitious_all, container, false)
     }
 
@@ -35,16 +38,14 @@ class ActualAllFragment : Fragment() {
         recyclerView.adapter = recyclerAdapter
 
 
-        datas.apply {
-            add(Data(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
-            add(Data(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
-            add(Data(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
-            add(Data(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
-            add(Data(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
 
-            recyclerAdapter.datas = datas
-            recyclerAdapter.notifyDataSetChanged()
-
-        }
+//        datas.apply {
+//            add(CategoryItemData(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
+//            add(CategoryItemData(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
+//            add(CategoryItemData(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
+//            add(CategoryItemData(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
+//            add(CategoryItemData(photo = R.drawable.towel, name = "덕성여대 버건디 수건", price = "12,000원", entireNum = 100, currentNum = 50, remainingTime = 3))
+//
+//        }
     }
 }

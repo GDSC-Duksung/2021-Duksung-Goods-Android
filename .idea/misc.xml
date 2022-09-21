@@ -4,15 +4,20 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/JHPro/DuksungGoodsPlatform2021Android/app/src/main/res/drawable/border_black.xml" value="0.1" />
+        <entry key="..\:/JHPro/DuksungGoodsPlatform2021Android/app/src/main/res/layout/activity_actual_demand_form.xml" value="0.16983695652173914" />
         <entry key="..\:/JHPro/DuksungGoodsPlatform2021Android/app/src/main/res/layout/activity_depositor.xml" value="0.24947916666666667" />
         <entry key="..\:/JHPro/DuksungGoodsPlatform2021Android/app/src/main/res/layout/activity_goods_detail.xml" value="0.264" />
         <entry key="..\:/JHPro/DuksungGoodsPlatform2021Android/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/JHPro/DuksungGoodsPlatform2021Android/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
         <entry key="..\:/JHPro/DuksungGoodsPlatform2021Android/app/src/main/res/layout/activity_user_information.xml" value="0.24947916666666667" />
         <entry key="..\:/JHPro/DuksungGoodsPlatform2021Android/app/src/main/res/layout/activity_writing.xml" value="0.24947916666666667" />
+        <entry key="..\:/JHPro/DuksungGoodsPlatform2021Android/app/src/main/res/layout/category_item.xml" value="0.24947916666666667" />
+        <entry key="..\:/JHPro/DuksungGoodsPlatform2021Android/app/src/main/res/layout/fragment_category.xml" value="0.16983695652173914" />
+        <entry key="..\:/JHPro/DuksungGoodsPlatform2021Android/app/src/main/res/layout/fragment_fictitious_all.xml" value="0.1" />
         <entry key="..\:/JHPro/DuksungGoodsPlatform2021Android/app/src/main/res/layout/fragment_goods_detail.xml" value="0.264" />
         <entry key="..\:/JHPro/DuksungGoodsPlatform2021Android/app/src/main/res/layout/fragment_goods_ex.xml" value="0.2" />
         <entry key="..\:/JHPro/DuksungGoodsPlatform2021Android/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/JHPro/DuksungGoodsPlatform2021Android/app/src/main/res/layout/fragment_mypage.xml" value="0.16" />
         <entry key="..\:/JHPro/DuksungGoodsPlatform2021Android/app/src/main/res/layout/item_home_section.xml" value="0.2" />
         <entry key="..\:/Users/KSS/2021-Duksung-Goods-Android/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1" />
         <entry key="..\:/Users/KSS/2021-Duksung-Goods-Android/app/src/main/res/drawable/ic_baseline_visibility_off_24.xml" value="0.1" />
