@@ -5,6 +5,7 @@ import com.example.duksunggoodsplatform_2021_android.goodsEx.modelItemDetailData
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeBannerData.ModelHomeBannerData
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeItemData.ModelHomeItemData
 import com.example.duksunggoodsplatform_2021_android.user.ModelLoginSignUpResponseData
+import com.example.duksunggoodsplatform_2021_android.user.ModelUserInformationData
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -34,6 +35,10 @@ interface ApiService {
     //refresh
     @GET("users/refresh")
     fun getRefresh(): Call<ModelLoginSignUpResponseData>
+
+    //내 정보 조회
+    @GET("users/me")
+    fun getUserInfo(): Call<ModelUserInformationData>
 
 
     //홍보 뷰(배너) 조회

@@ -29,7 +29,7 @@
         <activity android:name=".FindPasswordActivity" />
         <activity android:name=".user.LoginActivity" />
         <activity android:name=".WithdrawalActivity" />
-        <activity android:name=".UserInformationActivity" />
+        <activity android:name=".user.UserInformationActivity" />
         <activity android:name=".feature.posting.ActualPostingActivity" />
         <activity android:name=".feature.form.ActualFormActivity" />
         <activity android:name=".feature.form.FictitiousFormActivity" />
