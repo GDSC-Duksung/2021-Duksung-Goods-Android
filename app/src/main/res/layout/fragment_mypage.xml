@@ -82,7 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:padding="3dp"
-        android:text="내 정보 관리"
+        android:text="내 정보"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

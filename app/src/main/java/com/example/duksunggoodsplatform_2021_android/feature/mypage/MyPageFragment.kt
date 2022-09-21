@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.duksunggoodsplatform_2021_android.InterestListActivity
 import com.example.duksunggoodsplatform_2021_android.R
-import com.example.duksunggoodsplatform_2021_android.UserInformationActivity
+import com.example.duksunggoodsplatform_2021_android.user.UserInformationActivity
 import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
 import com.example.duksunggoodsplatform_2021_android.user.LoginActivity
 import com.google.android.material.tabs.TabLayout
