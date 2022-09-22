@@ -40,11 +40,11 @@ class ActualDemandFragment : Fragment() {
 
         val pagerAdapter = PagerFragmentStateAdapter(requireActivity())
         // 6개의 fragment add
-        pagerAdapter.addFragment(FictitiousAllFragment())
-        pagerAdapter.addFragment(FictitiousClothesFragment())
-        pagerAdapter.addFragment(FictitiousStationaryFragment())
-        pagerAdapter.addFragment(FictitiousCupFragment())
-        pagerAdapter.addFragment(FictitiousEtcFragment())
+        pagerAdapter.addFragment(ActualAllFragment())
+        pagerAdapter.addFragment(ActualClothesFragment())
+        pagerAdapter.addFragment(ActualStationaryFragment())
+        pagerAdapter.addFragment(ActualCupFragment())
+        pagerAdapter.addFragment(ActualEtcFragment())
 
         // adapter
         viewPager.adapter = pagerAdapter
