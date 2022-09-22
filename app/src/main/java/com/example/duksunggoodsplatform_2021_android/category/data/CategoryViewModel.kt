@@ -1,9 +1,7 @@
 package com.example.duksunggoodsplatform_2021_android.category.data
 
-import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
-import com.example.duksunggoodsplatform_2021_android.R
 import com.example.duksunggoodsplatform_2021_android.api.ApiRetrofitClient
 import com.example.duksunggoodsplatform_2021_android.category.CategoryItemData
 import com.example.duksunggoodsplatform_2021_android.category.model.ModelCategoryItemListData
@@ -12,11 +10,12 @@ import retrofit2.Call
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class CategoryViewModel(): ViewModel() {
     private val _datas = MutableLiveData<ArrayList<CategoryItemData>>()
-//    private var pageNum = 1
+    private var calledDatas = arrayListOf<CategoryItemData>()
 
     val datas: LiveData<ArrayList<CategoryItemData>>
         get() = _datas
@@ -28,7 +27,6 @@ class CategoryViewModel(): ViewModel() {
         //_datas.value = arrayListOf(CategoryItemData(photo = "https://bit.ly/3yAt3za", name = "하이 아이템 이름", price = 15000, entireNum = 100, currentNum = 80, remainingDate = 7))
 
     }
-
 
 
     fun getItems(demandSurveyTypeId: Int, categoryId: Int, page: Int) = viewModelScope.launch {
@@ -48,7 +46,7 @@ class CategoryViewModel(): ViewModel() {
                         if(status == "OK"){
                             val data = responseData.value?.data
 
-                            if(data != null){
+                            if(data != null && data.isNotEmpty()){
                                 Log.d("jh", "call data != null")
                                 val calendar = Calendar.getInstance() //현재 시각에 대한 Calender 객체 반환
                                 calendar.set(Calendar.HOUR, 0)
@@ -58,24 +56,28 @@ class CategoryViewModel(): ViewModel() {
                                 val todayDate = calendar.time //현재 시각을 millisecond 로 반환
                                 val format = SimpleDateFormat("yyyy-MM-dd")
 
-                                if(_datas.value == null){
-                                    _datas.value = arrayListOf()
-                                }
+//                                if(_datas.value == null){
+//                                    _datas.value = arrayListOf()
+//                                }
 
                                 for (item in data) {
                                     Log.d("jh", "call for문 item: ${item}")
                                     val parseDate = format.parse(item.endDate) //millisecond 단위임. 0.001초. 1000을 곱해야 1초가 됨
                                     val leftDate = ((parseDate.time - todayDate.time) / (1000*60*60*24)).toInt() //시간차를 구하고 하루 단위로 변경
 
-                                    _datas.value!!.add(CategoryItemData(photo = item.imageList[0].url, name = item.title, price = item.price, entireNum = item.maxNumber, currentNum = item.minNumber, remainingDate = leftDate))
+                                    calledDatas.add(CategoryItemData(photo = item.imageList[0].url, name = item.title, price = item.price, entireNum = item.maxNumber, currentNum = item.minNumber, remainingDate = leftDate))
 
                                 }
+                                _datas.value = calledDatas
 
                                 Log.d("jh", "call success : ${_datas.value}")
 //                            recyclerAdapter.notifyDataSetChanged()
 //                            pageNum += 1
 
 
+                            }
+                            else {
+                                Log.d("jh", "data is null or empty")
                             }
                         }
 
