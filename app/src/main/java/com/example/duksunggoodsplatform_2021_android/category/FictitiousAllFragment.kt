@@ -34,15 +34,12 @@ class FictitiousAllFragment : Fragment() {
     lateinit var recyclerAdapter: RecyclerAdapter
     val datas = mutableListOf<CategoryItemData>()
     var pageNum = 1
-    private val demandSurveyType = 1
-    private val categoryId = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         return inflater.inflate(R.layout.fragment_fictitious_all, container, false)
     }
 
@@ -62,7 +59,7 @@ class FictitiousAllFragment : Fragment() {
             pageNum += 1
         }
 
-        model.getItems(demandSurveyType, categoryId, pageNum)
+        model.getItems(DEMAND_SURVEY_TYPE, CATEGORY_ID, pageNum)
 
 
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -72,12 +69,16 @@ class FictitiousAllFragment : Fragment() {
                 val lastVisibleItemPosition = (recyclerView.layoutManager as LinearLayoutManager).findLastCompletelyVisibleItemPosition()
                 val itemTotalCount = recyclerView.adapter?.itemCount
                 if(lastVisibleItemPosition + 1 == itemTotalCount) {
-                    model.getItems(demandSurveyType, categoryId, pageNum)
+                    model.getItems(DEMAND_SURVEY_TYPE, CATEGORY_ID, pageNum)
                 }
             }
         })
 
-        //initRecycler()
+    }
+
+    companion object {
+        private const val DEMAND_SURVEY_TYPE = 1
+        private const val CATEGORY_ID = 0
     }
 
 }

@@ -15,7 +15,6 @@ import kotlin.collections.ArrayList
 
 class CategoryViewModel(): ViewModel() {
     private val _datas = MutableLiveData<ArrayList<CategoryItemData>>()
-    private var calledDatas = arrayListOf<CategoryItemData>()
 
     val datas: LiveData<ArrayList<CategoryItemData>>
         get() = _datas
@@ -46,8 +45,11 @@ class CategoryViewModel(): ViewModel() {
                         if(status == "OK"){
                             val data = responseData.value?.data
 
-                            if(data != null && data.isNotEmpty()){
+                            if(data != null && data.isNotEmpty()){ //요청이 성공했고, data가 null이나 빈 배열이 아닐 때만 LiveData가 변함(=observer가 동작함)
                                 Log.d("jh", "call data != null")
+
+                                val calledDatas = arrayListOf<CategoryItemData>()
+
                                 val calendar = Calendar.getInstance() //현재 시각에 대한 Calender 객체 반환
                                 calendar.set(Calendar.HOUR, 0)
                                 calendar.set(Calendar.MINUTE, 0)
