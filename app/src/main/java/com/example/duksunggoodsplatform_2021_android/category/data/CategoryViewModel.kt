@@ -58,23 +58,27 @@ class CategoryViewModel(): ViewModel() {
                                 val todayDate = calendar.time //현재 시각을 millisecond 로 반환
                                 val format = SimpleDateFormat("yyyy-MM-dd")
 
-//                                if(_datas.value == null){
-//                                    _datas.value = arrayListOf()
-//                                }
-
                                 for (item in data) {
                                     Log.d("jh", "call for문 item: ${item}")
                                     val parseDate = format.parse(item.endDate) //millisecond 단위임. 0.001초. 1000을 곱해야 1초가 됨
                                     val leftDate = ((parseDate.time - todayDate.time) / (1000*60*60*24)).toInt() //시간차를 구하고 하루 단위로 변경
 
-                                    calledDatas.add(CategoryItemData(photo = item.imageList[0].url, name = item.title, price = item.price, entireNum = item.maxNumber, currentNum = item.minNumber, remainingDate = leftDate))
+                                    calledDatas.add(
+                                        CategoryItemData(
+                                            id = item.id,
+                                            photo = item.imageList[0].url,
+                                            name = item.title,
+                                            price = item.price,
+                                            entireNum = item.maxNumber,
+                                            currentNum = item.minNumber,
+                                            remainingDate = leftDate,
+                                            like = item.likeOrNot
+                                        ))
 
                                 }
                                 _datas.value = calledDatas
 
                                 Log.d("jh", "call success : ${_datas.value}")
-//                            recyclerAdapter.notifyDataSetChanged()
-//                            pageNum += 1
 
 
                             }
@@ -93,58 +97,6 @@ class CategoryViewModel(): ViewModel() {
 
         }
     }
-
-
-/*
-    suspend fun getItems(demandSurveyTypeId: Int, categoryId: Int, page: Int) {
-        val responseData = MutableLiveData <ModelCategoryItemListData>()
-
-        apiService.getCategoryItemData(demandSurveyTypeId = demandSurveyTypeId, categoryId = categoryId, page = page)
-            .enqueue(object : retrofit2.Callback<ModelCategoryItemListData> {
-                override fun onResponse(
-                    call: Call<ModelCategoryItemListData>,
-                    response: Response<ModelCategoryItemListData>
-                ) {
-
-                    responseData.value = response.body()
-
-                    val status = responseData.value?.status
-                    if(status == "OK"){
-                        val data = responseData.value?.data
-
-                        if(data != null){
-                            Log.d("jh", "call data != null")
-                            val calendar = Calendar.getInstance() //현재 시각에 대한 Calender 객체 반환
-                            calendar.set(Calendar.HOUR, 0)
-                            calendar.set(Calendar.MINUTE, 0)
-                            calendar.set(Calendar.SECOND, 0)
-                            calendar.set(Calendar.MILLISECOND, 0) //연월일만 남기고 0으로 만듦
-                            val todayDate = calendar.time //현재 시각을 millisecond 로 반환
-                            val format = SimpleDateFormat("yyyy-MM-dd")
-
-                            for (item in data) {
-                                Log.d("jh", "call for문 item: ${item}")
-                                val parseDate = format.parse(item.endDate) //millisecond 단위임. 0.001초. 1000을 곱해야 1초가 됨
-                                val leftDate = ((parseDate.time - todayDate.time) / (1000*60*60*24)).toInt() //시간차를 구하고 하루 단위로 변경
-
-                                _datas.value?.add(CategoryItemData(photo = item.imageList[0].url, name = item.title, price = item.price, entireNum = item.maxNumber, currentNum = item.minNumber, remainingDate = leftDate))
-                            }
-
-                            Log.d("jh", "call success : ${_datas.value}")
-//                            recyclerAdapter.notifyDataSetChanged()
-//                            pageNum += 1
-
-
-                        }
-                    }
-
-                }
-
-                override fun onFailure(call: Call<ModelCategoryItemListData>, t: Throwable) {
-                    Log.e("jh", "getCategoryItem fail..")
-                }
-            })
-    }*/
 
 
 }

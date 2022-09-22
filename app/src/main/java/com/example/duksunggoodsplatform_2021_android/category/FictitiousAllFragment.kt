@@ -75,6 +75,16 @@ class FictitiousAllFragment : Fragment() {
         })
 
     }
+/*
+    fun changeItmeLike(itemId: Int, like: Boolean) {
+        for(item in datas){
+            if(item.id == itemId) {
+                item.like = like
+                Log.d("jh", "changeItmeLike item ${item.id} to like ${item.like}")
+            }
+            recyclerAdapter.notifyDataSetChanged()
+        }
+    }*/
 
     companion object {
         private const val DEMAND_SURVEY_TYPE = 1
