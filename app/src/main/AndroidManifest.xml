@@ -22,7 +22,7 @@
             android:exported="true" />
         <activity android:name=".CommentActivity" />
         <activity android:name=".WritingActivity" />
-        <activity android:name=".InterestListActivity" />
+        <activity android:name=".interest.InterestListActivity" />
         <activity android:name=".AddPromotionActivity" />
         <activity android:name=".user.SignUpActivity" />
         <activity android:name=".DepositorActivity" />
@@ -35,7 +35,8 @@
         <activity android:name=".feature.form.FictitiousFormActivity" />
         <activity android:name=".feature.posting.DisguisedPostingActivity" />
         <activity android:name=".goodsEx.GoodsDetailActivity" /> <!-- 액션바 제거 -->
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

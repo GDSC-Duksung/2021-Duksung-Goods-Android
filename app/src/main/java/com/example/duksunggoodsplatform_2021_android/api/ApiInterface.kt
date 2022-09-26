@@ -5,6 +5,7 @@ import com.example.duksunggoodsplatform_2021_android.goodsEx.ModelItemLikesChang
 import com.example.duksunggoodsplatform_2021_android.goodsEx.modelItemDetailData.ModelItemDetailData
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeBannerData.ModelHomeBannerData
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeItemData.ModelHomeItemData
+import com.example.duksunggoodsplatform_2021_android.interest.model.ModelInterestListData
 import com.example.duksunggoodsplatform_2021_android.user.ModelLoginSignUpResponseData
 import com.example.duksunggoodsplatform_2021_android.user.ModelUserInformationData
 import retrofit2.Call
@@ -61,11 +62,14 @@ interface ApiService {
         @Path("itemId") itemId: Int
     ): Call<ModelItemDetailData>
 
-    //아이템 좋아요 변경
+    //아이템 관심 변경
     @POST("items/{itemId}/likes")
     fun postItemLikesChange(
         @Path("itemId") itemId: Int
     ): Call<ModelItemLikesChangeData>
 
+    //아이템 관심 목록 조회
+    @GET("items/likes")
+    fun getItemLikesList(): Call<ModelInterestListData>
 
 }

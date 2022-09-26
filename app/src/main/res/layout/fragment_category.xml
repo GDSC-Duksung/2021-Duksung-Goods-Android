@@ -27,17 +27,17 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        app:tabBackground="@drawable/tab_background_color_selector"
-        app:tabIndicatorFullWidth="true"
-        app:tabIndicatorColor="@color/gray"
-        app:tabSelectedTextColor="@color/white"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tabBackground="@drawable/tab_background_color_selector"
+            app:tabIndicatorColor="@color/gray"
+            app:tabIndicatorFullWidth="true"
+            app:tabSelectedTextColor="@color/white" />
 
 
         <androidx.viewpager2.widget.ViewPager2
@@ -56,26 +56,23 @@
             android:id="@+id/starbutton"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginStart="320dp"
+            android:layout_marginRight="10dp"
             android:background="@color/white"
             android:src="@drawable/star_clicked"
-            app:layout_constraintBottom_toTopOf="@+id/pager"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView5" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="290dp"
             android:text="관심목록"
             android:textSize="9dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textView5"
+            app:layout_constraintEnd_toEndOf="@+id/starbutton"
             app:layout_constraintHorizontal_bias="0.827"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/starbutton"
             app:layout_constraintTop_toBottomOf="@+id/starbutton" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

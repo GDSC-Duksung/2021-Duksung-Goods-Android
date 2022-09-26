@@ -12,7 +12,7 @@ import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
-import com.example.duksunggoodsplatform_2021_android.InterestListActivity
+import com.example.duksunggoodsplatform_2021_android.interest.InterestListActivity
 import com.example.duksunggoodsplatform_2021_android.R
 import com.example.duksunggoodsplatform_2021_android.api.ApiRetrofitClient
 import com.example.duksunggoodsplatform_2021_android.databinding.FragmentGoodsExBinding

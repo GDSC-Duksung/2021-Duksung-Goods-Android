@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.example.duksunggoodsplatform_2021_android.InterestListActivity
+import com.example.duksunggoodsplatform_2021_android.interest.InterestListActivity
 import com.example.duksunggoodsplatform_2021_android.R
 import com.example.duksunggoodsplatform_2021_android.user.UserInformationActivity
 import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
