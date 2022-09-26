@@ -22,58 +22,6 @@ import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
-
-// fragment_all, clothes, stationary, etc.xml와 category_item.xml을 이어주는 역할
-
-//class RecyclerAdapter(private val items: ArrayList<Data>) :
-//
-//    RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
-//
-//    class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-//
-//        private var view: View = v
-//        fun bind(listener: View.OnClickListener, item: Data) {
-//            view.imageView.setImageDrawable(item.photo)
-//            view.name.text = item.name
-//            view.price.text = item.price.toString()
-//        }
-//
-//    }
-//
-//    override fun getItemCount() = items.size
-//
-//    override fun onBindViewHolder(holder: RecyclerAdapter.ViewHolder, position: Int) {
-//
-//        val item = items[position]
-//
-//        val listener = View.OnClickListener { it ->
-//            Toast.makeText(it.context, "Clicked:" + item.name, Toast.LENGTH_SHORT).show()
-//        }
-//        holder.apply {
-//            bind(listener, item)
-//            itemView.tag = item
-//        }
-////
-////        holder.image.setImageResource(R.drawable.star_clicked)
-////        holder.name.setText("타이틀입니다")
-////        holder.price.setText("세부사항 입니다")
-//    }
-//
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
-//            RecyclerAdapter.ViewHolder {
-//        var inflaterView = LayoutInflater.from(parent.context)
-//            .inflate(R.layout.category_item, parent, false)
-//
-//        return RecyclerAdapter.ViewHolder(inflaterView)
-//    }
-//
-//
-//}
-
-
-
-//새로운 코드
-
 class RecyclerAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     var datas = mutableListOf<CategoryItemData>()
@@ -147,7 +95,7 @@ class RecyclerAdapter(private val context: Context) : RecyclerView.Adapter<Recyc
 
 
     }
-
+/*
     val apiService = ApiRetrofitClient.apiService
     fun postItemLike(itemId: Int) {
         val responseData = MutableLiveData <ModelItemLikesChangeData>()
@@ -174,7 +122,7 @@ class RecyclerAdapter(private val context: Context) : RecyclerView.Adapter<Recyc
                     Log.e("jh", "getCategoryItem fail..")
                 }
         })
-    }
+    }*/
 
 
 
