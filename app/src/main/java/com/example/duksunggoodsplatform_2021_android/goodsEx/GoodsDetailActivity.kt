@@ -1,6 +1,7 @@
 package com.example.duksunggoodsplatform_2021_android.goodsEx
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -17,6 +18,10 @@ class GoodsDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_goods_detail)
+
+        ivBack.setOnClickListener {
+            finish()
+        }
 
         detailViewPager.adapter = ScreenSlidePagerAdapter(this)
         detailViewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
@@ -41,10 +46,27 @@ class GoodsDetailActivity : AppCompatActivity() {
         }
 
         override fun createFragment(position: Int): Fragment {
+            val itemId = intent.getIntExtra("itemId", -1)
+            val bundle = Bundle()
+            bundle.putInt("itemId", itemId)
+//            Log.d("jh GoodsDetailActivity", "itemId: ${itemId}")
+
             return when(position) {
-                0 -> GoodsExFragment()
-                1 -> GoodsDetailFragment()
-                else -> GoodsCommunityFragment()
+                0 -> {
+                    val goodsExFragment = GoodsExFragment()
+                    goodsExFragment.arguments = bundle
+                    goodsExFragment
+                }
+                1 -> {
+                    val goodsExFragment = GoodsDetailFragment()
+                    goodsExFragment.arguments = bundle
+                    goodsExFragment
+                }
+                else -> {
+                    val goodsExFragment = GoodsCommunityFragment()
+                    goodsExFragment.arguments = bundle
+                    goodsExFragment
+                }
             }
         }
     }

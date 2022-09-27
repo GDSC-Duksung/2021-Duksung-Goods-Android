@@ -1,5 +1,6 @@
 package com.example.duksunggoodsplatform_2021_android
 
+import com.example.duksunggoodsplatform_2021_android.api.AuthInterceptor
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -23,5 +24,6 @@ object ApiGenerator {
         .connectTimeout(1, TimeUnit.MINUTES)
         .readTimeout(30, TimeUnit.SECONDS)
         .writeTimeout(30, TimeUnit.SECONDS)
+        .addInterceptor(AuthInterceptor())
         .build()
 }

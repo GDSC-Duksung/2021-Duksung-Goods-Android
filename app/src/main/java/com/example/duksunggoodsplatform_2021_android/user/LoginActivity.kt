@@ -11,6 +11,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.duksunggoodsplatform_2021_android.MainActivity
 import com.example.duksunggoodsplatform_2021_android.R
 import com.example.duksunggoodsplatform_2021_android.api.ApiRetrofitClient
+import com.example.duksunggoodsplatform_2021_android.api.ApiRetrofitClientNoAuth
 import com.example.duksunggoodsplatform_2021_android.databinding.ActivityLoginBinding
 import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
 import retrofit2.Call
@@ -63,7 +64,7 @@ class LoginActivity: AppCompatActivity() {
         //ApiRetrofitClient.interceptor.level = HttpLoggingInterceptor.Level.BODY
     }
 
-    private val userApi = ApiRetrofitClient.apiService
+    private val userApi = ApiRetrofitClientNoAuth.apiService
 
     private fun callPostLogin(body: HashMap<String, String>) {
         val responseData = MutableLiveData<ModelLoginSignUpResponseData>()

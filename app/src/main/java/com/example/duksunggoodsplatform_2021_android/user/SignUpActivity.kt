@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import com.example.duksunggoodsplatform_2021_android.api.ApiRetrofitClient
+import com.example.duksunggoodsplatform_2021_android.api.ApiRetrofitClientNoAuth
 import com.example.duksunggoodsplatform_2021_android.databinding.ActivitySignUpBinding
 import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
 import okhttp3.logging.HttpLoggingInterceptor
@@ -32,6 +33,8 @@ class SignUpActivity : AppCompatActivity() {
             val nickname = binding.etSignUpNickname.text.toString()
             val email = binding.etSignUpEmail.text.toString()
             val password = binding.etSignUpPassword.text.toString()
+            val address = binding.etSignUpAddress.text.toString()
+            val phoneNumber = binding.etSignUpPhoneNumber.text.toString()
 
             //이름
             if(name.trim().isEmpty()){
@@ -48,11 +51,10 @@ class SignUpActivity : AppCompatActivity() {
                 dialogShow("이메일 형식에 맞지 않습니다.", binding.etSignUpEmail, false)
             }
 
-/*// TODO : 덕성 이메일 체크 조건은 개발 편의상 주석처리 해 둠
             //이메일이 덕성 이메일인지 체크
             else if(binding.etSignUpEmail.text.toString().split("@")[1] != emailDomain){
                 dialogShow("도메인이 @duksung.ac.kr인 덕성 이메일만 가입이 가능합니다.", binding.etSignUpEmail, false)
-            }*/
+            }
 
             //비밀번호
             else if(password.trim().isEmpty()){
@@ -62,6 +64,16 @@ class SignUpActivity : AppCompatActivity() {
             //비밀번호와 비밀번호 확인 일치 체크
             else if(password != binding.etSignUpPasswordCheck.text.toString()){
                 dialogShow("비밀번호 확인이 일치하지 않습니다.", binding.etSignUpPassword, false)
+            }
+
+            //주소
+            else if(address.trim().isEmpty()){
+                dialogShow("주소를 입력해주세요.", binding.etSignUpAddress, false)
+            }
+
+            //전화번호
+            else if(phoneNumber.trim().isEmpty()){
+                dialogShow("전화번호를 입력해주세요.", binding.etSignUpPhoneNumber, false)
             }
 
             //이용약관
@@ -77,7 +89,9 @@ class SignUpActivity : AppCompatActivity() {
                 body["nickname"] = nickname
                 body["email"] = email
                 body["password"] = password
-                Log.d("signup", "name: ${name}, nickname: ${nickname}, email: ${email}, pw: ${password}")
+                body["address"] = address
+                body["phoneNumber"] = phoneNumber
+                Log.d("signup", "name: ${name}, nickname: ${nickname}, email: ${email}, pw: ${password}, addr: ${address}, phone: ${phoneNumber}")
                 callPostSignUp(body)
 
             }
@@ -88,13 +102,13 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         //okhttp interceptor
-        ApiRetrofitClient.interceptor.level = HttpLoggingInterceptor.Level.BODY
+        //ApiRetrofitClient.interceptor.level = HttpLoggingInterceptor.Level.BODY
 
     }
 
 
 
-    private val userApi = ApiRetrofitClient.apiService
+    private val userApi = ApiRetrofitClientNoAuth.apiService
 
     private fun callPostSignUp(body: HashMap<String, String>) {
         val responseData = MutableLiveData<ModelLoginSignUpResponseData>()

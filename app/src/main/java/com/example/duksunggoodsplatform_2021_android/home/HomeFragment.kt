@@ -17,6 +17,7 @@ import com.example.duksunggoodsplatform_2021_android.databinding.FragmentHomeBin
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeBannerData.ModelHomeBannerData
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeItemData.Data
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeItemData.ModelHomeItemData
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Response
 
@@ -119,6 +120,8 @@ class HomeFragment : Fragment() {
 
         //okhttp interceptor
         //HomeApiRetrofitClient.homeInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        //ApiRetrofitClient.loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+
 
         return view
     }//onCreate 끝
@@ -185,19 +188,20 @@ class HomeFragment : Fragment() {
                 continue
             }
             else{
+                val id = data[i]!!.id
                 val label = data[i]!!.title
                 var image: String? = null
                 if(data[i]!!.imageList?.size!! > 0){
                     image = data[i]!!.imageList!![0].url
                 }
                 if(i < 2){
-                    sectionItemList1.add(ModelImageText(image, label))
+                    sectionItemList1.add(ModelImageText(id, image, label))
                 }
                 else if(i < 4){
-                    sectionItemList2.add(ModelImageText(image, label))
+                    sectionItemList2.add(ModelImageText(id, image, label))
                 }
                 else {
-                    sectionItemList3.add(ModelImageText(image, label))
+                    sectionItemList3.add(ModelImageText(id, image, label))
                 }
             }
         }
@@ -248,7 +252,7 @@ class HomeFragment : Fragment() {
         for (banner in data){
             val date = banner.startDate + "~" + banner.endDate
 
-            bannerList.add(ModelHomeBanner(banner.image, banner.content, date))
+            bannerList.add(ModelHomeBanner(banner.id, banner.image, banner.content, date))
         }
         bannerAdapter?.notifyDataSetChanged()
     }

@@ -136,7 +136,8 @@
             android:layout_marginTop="8dp"
             android:lines="1"
             android:singleLine="true"/>
-
+<!--
+// 수정 기능 없이 내 정보 조회 페이지로 변경
         <LinearLayout
             android:orientation="horizontal"
             android:paddingTop="40dp"
@@ -165,6 +166,7 @@
                 android:layout_marginLeft="10dp"
                 android:textSize="16dp"/>
         </LinearLayout>
+-->
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </LinearLayout>

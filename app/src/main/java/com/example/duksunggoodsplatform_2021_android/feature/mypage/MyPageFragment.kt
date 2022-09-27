@@ -1,5 +1,6 @@
 package com.example.duksunggoodsplatform_2021_android.feature.mypage
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -9,9 +10,9 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.example.duksunggoodsplatform_2021_android.InterestListActivity
+import com.example.duksunggoodsplatform_2021_android.interest.InterestListActivity
 import com.example.duksunggoodsplatform_2021_android.R
-import com.example.duksunggoodsplatform_2021_android.UserInformationActivity
+import com.example.duksunggoodsplatform_2021_android.user.UserInformationActivity
 import com.example.duksunggoodsplatform_2021_android.dialog.CustomDialog
 import com.example.duksunggoodsplatform_2021_android.user.LoginActivity
 import com.google.android.material.tabs.TabLayout
@@ -73,6 +74,14 @@ class MyPageFragment : Fragment() {
                     activity?.let {
                         val intent = Intent(activity, LoginActivity::class.java)
                         startActivity(intent)
+                        it.finish()
+
+                        val sharedPref = it.getSharedPreferences(
+                            getString(R.string.shared_preference_user_info), Context.MODE_PRIVATE)
+                        val sharedEditor = sharedPref.edit()
+                        sharedEditor.putString(getString(R.string.user_token), "")
+                        sharedEditor.apply()
+                        Log.d("jh", "logout and delete token")
                     }
                 }
             })

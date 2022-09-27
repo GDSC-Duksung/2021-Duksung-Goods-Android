@@ -7,7 +7,7 @@ data class Data(
     val description: String,
     val endDate: String,
     val id: Int,
-    val imageList: List<Image>,
+    val imageList: List<Image>?,
     val maxNumber: Int,
     val minNumber: Int,
     val price: Int,

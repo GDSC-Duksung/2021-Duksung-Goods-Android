@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".InterestListActivity">
+    tools:context=".interest.InterestListActivity">
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="60dp">
@@ -24,7 +24,13 @@
             android:textSize="20sp"
             android:textColor="@color/black"/>
     </FrameLayout>
-    <LinearLayout
+    <fragment
+        android:id="@+id/fInterestList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.duksunggoodsplatform_2021_android.interest.InterestAllFragment"
+        />
+<!--    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -58,5 +64,5 @@
             android:id="@+id/detailViewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-    </LinearLayout>
+    </LinearLayout>-->
 </LinearLayout>
