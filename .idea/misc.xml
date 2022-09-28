@@ -63,9 +63,25 @@
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/fragment_goods_detail.xml" value="0.1" />
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/fragment_stationary.xml" value="0.16875" />
         <entry key="..\:/dsgoods/2021-Duksung-Goods-Android/app/src/main/res/layout/seller_post_item.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/drawable-v24/tab_background_color_selector.xml" value="0.33611111111111114" />
+        <entry key="app/src/main/res/layout/activity_disguised_demand_posting.xml" value="0.20643363728470113" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2509057971014493" />
+        <entry key="app/src/main/res/layout/category_item.xml" value="0.20643363728470113" />
+        <entry key="app/src/main/res/layout/chatting_home_item.xml" value="0.20643363728470113" />
+        <entry key="app/src/main/res/layout/fragment_actual_all.xml" value="0.2509057971014493" />
+        <entry key="app/src/main/res/layout/fragment_actual_demand.xml" value="0.2509057971014493" />
+        <entry key="app/src/main/res/layout/fragment_category.xml" value="0.2509057971014493" />
+        <entry key="app/src/main/res/layout/fragment_mypage.xml" value="0.5379426644182125" />
+        <entry key="app/src/main/res/layout/fragment_mypage_buy.xml" value="0.14719202898550723" />
+        <entry key="app/src/main/res/layout/fragment_mypage_sell.xml" value="0.14719202898550723" />
+        <entry key="app/src/main/res/layout/goods_community_post_item.xml" value="0.20643363728470113" />
+        <entry key="app/src/main/res/layout/item_goods_ex_image.xml" value="0.20643363728470113" />
+        <entry key="app/src/main/res/layout/item_home_banner.xml" value="0.20643363728470113" />
         <entry key="app/src/main/res/layout/item_mypage_buy.xml" value="0.16032608695652173" />
         <entry key="app/src/main/res/layout/item_mypage_sell.xml" value="0.20643363728470113" />
         <entry key="app/src/main/res/layout/popup_delete_dialog.xml" value="0.13903985507246377" />
+        <entry key="app/src/main/res/layout/popup_form_dialog.xml" value="0.20643363728470113" />
+        <entry key="app/src/main/res/layout/seller_post_item.xml" value="0.20643363728470113" />
       </map>
     </option>
   </component>

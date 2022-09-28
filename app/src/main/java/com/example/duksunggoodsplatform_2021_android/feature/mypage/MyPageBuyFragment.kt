@@ -7,17 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.duksunggoodsplatform_2021_android.R
-import com.example.duksunggoodsplatform_2021_android.data.DuksungClient
-import com.example.duksunggoodsplatform_2021_android.data.customEnqueue
-import com.example.duksunggoodsplatform_2021_android.data.local.SharedPreferenceController
+import com.example.duksunggoodsplatform_2021_android.api.ApiRetrofitClient
 import com.example.duksunggoodsplatform_2021_android.data.response.ItemBuyInfo
 import com.example.duksunggoodsplatform_2021_android.data.response.ResponseBuyItemData
+import com.example.duksunggoodsplatform_2021_android.model.ResponseEntity
 import kotlinx.android.synthetic.main.fragment_mypage_buy.*
+import retrofit2.Call
+import retrofit2.Response
 
 class MyPageBuyFragment : Fragment() {
 
     lateinit var BuyRecyclerAdapter: BuyRecyclerAdapter
-    var buy_item = mutableListOf<ItemBuyInfo>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,16 +37,22 @@ class MyPageBuyFragment : Fragment() {
     }
 
     private fun initNetwork() {
-        DuksungClient.mypageService.getBuyItem(
-//            SharedPreferenceController.getUserToken(requireContext())
-        ).customEnqueue(
-            onSuccess = {
-                BuyRecyclerAdapter.buyItemDatas.addAll(it.data ?: listOf<ResponseBuyItemData>())
-                Log.d(
-                    "BuyItem",
-                    ((it.data ?: listOf<ResponseBuyItemData>()) as MutableList<ResponseBuyItemData>).toString()
-                )
-                BuyRecyclerAdapter.notifyDataSetChanged()
+        ApiRetrofitClient.apiService.getBuyItem().enqueue(
+            object : retrofit2.Callback<ResponseEntity<List<ResponseBuyItemData>>> {
+                override fun onResponse(
+                    call: Call<ResponseEntity<List<ResponseBuyItemData>>>,
+                    response: Response<ResponseEntity<List<ResponseBuyItemData>>>
+                ) {
+                    BuyRecyclerAdapter.buyItemDatas.addAll(response.body()?.data ?: listOf<ResponseBuyItemData>())
+                    BuyRecyclerAdapter.notifyDataSetChanged()
+                }
+
+                override fun onFailure(
+                    call: Call<ResponseEntity<List<ResponseBuyItemData>>>,
+                    t: Throwable
+                ) {
+                    Log.d("MyPageBuyFragment", "api fail")
+                }
             }
         )
     }

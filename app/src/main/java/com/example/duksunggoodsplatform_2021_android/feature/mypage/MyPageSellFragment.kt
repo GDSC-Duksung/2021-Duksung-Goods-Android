@@ -9,14 +9,15 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.duksunggoodsplatform_2021_android.R
-import com.example.duksunggoodsplatform_2021_android.data.DuksungClient
-import com.example.duksunggoodsplatform_2021_android.data.customEnqueue
-import com.example.duksunggoodsplatform_2021_android.data.local.SharedPreferenceController
+import com.example.duksunggoodsplatform_2021_android.api.ApiRetrofitClient
 import com.example.duksunggoodsplatform_2021_android.data.response.ResponseSellItemData
 import com.example.duksunggoodsplatform_2021_android.dialog.FormDialog
 import com.example.duksunggoodsplatform_2021_android.feature.form.ActualFormActivity
+import com.example.duksunggoodsplatform_2021_android.model.ResponseEntity
 import kotlinx.android.synthetic.main.fragment_mypage_sell.*
 import kotlinx.android.synthetic.main.fragment_mypage_sell.view.*
+import retrofit2.Call
+import retrofit2.Response
 
 class MyPageSellFragment : Fragment() {
     lateinit var SellRecyclerAdapter: SellRecyclerAdapter
@@ -64,26 +65,23 @@ class MyPageSellFragment : Fragment() {
     }
 
     private fun initNetwork() {
-        DuksungClient.mypageService.getSellItem(
-//            SharedPreferenceController.getUserToken(requireContext())
-        ).customEnqueue(
-            onSuccess = {
-                SellRecyclerAdapter.sellItemDatas.addAll(it.data ?: listOf<ResponseSellItemData>())
-                Log.d(
-                    "SellItem",
-                    ((it.data ?: listOf<ResponseSellItemData>()) as MutableList<ResponseSellItemData>).toString()
-                )
-                SellRecyclerAdapter.notifyDataSetChanged()
+        ApiRetrofitClient.apiService.getSellItem().enqueue(
+            object : retrofit2.Callback<ResponseEntity<List<ResponseSellItemData>>> {
+                override fun onResponse(
+                    call: Call<ResponseEntity<List<ResponseSellItemData>>>,
+                    response: Response<ResponseEntity<List<ResponseSellItemData>>>
+                ) {
+                    SellRecyclerAdapter.sellItemDatas.addAll(response.body()?.data ?: listOf<ResponseSellItemData>())
+                    SellRecyclerAdapter.notifyDataSetChanged()
+                }
+
+                override fun onFailure(
+                    call: Call<ResponseEntity<List<ResponseSellItemData>>>,
+                    t: Throwable
+                ) {
+                    Log.d("MyPageSellFragment", "api fail")
+                }
             }
         )
-        /*
-        sell_data.apply{
-            for (data in it.data?.item!!) {
-                sell_data.add(data)
-            }
-            SellRecyclerAdapter.sellDatas = sell_data
-            SellRecyclerAdapter.notifyDataSetChanged()
-        }
-         */
     }
 }
