@@ -40,25 +40,24 @@ class BuyRecyclerAdapter(private val context: Context) : RecyclerView.Adapter<Bu
         fun bind(responseBuyItemData: ResponseBuyItemData) {
             buyName.text = responseBuyItemData.item.title
             buyCount.text = responseBuyItemData.count.toString()
-            buyDate.text = responseBuyItemData.createdAt
+            buyDate.text = responseBuyItemData.createdAt.substring(0, 10)
             // TODO: 이미지 리스트 중에서 하나 받기
             Glide.with(itemView).load(responseBuyItemData.item.image).into(buyImage)
-            /* progress 숫자에 따른 변화
-            buyState_Name.text = responseBuyItemData.item.progress.toString()
 
-            if (buyState_Name.text.equals("제작중")) {
-                buyState.setImageResource(R.drawable.mypage_complete)
+            when(responseBuyItemData.item.progress) {
+                40 -> {
+                    buyState_Name.text = "제작중"
+                    buyState.setImageResource(R.drawable.mypage_complete)
+                }
+                50 -> {
+                    buyState_Name.text = "배송중"
+                    buyState.setImageResource(R.drawable.mypage_delivery)
+                }
+                60 -> {
+                    buyState_Name.text = "배송완료"
+                    buyState.setImageResource(R.drawable.mypage_delivery_complete)
+                }
             }
-
-            if (buyState_Name.text.equals("배송중")) {
-                buyState.setImageResource(R.drawable.mypage_delivery)
-            }
-
-            if (buyState_Name.text.equals("배송완료")) {
-                buyState.setImageResource(R.drawable.mypage_delivery_complete)
-            }
-
-             */
         }
     }
 }
