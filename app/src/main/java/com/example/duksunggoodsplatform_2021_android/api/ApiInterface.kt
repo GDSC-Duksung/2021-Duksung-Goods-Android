@@ -1,11 +1,14 @@
 package com.example.duksunggoodsplatform_2021_android.api
 
 import com.example.duksunggoodsplatform_2021_android.category.model.ModelCategoryItemListData
+import com.example.duksunggoodsplatform_2021_android.data.response.ResponseBuyItemData
+import com.example.duksunggoodsplatform_2021_android.data.response.ResponseSellItemData
 import com.example.duksunggoodsplatform_2021_android.goodsEx.ModelItemLikesChangeData
 import com.example.duksunggoodsplatform_2021_android.goodsEx.modelItemDetailData.ModelItemDetailData
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeBannerData.ModelHomeBannerData
 import com.example.duksunggoodsplatform_2021_android.home.modelHomeItemData.ModelHomeItemData
 import com.example.duksunggoodsplatform_2021_android.interest.model.ModelInterestListData
+import com.example.duksunggoodsplatform_2021_android.model.ResponseEntity
 import com.example.duksunggoodsplatform_2021_android.user.ModelLoginSignUpResponseData
 import com.example.duksunggoodsplatform_2021_android.user.ModelUserInformationData
 import retrofit2.Call
@@ -72,4 +75,7 @@ interface ApiService {
     @GET("items/likes")
     fun getItemLikesList(): Call<ModelInterestListData>
 
+    // 마이페이지 구매
+    @GET("buy-items")
+    fun getBuyItem(): Call<ResponseEntity<List<ResponseBuyItemData>>>
 }
