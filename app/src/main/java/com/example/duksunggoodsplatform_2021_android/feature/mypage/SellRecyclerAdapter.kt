@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.duksunggoodsplatform_2021_android.AddPromotionActivity
 import com.example.duksunggoodsplatform_2021_android.DepositorActivity
 import com.example.duksunggoodsplatform_2021_android.R
@@ -45,6 +46,8 @@ class SellRecyclerAdapter(private val context: Context) : RecyclerView.Adapter<S
         private val sellPercent: TextView = itemView.findViewById(R.id.tv_mypage_sell_percent)
         private val sellState: TextView = itemView.findViewById(R.id.tv_mypage_sell_state)
         private val sellImage: ImageView = itemView.findViewById(R.id.img_mypage_sell)
+        private val line1: TextView = itemView.findViewById(R.id.textView7)
+        private val line2: TextView = itemView.findViewById(R.id.textView10)
 
         // linearlayout
         private val linear_actual: LinearLayout = itemView.findViewById(R.id.linear_actual)
@@ -58,27 +61,40 @@ class SellRecyclerAdapter(private val context: Context) : RecyclerView.Adapter<S
 
         fun bind(item: ResponseSellItemData) {
             sellName.text = item.title
-            sellPercent.text = item.percentage.toString()
-            /*
-            Glide.with(itemView).load(item.imageList).into(sellImage)
-            Log.d("ImageList", item.imageList[0].toString())
-             */
-            /* TODO: progress에 따른 변화
-            sellState.text = item.demandSurveyType.title
+            sellPercent.text = item.percentage.toInt().toString() + "%"
+            Glide.with(itemView).load(item.imageList[0].url).into(sellImage)
 
-            // sellPromotion.setOnClickListener(listener)
-            if (sellState.text.equals("가수요조사중")) {
-                // removeView(sellLinear)
-                linear_acutal_1.removeView(linear_acutal_2)
+            when (item.progress) {
+                0 -> {
+                    sellState.text = "가수요조사중"
+                    sellPromotion.visibility = View.VISIBLE
+                    sellDepositer.visibility = View.VISIBLE
+                    line1.visibility = View.VISIBLE
+                    line2.visibility = View.VISIBLE
+                }
+                10 -> {
+                    sellState.text = "가수요조사 종료"
+                    sellPromotion.visibility = View.VISIBLE
+                    sellDepositer.visibility = View.VISIBLE
+                    line1.visibility = View.VISIBLE
+                    line2.visibility = View.VISIBLE
+                }
+                20 -> {
+                    sellState.text = "실수요조사중"
+                    sellPromotion.visibility = View.GONE
+                    sellDepositer.visibility = View.GONE
+                    line1.visibility = View.GONE
+                    line2.visibility = View.GONE
+                }
+                30 -> {
+                    sellState.text = "실수요조사 종료"
+                    sellPromotion.visibility = View.GONE
+                    sellDepositer.visibility = View.GONE
+                    line1.visibility = View.GONE
+                    line2.visibility = View.GONE
+                }
             }
 
-            if (sellState.text.equals("판매완료")) {
-                // linear_percent.removeView(linear_percent)
-                linear_actual.removeView(linear_acutal_1)
-                sellPercent.setBackgroundResource(R.drawable.sell_check)
-                sellCompleteText.setText("판매가 완료되었습니다.")
-            }
-             */
             sellPromotion.setOnClickListener {
                 Intent(context, AddPromotionActivity::class.java).run {
                     context.startActivity(this)
