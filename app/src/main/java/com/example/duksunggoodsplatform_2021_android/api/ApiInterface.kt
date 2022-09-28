@@ -78,4 +78,7 @@ interface ApiService {
     // 마이페이지 구매
     @GET("buy-items")
     fun getBuyItem(): Call<ResponseEntity<List<ResponseBuyItemData>>>
+
+    @GET("sell-items")
+    fun getSellItem(): Call<ResponseEntity<List<ResponseSellItemData>>>
 }
