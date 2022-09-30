@@ -1,7 +1,9 @@
 package com.example.duksunggoodsplatform_2021_android.api
 
 import com.example.duksunggoodsplatform_2021_android.category.model.ModelCategoryItemListData
+import com.example.duksunggoodsplatform_2021_android.data.request.RequestFormData
 import com.example.duksunggoodsplatform_2021_android.data.response.ResponseBuyItemData
+import com.example.duksunggoodsplatform_2021_android.data.response.ResponseFormData
 import com.example.duksunggoodsplatform_2021_android.data.response.ResponseSellItemData
 import com.example.duksunggoodsplatform_2021_android.goodsEx.ModelItemLikesChangeData
 import com.example.duksunggoodsplatform_2021_android.goodsEx.modelItemDetailData.ModelItemDetailData
@@ -79,6 +81,14 @@ interface ApiService {
     @GET("buy-items")
     fun getBuyItem(): Call<ResponseEntity<List<ResponseBuyItemData>>>
 
+    // 마이페이지 판매
     @GET("sell-items")
     fun getSellItem(): Call<ResponseEntity<List<ResponseSellItemData>>>
+
+    // 폼 작성
+    @POST("items/{itemId}/buy-items")
+    fun postForm(
+        @Path("itemId") itemId: Int,
+        @Body body: RequestFormData
+    ): Call<ResponseFormData>
 }
