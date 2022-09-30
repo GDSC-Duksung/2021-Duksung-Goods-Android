@@ -1,11 +1,13 @@
 package com.example.duksunggoodsplatform_2021_android.category
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +16,7 @@ import com.example.duksunggoodsplatform_2021_android.R
 import com.example.duksunggoodsplatform_2021_android.api.ApiRetrofitClient
 import com.example.duksunggoodsplatform_2021_android.api.MyApplication
 import com.example.duksunggoodsplatform_2021_android.category.model.ModelCategoryItemListData
+import com.example.duksunggoodsplatform_2021_android.feature.form.ActualFormActivity
 import com.example.duksunggoodsplatform_2021_android.goodsEx.ModelItemLikesChangeData
 import kotlinx.coroutines.launch
 import retrofit2.Call
@@ -46,7 +49,7 @@ class RecyclerAdapter(private val context: Context) : RecyclerView.Adapter<Recyc
         private val progressCount: TextView = itemView.findViewById(R.id.progressCount)
         private val progressPercentage: TextView = itemView.findViewById(R.id.progressPertantage)
         private val remainingTime: TextView = itemView.findViewById(R.id.remainingTime)
-
+        private val itemView: ConstraintLayout = itemView.findViewById(R.id.cl_category_item)
 
         fun bind(item: CategoryItemData) {
 
@@ -90,7 +93,16 @@ class RecyclerAdapter(private val context: Context) : RecyclerView.Adapter<Recyc
             // Remaining Time
             remainingTime.text = item.remainingDate.toString()+"일 남음"
 
-
+            // 아이템 클릭 시
+            itemView.setOnClickListener {
+                // 실수요, 가수요 분류하기
+                val intent = Intent(context, ActualFormActivity::class.java)
+                intent.putExtra("id", item.id)
+                intent.putExtra("image", item.photo)
+                intent.putExtra("name", item.name)
+                intent.putExtra("price", item.price)
+                context.startActivity(intent)
+            }
         }
 
 
